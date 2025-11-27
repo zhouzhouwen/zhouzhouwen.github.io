@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- TODO: 可以修改为你喜欢的默认视口设置 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- TODO: 修改网页标题 -->
+    <title>Wen ZHOU | AI for Science Researcher</title>
+
+    <!-- TODO: 修改 SEO 描述 -->
+    <meta name="description" content="Portfolio of Wen ZHOU, Researcher at The University of Tokyo specializing in AI for Science, Fluid Dynamics, and Nuclear Engineering.">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Inter:wght@300;400;600&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #1f2937; /* Slate 800 */
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Merriweather', serif;
+        }
+
+        .font-mono {
+            font-family: 'Fira Code', monospace;
+        }
+
+        /* Minimalist Typewriter Cursor */
+        .cursor {
+            display: inline-block;
+            width: 8px;
+            height: 1em;
+            background-color: #1f2937;
+            vertical-align: middle;
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Clean Card Style */
+        .academic-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb; /* Slate 200 */
+            transition: all 0.2s ease-in-out;
+            height: 100%;
+        }
+
+        .academic-card:hover {
+            border-color: #94a3b8; /* Slate 400 */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+            transform: translateY(-2px);
+        }
+
+        /* Tag Styles */
+        .tag {
+            display: inline-block;
+            padding: 2px 8px;
+            font-size: 0.75rem;
+            border-radius: 4px;
+            font-weight: 500;
+            border: 1px solid transparent;
+        }
+
+        /* === 标签颜色（可自行调整配色） === */
+        .tag-blue {  /* 柔和蓝色标签，例如：Generative AI / Data-driven */
+            background-color: #eff6ff;
+            color: #1d4ed8;
+            border-color: #dbeafe;
+        }
+
+        .tag-green { /* 柔和绿色标签，例如：PINNs / Fluid Dynamics */
+            background-color: #ecfdf5;
+            color: #15803d;
+            border-color: #bbf7d0;
+        }
+
+        .tag-purple { /* 柔和紫色标签，例如：Data / Prediction */
+            background-color: #f5f3ff;
+            color: #6d28d9;
+            border-color: #ddd6fe;
+        }
+
+        .tag-orange { /* 柔和橙色标签，例如：Computer Vision / YOLO */
+            background-color: #fff7ed;
+            color: #c2410c;
+            border-color: #fed7aa;
+        }
+
+        .tag-yellow { /* 柔和黄色标签，例如：Optimization / NSGA-III */
+            background-color: #fefce8;
+            color: #a16207;
+            border-color: #fef9c3;
+        }
+
+        /* Link Styles */
+        .link-hover {
+            position: relative;
+            text-decoration: none;
+            color: inherit;
+        }
+        .link-hover::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: #1f2937;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+        }
+        .link-hover:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+    </style>
+</head>
+
+<body class="antialiased selection:bg-slate-200 selection:text-slate-900">
+
+    <!-- Simple Navigation -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-sm border-b border-slate-100">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <!-- TODO: 可以修改左上角 Logo 文字 -->
+                    <a href="#" class="font-serif font-bold text-xl tracking-tight text-slate-900">Wen.Z</a>
+                </div>
+
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#about" class="text-sm font-medium text-slate-600 hover:text-slate-900 link-hover">About</a>
+                        <a href="#research" class="text-sm font-medium text-slate-600 hover:text-slate-900 link-hover">Research</a>
+                        <a href="#publications" class="text-sm font-medium text-slate-600 hover:text-slate-900 link-hover">Publications</a>
+                        <a href="#experience" class="text-sm font-medium text-slate-600 hover:text-slate-900 link-hover">Education & Experience</a>
+                    </div>
+                </div>
+
+                <div>
+                    <!-- TODO: 修改为你的 GitHub 链接 -->
+                    <a href="https://github.com/zhouzhouwen" target="_blank" class="text-slate-500 hover:text-slate-900 transition-colors">
+                        <i class="fab fa-github text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="about" class="min-h-[70vh] flex items-center justify-center pt-20">
+        <div class="max-w-5xl mx-auto px-6 w-full">
+            <div class="flex flex-col-reverse md:flex-row items-center justify-between gap-12">
+                <!-- Text Content -->
+                <div class="flex-1 text-center md:text-left">
+                    <h1 class="text-4xl md:text-6xl font-bold text-slate-900 mb-4 tracking-tight">
+                        Wen ZHOU
+                    </h1>
+                    <div class="h-16 flex flex-col justify-center">
+                        <p class="text-xl md:text-2xl text-slate-600 font-mono">
+                            AI for <span id="typewriter" class="font-bold text-slate-900 border-b-2 border-slate-900 pb-1"></span><span class="cursor"></span>
+                        </p>
+                    </div>
+                    <p class="mt-6 text-slate-600 max-w-lg text-lg leading-relaxed mx-auto md:mx-0 font-light">
+                        Project Researcher at <strong>The University of Tokyo</strong>. <br>
+                        Focusing on the intersection of artificial intelligence and physical sciences (fluid dynamics, nuclear engineering, etc).
+                    </p>
+
+                    <div class="mt-6 md:hidden">
+                        <!-- TODO: 修改为你的常用联系邮箱 -->
+                        <a href="mailto:philzhouwen@gmail.com" class="text-slate-600 hover:text-slate-900 font-mono text-sm border-b border-dotted border-slate-400">
+                            philzhouwen@gmail.com
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Profile Image & Contact -->
+                <div class="flex flex-col items-center">
+                    <div class="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border border-slate-200 shadow-sm grayscale hover:grayscale-0 transition-all duration-500">
+                        <!-- TODO: 如果有真实头像，可以替换这个占位头像 URL -->
+                        <img src="https://ui-avatars.com/api/?name=Wen+Zhou&background=f1f5f9&color=334155&size=512&font-size=0.33"
+                             alt="Wen ZHOU"
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="mt-4 text-center hidden md:block">
+                        <!-- TODO: 同上，修改为你的常用邮箱 -->
+                        <a href="mailto:philzhouwen@gmail.com" class="text-slate-500 hover:text-slate-900 font-mono text-sm flex items-center gap-2 transition-colors">
+                            <i class="far fa-envelope"></i> philzhouwen@gmail.com
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Interests -->
+    <section id="research" class="py-20 border-t border-slate-100 bg-slate-50">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-2xl font-bold mb-6 text-slate-900 border-l-4 border-slate-900 pl-4">
+                Research Interests
+            </h2>
+
+            <!-- TODO: 可根据需要修改研究兴趣简介 -->
+            <p class="text-slate-600 mb-6 text-lg leading-relaxed max-w-4xl">
+                Development and advancement of artificial intelligence in fluid mechanics, two-phase flow, thermal hydraulic and nuclear engineering, including Data Drive AI, Physical informed AI, Generative AI and so on.
+                <br><br>
+                <strong class="text-slate-800">PhD Dissertation Title:</strong> Evaluation of an AI-Driven Framework for Nuclear Thermal-Hydraulic Modeling and Simulation
+            </p>
+
+            <!-- PhD Resources Links -->
+            <div class="flex flex-wrap gap-4 mb-10">
+                <!-- TODO: 将 # 替换为博士论文 PDF 链接 -->
+                <a href="https://zenodo.org/records/17720695" class="inline-flex items-center gap-2 px-5 py-2.5 bg-slate-900 text-white rounded-md hover:bg-slate-700 transition-all shadow-sm text-sm font-medium">
+                    <i class="fas fa-file-pdf"></i> PhD Dissertation
+                </a>
+                <!-- TODO: 将 # 替换为答辩 PPT 链接 -->
+                <a href="https://zenodo.org/records/17720695" class="inline-flex items-center gap-2 px-5 py-2.5 border border-slate-300 text-slate-700 bg-white rounded-md hover:bg-slate-50 transition-all shadow-sm text-sm font-medium">
+                    <i class="fas fa-file-powerpoint text-orange-600"></i> PhD Slides
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="academic-card p-6 rounded-lg">
+                    <div class="h-10 w-10 bg-slate-100 rounded-lg flex items-center justify-center mb-4 text-slate-700">
+                        <i class="fas fa-brain text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">AI for Science</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Applying Data-Driven AI, Physics-Informed AI (PINNs), and Generative AI (GANs) to solve scientific problems.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="academic-card p-6 rounded-lg">
+                    <div class="h-10 w-10 bg-slate-100 rounded-lg flex items-center justify-center mb-4 text-slate-700">
+                        <i class="fas fa-water text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Two-Phase Flow</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Advanced simulation and analysis of complex fluid dynamics and interface tracking methods.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="academic-card p-6 rounded-lg">
+                    <div class="h-10 w-10 bg-slate-100 rounded-lg flex items-center justify-center mb-4 text-slate-700">
+                        <i class="fas fa-radiation text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Nuclear Engineering</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Safety analysis, thermal hydraulics, and radiation field reconstruction.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="academic-card p-6 rounded-lg">
+                    <div class="h-10 w-10 bg-slate-100 rounded-lg flex items-center justify-center mb-4 text-slate-700">
+                        <i class="fas fa-flask text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Chemical & Env.</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Interdisciplinary research involving chemical processes and environmental monitoring.</p>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="academic-card p-6 rounded-lg">
+                    <div class="h-10 w-10 bg-slate-100 rounded-lg flex items-center justify-center mb-4 text-slate-700">
+                        <i class="fas fa-eye text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Computer Vision</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Object detection (YOLO), segmentation, and tracking for bubble analysis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications -->
+    <section id="publications" class="py-20 border-t border-slate-100">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-2xl font-bold mb-8 text-slate-900 border-l-4 border-slate-900 pl-4">
+                Publications
+            </h2>
+
+            <div class="grid gap-6">
+                <!-- Pub 1 -->
+                <div class="academic-card p-6 rounded-lg">
+                    <div class="flex flex-col sm:flex-row gap-3 sm:items-center justify-between mb-2">
+                        <div class="flex gap-2">
+                            <!-- 使用颜色命名的标签类 -->
+                            <span class="tag tag-blue">Generative AI</span>
+                            <span class="tag tag-green">Fluid Dynamics</span>
+                            <span class="tag tag-purple">Bubbly Flow</span>
+                            <span class="tag tag-orange">Image Generation Model</span>
+                            <span class="tag tag-yellow">GAN</span>
+                        </div>
+                        <span class="text-xs font-mono text-slate-500"> AI Thermal Fluids; Under Review (2025)</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 leading-tight flex items-center">
+                        <!-- TODO: 论文标题，如需修改可直接改这里的文字 -->
+                        BF-GAN: Development of an AI-driven Bubbly Flow Image Generation Model Using Bubbly Generative Adversarial Networks
+                        <!-- TODO: 将 # 替换为论文链接 -->
+                        <a href="#" class="ml-2 text-slate-400 hover:text-slate-700" title="Paper link">
+                            <i class="fas fa-file-alt"></i>
+                        </a>
+                    </h3>
+                    <p class="text-sm text-slate-600 mt-2">
+                        <!-- 只保留作者信息 -->
+                        Zhou, W., Miwa, S., Liu, Y., & Okamoto, K.
+                    </p>
+                    <div class="mt-4 flex gap-4 text-xs font-medium font-mono">
+                        <!-- TODO: 如果代码仓库地址有变化，可以在这里修改 -->
+                        <a href="https://github.com/zhouzhouwen/BF-GAN" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fab fa-github"></i> Code</a>
+                        <!-- TODO: 数据集链接也可以在这里修改 -->
+                        <a href="https://data.mendeley.com/datasets/gtbcrhdnrh/1" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fas fa-database"></i> Dataset</a>
+                    </div>
+                </div>
+
+
+                <!-- Pub 5 -->
+                <div class="academic-card p-6 rounded-lg">
+                    <div class="flex flex-col sm:flex-row gap-3 sm:items-center justify-between mb-2">
+                        <div class="flex gap-2">
+                            <span class="tag tag-blue">Thermal Hydraulic</span>
+                            <span class="tag tag-green">Subcooled Flow Boiling</span>
+                            <span class="tag tag-purple">Feature Extraction</span>
+                            <span class="tag tag-orange">Object Detection and Tracking</span>
+                        </div>
+                        <span class="text-xs font-mono text-slate-500">Intl. J. of Multiphase Flow (2025)</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 leading-tight flex items-center">
+                        Development of the AI-Assisted Thermal Hydraulic Analysis Method for Condensing Bubbles in Vertical Subcooled Flow Boiling
+                        <!-- TODO: 替换为该论文链接 -->
+                        <a href="https://www.sciencedirect.com/science/article/pii/S0301932225001247" class="ml-2 text-slate-400 hover:text-slate-700" title="Paper link">
+                            <i class="fas fa-file-alt"></i>
+                        </a>
+                    </h3>
+                    <p class="text-sm text-slate-600 mt-2">
+                        Zhou, W., Miwa, S., Tsujimura, R., Nguyen, T. B., Okawa, T., & Okamoto, K.
+                    </p>
+                    <div class="mt-4 flex gap-4 text-xs font-medium font-mono">
+                        <a href="https://github.com/zhouzhouwen/The-Robust-Development-of-a-TH-Analysis-Method-for-Bubbles-Using-AI" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fab fa-github"></i> Code</a>
+                        <a href="https://data.mendeley.com/datasets/p5zskggvwx/1" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fas fa-database"></i> Dataset</a>
+                    </div>
+                </div>
+
+                <!-- Pub 2 -->
+                <div class="academic-card p-6 rounded-lg">
+                    <div class="flex flex-col sm:flex-row gap-3 sm:items-center justify-between mb-2">
+                        <div class="flex gap-2">
+                            <span class="tag tag-blue">Physics-informed neural networks</span>
+                            <span class="tag tag-green">Navier-Stokes equations</span>
+                            <span class="tag tag-orange">Fluid dynamic analysis</span>
+                            <span class="tag tag-yellow">Low Re number</span>
+                        </div>
+                        <span class="text-xs font-mono text-slate-500">Physics of Fluids (2024)</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 leading-tight flex items-center">
+                        Advancing fluid dynamics simulations: A comprehensive approach to optimizing physics-informed neural networks
+                        <!-- TODO: 替换为该论文链接 -->
+                        <a href="https://pubs.aip.org/aip/pof/article-abstract/36/1/013615/3023015/Advancing-fluid-dynamics-simulations-A?redirectedFrom=fulltext" class="ml-2 text-slate-400 hover:text-slate-700" title="Paper link">
+                            <i class="fas fa-file-alt"></i>
+                        </a>
+                    </h3>
+                    <p class="text-sm text-slate-600 mt-2">
+                        Zhou, W., Miwa, S., & Okamoto, K.
+                    </p>
+                    <div class="mt-4 flex gap-4 text-xs font-medium font-mono">
+                        <!-- TODO: 如有代码仓库可更新链接 -->
+                        <a href="https://github.com/zhouzhouwen/An-improved-PINNs-with-the-adaptive-weight-sampling-and-DE-algorithm" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fab fa-github"></i> Code</a>
+                        <!-- TODO: 如有数据集可更新链接 -->
+                        <a href="#" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fas fa-database"></i> Public Dataset</a>
+                    </div>
+                </div>
+
+                <!-- Pub 3 -->
+                <div class="academic-card p-6 rounded-lg">
+                    <div class="flex flex-col sm:flex-row gap-3 sm:items-center justify-between mb-2">
+                        <div class="flex gap-2">
+                            <span class="tag tag-blue">Physics-informed neural networks</span>
+                            <span class="tag tag-green">Interface Tracking Methods</span>
+                            <span class="tag tag-purple">Two-Phase Flow</span>
+                            <span class="tag tag-orange">Bubble Dynamics</span>
+                        </div>
+                        <span class="text-xs font-mono text-slate-500">Physics of Fluids (2024)</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 leading-tight flex items-center">
+                        Self-adaptive and time divide-and-conquer physics-informed neural networks for two-phase flow simulations using interface tracking methods
+                        <!-- TODO: 替换为该论文链接 -->
+                        <a href="https://pubs.aip.org/aip/pof/article-abstract/36/7/073305/3300833/Self-adaptive-and-time-divide-and-conquer-physics?redirectedFrom=PDF" class="ml-2 text-slate-400 hover:text-slate-700" title="Paper link">
+                            <i class="fas fa-file-alt"></i>
+                        </a>
+                    </h3>
+                    <p class="text-sm text-slate-600 mt-2">
+                        Zhou, W., Miwa, S., & Okamoto, K.
+                    </p>
+                    <div class="mt-4 flex gap-4 text-xs font-medium font-mono">
+                        <a href="https://github.com/zhouzhouwen/two-phase-flow-by-self_adaptive-and-time_divide_conquer-PINNs" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fab fa-github"></i> Code</a>
+                        <a href="#" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fas fa-database"></i> Public Dataset</a>
+                    </div>
+                </div>
+
+                <!-- Pub 4 -->
+                <div class="academic-card p-6 rounded-lg">
+                    <div class="flex flex-col sm:flex-row gap-3 sm:items-center justify-between mb-2">
+                        <div class="flex gap-2">
+                            <span class="tag tag-blue">Condensation Bubble</span>
+                            <span class="tag tag-green">Subcooled Flow Boiling</span>
+                            <span class="tag tag-purple">Feature Extraction</span>
+                            <span class="tag tag-orange">Object Detection and Tracking</span>
+                        </div>
+                        <span class="text-xs font-mono text-slate-500">Intl. J. of Heat and Mass Transfer (2024)</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 leading-tight flex items-center">
+                        Bubble feature extraction in subcooled flow boiling using AI-based object detection and tracking techniques
+                        <!-- TODO: 替换为该论文链接 -->
+                        <a href="https://www.sciencedirect.com/science/article/abs/pii/S0017931024000206" class="ml-2 text-slate-400 hover:text-slate-700" title="Paper link">
+                            <i class="fas fa-file-alt"></i>
+                        </a>
+                    </h3>
+                    <p class="text-sm text-slate-600 mt-2">
+                        Zhou, W., Miwa, S., Okawa, T., & Okamoto, K.
+                    </p>
+                    <div class="mt-4 flex gap-4 text-xs font-medium font-mono">
+                        <a href="https://github.com/zhouzhouwen/Bubble_detection_and_tracking_AI_based_YOLO_tracking_alogrithm" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fab fa-github"></i> Code</a>
+                        <a href="https://data.mendeley.com/datasets/p5zskggvwx/1" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fas fa-database"></i> Dataset</a>
+                    </div>
+                </div>
+
+                <!-- Pub 6 -->
+                <div class="academic-card p-6 rounded-lg">
+                    <div class="flex flex-col sm:flex-row gap-3 sm:items-center justify-between mb-2">
+                        <div class="flex gap-2">
+                            <span class="tag tag-blue">Computer Vision</span>
+                            <span class="tag tag-green">Semantic Segmentation</span>
+                            <span class="tag tag-purple">Jet Penetration</span>
+                            <span class="tag tag-orange">Optimization Algorithm</span>
+                        </div>
+                        <span class="text-xs font-mono text-slate-500">Progress in Nuclear Energy (2024)</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 leading-tight flex items-center">
+                        Development of advanced AI-based segmentation and prediction method for air entrainment in plunging water jets
+                        <!-- TODO: 替换为该论文链接 -->
+                        <a href="https://www.sciencedirect.com/science/article/pii/S0149197024003913" class="ml-2 text-slate-400 hover:text-slate-700" title="Paper link">
+                            <i class="fas fa-file-alt"></i>
+                        </a>
+                    </h3>
+                    <p class="text-sm text-slate-600 mt-2">
+                        Zhou, W., Miwa, S., Yamashita, S., & Okamoto, K.
+                    </p>
+                    <div class="mt-4 flex gap-4 text-xs font-medium font-mono">
+                        <a href="https://github.com/zhouzhouwen/Advanced-AI-Segmentation-of-Air-Entrainment-Motion-YOLO-with-Attention-Mechanism-and-NSGA-III-BPNN" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fab fa-github"></i> Code</a>
+                        <a href="#" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fas fa-database"></i> Dataset(Not Available)</a>
+                    </div>
+                </div>
+
+                <!-- Pub 7 -->
+                <div class="academic-card p-6 rounded-lg">
+                    <div class="flex flex-col sm:flex-row gap-3 sm:items-center justify-between mb-2">
+                        <div class="flex gap-2">
+                            <span class="tag tag-blue">Critical Heat Flux</span>
+                            <span class="tag tag-green">ANN</span>
+                            <span class="tag tag-purple">CNN</span>
+                            <span class="tag tag-orange">Transformer</span>
+                            <span class="tag tag-yellow">Transfer Learning</span>
+                        </div>
+                        <span class="text-xs font-mono text-slate-500">Intl. Comm. in Heat and Mass Transfer (2024)</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 leading-tight flex items-center">
+                        Assessment of the state-of-the-art AI methods for critical heat flux prediction
+                        <!-- TODO: 替换为该论文链接 -->
+                        <a href="https://www.sciencedirect.com/science/article/pii/S0735193324006067" class="ml-2 text-slate-400 hover:text-slate-700" title="Paper link">
+                            <i class="fas fa-file-alt"></i>
+                        </a>
+                    </h3>
+                    <p class="text-sm text-slate-600 mt-2">
+                        Zhou, W., Miwa, S., Wang, H., & Okamoto, K.
+                    </p>
+                    <div class="mt-4 flex gap-4 text-xs font-medium font-mono">
+                        <a href="https://github.com/zhouzhouwen/cutting-edge-artificial-intelligence-methods-for-prediction-of-critical-heat-flux" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fab fa-github"></i> Code</a>
+                        <a href="https://github.com/zhouzhouwen/cutting-edge-artificial-intelligence-methods-for-prediction-of-critical-heat-flux" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fas fa-database"></i> Dataset</a>
+                    </div>
+                </div>
+
+                <!-- Pub 8 -->
+                <div class="academic-card p-6 rounded-lg">
+                    <div class="flex flex-col sm:flex-row gap-3 sm:items-center justify-between mb-2">
+                        <div class="flex gap-2">
+                            <span class="tag tag-blue">Optimization design</span>
+                            <span class="tag tag-green">NSGA-III & DE Algorithm</span>
+                            <span class="tag tag-purple">CFETR HCSB blanket</span>
+                            <span class="tag tag-orange">Acceleration Calculation</span>
+                        </div>
+                        <span class="text-xs font-mono text-slate-500">Nuclear Engineering and Technology (2023)</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 leading-tight flex items-center">
+                        An intelligent optimization method for the HCSB blanket based on an improved multi-objective NSGA-III algorithm
+                        <!-- TODO: 替换为该论文链接 -->
+                        <a href="https://www.sciencedirect.com/science/article/pii/S1738573323002504" class="ml-2 text-slate-400 hover:text-slate-700" title="Paper link">
+                            <i class="fas fa-file-alt"></i>
+                        </a>
+                    </h3>
+                    <p class="text-sm text-slate-600 mt-2">
+                        Zhou, W., Sun, G., Miwa, S., et al.
+                    </p>
+                    <div class="mt-4 flex gap-4 text-xs font-medium font-mono">
+                        <a href="https://github.com/zhouzhouwen/An-AI-method-for-the-HCSB-blanket-based-on-an-improved-NSGA-III-and-an-adaptive-BPNN" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fab fa-github"></i> Code</a>
+                        <a href="https://github.com/zhouzhouwen/An-AI-method-for-the-HCSB-blanket-based-on-an-improved-NSGA-III-and-an-adaptive-BPNN" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fas fa-database"></i> Dataset</a>
+                    </div>
+                </div>
+
+                <!-- Pub 9 -->
+                <div class="academic-card p-6 rounded-lg">
+                    <div class="flex flex-col sm:flex-row gap-3 sm:items-center justify-between mb-2">
+                        <div class="flex gap-2">
+                            <span class="tag tag-blue">Critical Heat Flux</span>
+                            <span class="tag tag-green">ANN</span>
+                            <span class="tag tag-purple">CNN</span>
+                            <span class="tag tag-orange">Transformer</span>
+                            <span class="tag tag-yellow">Transfer Learning</span>
+                        </div>
+                        <span class="text-xs font-mono text-slate-500">Nuclear Techniques (2021)</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 leading-tight flex items-center">
+                        Re-examining the input-parameters and AI strategies for Critical Heat Flux prediction
+                        <!-- TODO: 替换为该论文链接 -->
+                        <a href="https://www.sciencedirect.com/science/article/pii/S0360544225002488" class="ml-2 text-slate-400 hover:text-slate-700" title="Paper link">
+                            <i class="fas fa-file-alt"></i>
+                        </a>
+                    </h3>
+                    <p class="text-sm text-slate-600 mt-2">
+                        Wang, K., Zhou, W.*, ... & Okamoto, K.  et al.
+                    </p>
+                    <div class="mt-4 flex gap-4 text-xs font-medium font-mono">
+                        <a href="#" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fab fa-github"></i> Code</a>
+                        <a href="#" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fas fa-database"></i> Dataset</a>
+                    </div>
+                </div>
+
+                <!-- Pub 10 -->
+                <div class="academic-card p-6 rounded-lg">
+                    <div class="flex flex-col sm:flex-row gap-3 sm:items-center justify-between mb-2">
+                        <div class="flex gap-2">
+                            <span class="tag tag-blue">ANN</span>
+                            <span class="tag tag-green">Radiation Field</span>
+                            <span class="tag tag-purple">Reconstruction Method</span>
+                        </div>
+                        <span class="text-xs font-mono text-slate-500">Nuclear Engineering and Design (2021)</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 leading-tight flex items-center">
+                        BP neural network based reconstruction method for radiation field applications
+                        <!-- TODO: 替换为该论文链接 -->
+                        <a href="https://www.sciencedirect.com/science/article/abs/pii/S0029549321001801" class="ml-2 text-slate-400 hover:text-slate-700" title="Paper link">
+                            <i class="fas fa-file-alt"></i>
+                        </a>
+                    </h3>
+                    <p class="text-sm text-slate-600 mt-2">
+                        Zhou, W., Sun, G., Yang, Z., et al.
+                    </p>
+                    <div class="mt-4 flex gap-4 text-xs font-medium font-mono">
+                        <a href="https://github.com/zhouzhouwen/BP-neural-network-based-reconstruction-method-for-radiation-field-applications" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fab fa-github"></i> Code</a>
+                        <a href="https://github.com/zhouzhouwen/BP-neural-network-based-reconstruction-method-for-radiation-field-applications" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fas fa-database"></i> Dataset</a>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Experience -->
+    <section id="experience" class="py-20 border-t border-slate-100 bg-slate-50">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-2xl font-bold mb-12 text-slate-900 border-l-4 border-slate-900 pl-4">
+                Education & Experience
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Education Column -->
+                <div>
+                    <h3 class="text-lg font-serif font-semibold text-slate-700 mb-6 flex items-center gap-2">
+                        <i class="fas fa-graduation-cap text-slate-400"></i> Education
+                    </h3>
+                    <div class="space-y-8 relative border-l border-slate-200 ml-3 pl-8">
+
+                        <!-- PhD -->
+                        <div class="relative">
+                            <span class="absolute -left-[37px] top-1.5 h-4 w-4 rounded-full bg-white border-2 border-slate-900"></span>
+                            <div>
+                                <!-- TODO: 时间、专业、学校信息如有变动可在此修改 -->
+                                <span class="text-xs font-mono text-slate-500">Oct 2022 - Oct 2025</span>
+                                <h4 class="text-base font-bold text-slate-900 mt-1">PhD in Nuclear Engineering</h4>
+                                <div class="flex justify-between items-start mt-1 mb-2">
+                                    <p class="text-slate-600 text-sm">The University of Tokyo</p>
+                                    <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Japan</span>
+                                </div>
+                                <p class="text-slate-500 text-xs mt-1">Supervisors: Shuichiro MIWA; Koji OKAMOTO</p>
+                            </div>
+                        </div>
+
+                        <!-- Master -->
+                        <div class="relative">
+                            <span class="absolute -left-[37px] top-1.5 h-4 w-4 rounded-full bg-white border-2 border-slate-400"></span>
+                            <div>
+                                <span class="text-xs font-mono text-slate-500">Sept 2019 - June 2022</span>
+                                <h4 class="text-base font-bold text-slate-900 mt-1">Master in Nuclear Energy</h4>
+                                <div class="flex justify-between items-start mt-1">
+                                    <p class="text-slate-600 text-sm">University of Science and Technology of China</p>
+                                    <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2 py-0.5 rounded">China</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bachelor -->
+                        <div class="relative">
+                            <span class="absolute -left-[37px] top-1.5 h-4 w-4 rounded-full bg-white border-2 border-slate-400"></span>
+                            <div>
+                                <span class="text-xs font-mono text-slate-500">Sept 2015 - June 2019</span>
+                                <h4 class="text-base font-bold text-slate-900 mt-1">Bachelor in Nuclear Engineering</h4>
+                                <div class="flex justify-between items-start mt-1">
+                                    <p class="text-slate-600 text-sm">East China University of Technology</p>
+                                    <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2 py-0.5 rounded">China</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience Column -->
+                <div>
+                    <h3 class="text-lg font-serif font-semibold text-slate-700 mb-6 flex items-center gap-2">
+                        <i class="fas fa-briefcase text-slate-400"></i> Experience
+                    </h3>
+                    <div class="space-y-8 relative border-l border-slate-200 ml-3 pl-8">
+
+                        <!-- Researcher -->
+                        <div class="relative">
+                            <span class="absolute -left-[37px] top-1.5 h-4 w-4 rounded-full bg-slate-900 border-2 border-slate-900"></span>
+                            <div>
+                                <span class="text-xs font-mono text-slate-500">Oct 2025 - Present</span>
+                                <div class="flex items-center gap-2 mt-1">
+                                    <h4 class="text-base font-bold text-slate-900">Project Researcher</h4>
+                                    <span class="text-[10px] uppercase font-bold text-white bg-slate-800 px-1.5 py-0.5 rounded">Full-time</span>
+                                </div>
+                                <div class="flex justify-between items-start mt-1">
+                                    <p class="text-slate-600 text-sm">The University of Tokyo</p>
+                                    <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Japan</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Intern -->
+                        <div class="relative">
+                            <span class="absolute -left-[37px] top-1.5 h-4 w-4 rounded-full bg-white border-2 border-slate-400"></span>
+                            <div>
+                                <span class="text-xs font-mono text-slate-500">Nov 2024 - Feb 2025</span>
+                                <div class="flex items-center gap-2 mt-1">
+                                    <h4 class="text-base font-bold text-slate-900">AI Engineering Intern</h4>
+                                    <span class="text-[10px] uppercase font-bold text-slate-500 border border-slate-300 px-1.5 py-0.5 rounded">Internship</span>
+                                </div>
+                                <div class="flex justify-between items-start mt-1">
+                                    <p class="text-slate-600 text-sm">OPE.AI, Tokyo</p>
+                                    <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Japan</span>
+                                </div>
+                                <p class="text-slate-500 text-xs mt-1">LLM, LoRA, RAG, digital human models.</p>
+                            </div>
+                        </div>
+
+                        <!-- Quant -->
+                        <div class="relative">
+                            <span class="absolute -left-[37px] top-1.5 h-4 w-4 rounded-full bg-white border-2 border-slate-400"></span>
+                            <div>
+                                <span class="text-xs font-mono text-slate-500">Apr 2021 - Nov 2021</span>
+                                <div class="flex items-center gap-2 mt-1">
+                                    <h4 class="text-base font-bold text-slate-900">Quantitative Trader</h4>
+                                    <span class="text-[10px] uppercase font-bold text-slate-500 border border-slate-300 px-1.5 py-0.5 rounded">Internship</span>
+                                </div>
+                                <div class="flex justify-between items-start mt-1">
+                                    <p class="text-slate-600 text-sm">Guan Rui Technology Co.</p>
+                                    <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2 py-0.5 rounded">China</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white py-12 border-t border-slate-100">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <p class="text-slate-500 text-sm font-mono">
+                &copy; 2025 Wen ZHOU.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Typewriter Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const textElement = document.getElementById('typewriter');
+
+            /* TODO: 这里的短语数组可以自由修改，控制打字机轮播的关键词 */
+            const phrases = [
+                "Science.",
+                "Fluid Dynamics.",
+                "Nuclear Engineering.",
+                "Chemistry.",
+                "Environment.",
+                "Two-phase Flow."
+            ];
+
+            let phraseIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            let typeSpeed = 100;
+
+            function type() {
+                const currentPhrase = phrases[phraseIndex];
+
+                if (isDeleting) {
+                    textElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                    charIndex--;
+                    typeSpeed = 50;
+                } else {
+                    textElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                    charIndex++;
+                    typeSpeed = 100;
+                }
+
+                if (!isDeleting && charIndex === currentPhrase.length) {
+                    isDeleting = true;
+                    typeSpeed = 2000;
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    phraseIndex = (phraseIndex + 1) % phrases.length;
+                    typeSpeed = 500;
+                }
+
+                setTimeout(type, typeSpeed);
+            }
+
+            type();
+        });
+    </script>
+</body>
+</html>
