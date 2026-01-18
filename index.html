@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <!-- TODO: 可以修改为你喜欢的默认视口设置 -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- TODO: 修改网页标题 -->
     <title>Wen ZHOU | AI for Science Researcher</title>
@@ -180,6 +180,61 @@
             font-family: 'Fira Code', monospace;
             color: #64748b;
         }
+
+        /* =========================
+           ✅ Hero 描述高亮 + 技术彩色 Chips（新增）
+           ========================= */
+        .hero-callout {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-left: 4px solid #0f172a;
+            border-radius: 14px;
+            padding: 14px 16px;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.04);
+        }
+        .hero-callout .headline {
+            font-weight: 650;
+            color: #0f172a;
+        }
+        .hero-callout .subline {
+            color: #334155;
+        }
+        .chip-wrap {
+            margin-top: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 10px;
+            font-size: 12px;
+            border-radius: 999px;
+            border: 1px solid transparent;
+            font-weight: 600;
+            letter-spacing: .01em;
+            white-space: nowrap;
+        }
+
+        /* pastel chip palettes */
+        .chip-blue   { background:#eff6ff; color:#1d4ed8; border-color:#dbeafe; }
+        .chip-green  { background:#ecfdf5; color:#15803d; border-color:#bbf7d0; }
+        .chip-purple { background:#f5f3ff; color:#6d28d9; border-color:#ddd6fe; }
+        .chip-orange { background:#fff7ed; color:#c2410c; border-color:#fed7aa; }
+        .chip-yellow { background:#fefce8; color:#a16207; border-color:#fef9c3; }
+        .chip-slate  { background:#f8fafc; color:#0f172a; border-color:#e2e8f0; }
+
+        /* make callout align nicely on mobile center layouts */
+        .hero-callout {
+            text-align: left;
+        }
+        @media (max-width: 768px) {
+            .hero-callout {
+                text-align: left;
+            }
+        }
     </style>
 </head>
 
@@ -247,17 +302,32 @@
                         </p>
                     </div>
 
-                    <!-- ✅ 修复：这里从 p 改为 div，允许内部更优雅排版 -->
-                    <div class="mt-6 text-slate-600 max-w-2xl text-lg leading-relaxed mx-auto md:mx-0 font-light" data-i18n-html="hero_desc_html">
-                        Project Researcher at <strong>The University of Tokyo</strong>.<br>
-                        Focusing on applying AI (...) to fluid mechanics, two-phase flow, thermal-hydraulics, and nuclear engineering.
+                    <!-- ✅ 更突出：使用 callout + 技术彩色 chips -->
+                    <div class="mt-6 max-w-2xl mx-auto md:mx-0" data-i18n-html="hero_desc_html">
+                        <div class="hero-callout">
+                            <div class="headline">Project Researcher at <strong>The University of Tokyo</strong>.</div>
+                            <div class="subline mt-1">Applying AI to fluid mechanics, two-phase flow, thermal-hydraulics, and nuclear engineering.</div>
+                            <div class="chip-wrap">
+                                <span class="chip chip-blue"><i class="fa-solid fa-table"></i> Tabular</span>
+                                <span class="chip chip-green"><i class="fa-solid fa-wave-square"></i> Time-series</span>
+                                <span class="chip chip-purple"><i class="fa-solid fa-eye"></i> Computer Vision</span>
+                                <span class="chip chip-orange"><i class="fa-solid fa-bolt"></i> PINNs</span>
+                                <span class="chip chip-yellow"><i class="fa-solid fa-wand-magic-sparkles"></i> Generative AI</span>
+                                <span class="chip chip-slate"><i class="fa-solid fa-robot"></i> LLMs & RAG</span>
+                                <span class="chip chip-blue"><i class="fa-solid fa-cubes"></i> Digital Twins</span>
+                                <span class="chip chip-green"><i class="fa-solid fa-people-arrows"></i> Multi-agent</span>
+                                <span class="chip chip-purple"><i class="fa-solid fa-chart-line"></i> Optimization</span>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="mt-6 md:hidden">
-                        <a href="mailto:philzhouwen@gmail.com" class="text-slate-600 hover:text-slate-900 font-mono text-sm border-b border-dotted border-slate-400">
-                            philzhouwen@gmail.com
+                    <!-- ✅ 邮箱居中修复（移动端）：加 inline-flex + justify-center -->
+                    <div class="mt-6 md:hidden flex flex-col items-center">
+                        <a href="mailto:philzhouwen@gmail.com"
+                           class="inline-flex items-center justify-center gap-2 text-slate-600 hover:text-slate-900 font-mono text-sm border-b border-dotted border-slate-400">
+                            <i class="far fa-envelope"></i> philzhouwen@gmail.com
                         </a>
-                        <p class="mt-3 text-slate-500 text-xs leading-relaxed" data-i18n="hero_service_note">
+                        <p class="mt-3 text-slate-500 text-xs leading-relaxed max-w-[340px]" data-i18n="hero_service_note">
                             I’m available for paid consulting, manuscript polishing, coding support, and solution delivery — feel free to reach out.
                         </p>
                     </div>
@@ -268,11 +338,14 @@
                     <div class="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border border-slate-200 shadow-sm transition-all duration-500">
                         <img src="./avatar.jpg" alt="Wen ZHOU" class="w-full h-full object-cover">
                     </div>
-                    <div class="mt-4 text-center hidden md:block">
-                        <a href="mailto:philzhouwen@gmail.com" class="text-slate-500 hover:text-slate-900 font-mono text-sm flex items-center gap-2 transition-colors">
+
+                    <!-- ✅ 邮箱居中修复（桌面端）：flex 需要 justify-center -->
+                    <div class="mt-4 text-center hidden md:block w-full">
+                        <a href="mailto:philzhouwen@gmail.com"
+                           class="text-slate-500 hover:text-slate-900 font-mono text-sm flex items-center justify-center gap-2 transition-colors">
                             <i class="far fa-envelope"></i> philzhouwen@gmail.com
                         </a>
-                        <p class="mt-2 text-slate-500 text-xs leading-relaxed max-w-[280px]" data-i18n="hero_service_note">
+                        <p class="mt-2 text-slate-500 text-xs leading-relaxed max-w-[300px] mx-auto" data-i18n="hero_service_note">
                             I’m available for paid consulting, manuscript polishing, coding support, and solution delivery — feel free to reach out.
                         </p>
                     </div>
@@ -326,7 +399,7 @@
                     </p>
                 </div>
 
-                <!-- 3 (✅ 修复图标：fa-wave-square 更稳定，不会缺失) -->
+                <!-- 3 -->
                 <div class="academic-card p-6 rounded-lg">
                     <div class="h-10 w-10 bg-slate-100 rounded-lg flex items-center justify-center mb-4 text-slate-700">
                         <i class="fas fa-wave-square text-xl"></i>
@@ -381,7 +454,6 @@
             </h2>
 
             <div class="grid gap-6">
-
                 <!-- Pub 1 -->
                 <div class="academic-card p-6 rounded-lg">
                     <div class="flex flex-col sm:flex-row gap-3 sm:items-center justify-between mb-2">
@@ -860,18 +932,27 @@
 
                     hero_ai_for: "AI for",
 
-                    // ✅ 更好看的排版：主句 + 小一号“技能列表”一行
+                    // ✅ 更突出：callout + 多色 chips（英文）
                     hero_desc_html:
-                        "<div class='space-y-2'>" +
-                            "<div>Project Researcher at <strong>The University of Tokyo</strong>.</div>" +
-                            "<div>Applying AI to fluid mechanics, two-phase flow, thermal-hydraulics, and nuclear engineering.</div>" +
-                            "<div class='text-sm text-slate-500 leading-relaxed'>" +
-                                "Methods include tabular/time-series prediction & classification, object detection/recognition/tracking, PINNs, generative AI, LLMs, digital twins, multi-agent systems, optimization algorithms, and more." +
+                        "<div class='hero-callout'>" +
+                            "<div class='headline'>Project Researcher at <strong>The University of Tokyo</strong>.</div>" +
+                            "<div class='subline mt-1'>Applying AI to fluid mechanics, two-phase flow, thermal-hydraulics, and nuclear engineering.</div>" +
+                            "<div class='chip-wrap'>" +
+                                "<span class='chip chip-blue'><i class='fa-solid fa-table'></i> Tabular</span>" +
+                                "<span class='chip chip-green'><i class='fa-solid fa-wave-square'></i> Time-series</span>" +
+                                "<span class='chip chip-purple'><i class='fa-solid fa-eye'></i> Computer Vision</span>" +
+                                "<span class='chip chip-orange'><i class='fa-solid fa-bolt'></i> PINNs</span>" +
+                                "<span class='chip chip-yellow'><i class='fa-solid fa-wand-magic-sparkles'></i> Generative AI</span>" +
+                                "<span class='chip chip-slate'><i class='fa-solid fa-robot'></i> LLMs & RAG</span>" +
+                                "<span class='chip chip-blue'><i class='fa-solid fa-cubes'></i> Digital Twins</span>" +
+                                "<span class='chip chip-green'><i class='fa-solid fa-people-arrows'></i> Multi-agent</span>" +
+                                "<span class='chip chip-purple'><i class='fa-solid fa-chart-line'></i> Optimization</span>" +
                             "</div>" +
                         "</div>",
 
+                    // ✅ 英文更自然，并补上“定制化”
                     hero_service_note:
-                        "I’m available for paid consulting, manuscript polishing, coding support, and solution delivery — feel free to reach out.",
+                        "Available for paid consulting, manuscript editing/polishing, implementation & engineering support, and delivery of customized solutions — feel free to reach out by email.",
 
                     research_title: "Research Interests",
                     research_desc_html:
@@ -999,16 +1080,25 @@
                     lang_label: "语言",
                     hero_ai_for: "AI for",
 
-                    // ✅ 中文也做成：主句 + 应用领域 + 小一号方法列表
+                    // ✅ 更突出：callout + 多色 chips（中文）
                     hero_desc_html:
-                        "<div class='space-y-2'>" +
-                            "<div>东京大学 <strong>项目研究员</strong>。</div>" +
-                            "<div>研究聚焦 AI 在流体力学、两相流、热工水力学以及核工程中的应用。</div>" +
-                            "<div class='text-sm text-slate-500 leading-relaxed'>" +
-                                "涉及表格数据与信号的预测/分类、目标检测识别跟踪、PINNs、生成式 AI、LLM、数字孪生、多智能体、优化算法等。" +
+                        "<div class='hero-callout'>" +
+                            "<div class='headline'>东京大学 <strong>项目研究员</strong>。</div>" +
+                            "<div class='subline mt-1'>研究聚焦 AI 在流体力学、两相流、热工水力学以及核工程中的应用。</div>" +
+                            "<div class='chip-wrap'>" +
+                                "<span class='chip chip-blue'><i class='fa-solid fa-table'></i> 表格数据</span>" +
+                                "<span class='chip chip-green'><i class='fa-solid fa-wave-square'></i> 时序信号</span>" +
+                                "<span class='chip chip-purple'><i class='fa-solid fa-eye'></i> 计算机视觉</span>" +
+                                "<span class='chip chip-orange'><i class='fa-solid fa-bolt'></i> PINNs</span>" +
+                                "<span class='chip chip-yellow'><i class='fa-solid fa-wand-magic-sparkles'></i> 生成式 AI</span>" +
+                                "<span class='chip chip-slate'><i class='fa-solid fa-robot'></i> LLMs / RAG</span>" +
+                                "<span class='chip chip-blue'><i class='fa-solid fa-cubes'></i> 数字孪生</span>" +
+                                "<span class='chip chip-green'><i class='fa-solid fa-people-arrows'></i> 多智能体</span>" +
+                                "<span class='chip chip-purple'><i class='fa-solid fa-chart-line'></i> 优化算法</span>" +
                             "</div>" +
                         "</div>",
 
+                    // 中文可微调更顺：强调“定制化解决方案交付”
                     hero_service_note:
                         "如有需要，我也可提供有偿咨询、论文/稿件润色修改、代码实现与工程支持，以及定制化解决方案交付；欢迎邮件联系。",
 
