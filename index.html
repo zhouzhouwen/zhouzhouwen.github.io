@@ -70,31 +70,27 @@
         }
 
         /* === 标签颜色（可自行调整配色） === */
-        .tag-blue {  /* 柔和蓝色标签，例如：Generative AI / Data-driven */
+        .tag-blue {
             background-color: #eff6ff;
             color: #1d4ed8;
             border-color: #dbeafe;
         }
-
-        .tag-green { /* 柔和绿色标签，例如：PINNs / Fluid Dynamics */
+        .tag-green {
             background-color: #ecfdf5;
             color: #15803d;
             border-color: #bbf7d0;
         }
-
-        .tag-purple { /* 柔和紫色标签，例如：Data / Prediction */
+        .tag-purple {
             background-color: #f5f3ff;
             color: #6d28d9;
             border-color: #ddd6fe;
         }
-
-        .tag-orange { /* 柔和橙色标签，例如：Computer Vision / YOLO */
+        .tag-orange {
             background-color: #fff7ed;
             color: #c2410c;
             border-color: #fed7aa;
         }
-
-        .tag-yellow { /* 柔和黄色标签，例如：Optimization / NSGA-III */
+        .tag-yellow {
             background-color: #fefce8;
             color: #a16207;
             border-color: #fef9c3;
@@ -194,7 +190,6 @@
         <div class="max-w-5xl mx-auto px-6">
             <div class="flex items-center justify-between h-16">
                 <div class="flex-shrink-0">
-                    <!-- TODO: 可以修改左上角 Logo 文字 -->
                     <a href="#" class="font-serif font-bold text-xl tracking-tight text-slate-900">Wen.Z</a>
                 </div>
 
@@ -227,7 +222,6 @@
                         </div>
                     </div>
 
-                    <!-- TODO: 修改为你的 GitHub 链接 -->
                     <a href="https://github.com/zhouzhouwen" target="_blank" class="text-slate-500 hover:text-slate-900 transition-colors" aria-label="GitHub">
                         <i class="fab fa-github text-2xl"></i>
                     </a>
@@ -245,6 +239,7 @@
                     <h1 class="text-4xl md:text-6xl font-bold text-slate-900 mb-4 tracking-tight">
                         Wen ZHOU
                     </h1>
+
                     <div class="h-16 flex flex-col justify-center">
                         <p class="text-xl md:text-2xl text-slate-600 font-mono">
                             <span data-i18n="hero_ai_for">AI for</span>
@@ -252,17 +247,16 @@
                         </p>
                     </div>
 
-                    <!-- 修改1：Hero 文案（中英都有） -->
-                    <p class="mt-6 text-slate-600 max-w-xl text-lg leading-relaxed mx-auto md:mx-0 font-light" data-i18n-html="hero_desc_html">
-                        Project Researcher at <strong>The University of Tokyo</strong>. <br>
-                        Focusing on the intersection of AI and physical sciences (fluid dynamics, nuclear engineering, etc).
-                    </p>
+                    <!-- ✅ 修复：这里从 p 改为 div，允许内部更优雅排版 -->
+                    <div class="mt-6 text-slate-600 max-w-2xl text-lg leading-relaxed mx-auto md:mx-0 font-light" data-i18n-html="hero_desc_html">
+                        Project Researcher at <strong>The University of Tokyo</strong>.<br>
+                        Focusing on applying AI (...) to fluid mechanics, two-phase flow, thermal-hydraulics, and nuclear engineering.
+                    </div>
 
                     <div class="mt-6 md:hidden">
                         <a href="mailto:philzhouwen@gmail.com" class="text-slate-600 hover:text-slate-900 font-mono text-sm border-b border-dotted border-slate-400">
                             philzhouwen@gmail.com
                         </a>
-                        <!-- 修改3：服务说明（移动端） -->
                         <p class="mt-3 text-slate-500 text-xs leading-relaxed" data-i18n="hero_service_note">
                             I’m available for paid consulting, manuscript polishing, coding support, and solution delivery — feel free to reach out.
                         </p>
@@ -278,8 +272,7 @@
                         <a href="mailto:philzhouwen@gmail.com" class="text-slate-500 hover:text-slate-900 font-mono text-sm flex items-center gap-2 transition-colors">
                             <i class="far fa-envelope"></i> philzhouwen@gmail.com
                         </a>
-                        <!-- 修改3：服务说明（桌面端） -->
-                        <p class="mt-2 text-slate-500 text-xs leading-relaxed max-w-[260px]" data-i18n="hero_service_note">
+                        <p class="mt-2 text-slate-500 text-xs leading-relaxed max-w-[280px]" data-i18n="hero_service_note">
                             I’m available for paid consulting, manuscript polishing, coding support, and solution delivery — feel free to reach out.
                         </p>
                     </div>
@@ -295,14 +288,12 @@
                 Research Interests
             </h2>
 
-            <!-- 修改4：缩短为 AI for Science and Engineering（中英都有） -->
             <p class="text-slate-600 mb-6 text-lg leading-relaxed max-w-4xl" data-i18n-html="research_desc_html">
                 AI for Science and Engineering.
                 <br><br>
                 <strong class="text-slate-800">PhD Dissertation Title:</strong> Evaluation of an AI-Driven Framework for Nuclear Thermal-Hydraulic Modeling and Simulation
             </p>
 
-            <!-- PhD Resources Links -->
             <div class="flex flex-wrap gap-4 mb-10">
                 <a href="https://zenodo.org/records/17720695" class="inline-flex items-center gap-2 px-5 py-2.5 bg-slate-900 text-white rounded-md hover:bg-slate-700 transition-all shadow-sm text-sm font-medium">
                     <i class="fas fa-file-pdf"></i> <span data-i18n="phd_dissertation_btn">PhD Dissertation</span>
@@ -312,7 +303,6 @@
                 </a>
             </div>
 
-            <!-- 修改5：填满 6 个部分（中英都有） -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- 1 -->
                 <div class="academic-card p-6 rounded-lg">
@@ -336,10 +326,10 @@
                     </p>
                 </div>
 
-                <!-- 3 -->
+                <!-- 3 (✅ 修复图标：fa-wave-square 更稳定，不会缺失) -->
                 <div class="academic-card p-6 rounded-lg">
                     <div class="h-10 w-10 bg-slate-100 rounded-lg flex items-center justify-center mb-4 text-slate-700">
-                        <i class="fas fa-function text-xl"></i>
+                        <i class="fas fa-wave-square text-xl"></i>
                     </div>
                     <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="card3_title">AI for PDE</h3>
                     <p class="text-slate-600 text-sm leading-relaxed" data-i18n="card3_desc">
@@ -414,7 +404,6 @@
                     </p>
 
                     <div class="mt-4 flex gap-4 text-xs font-medium font-mono">
-                        <!-- Paper icon moved here, before Code -->
                         <a href="#" class="text-slate-600 hover:text-slate-900 flex items-center gap-1" title="Paper link">
                             <i class="fas fa-file-alt"></i> <span data-i18n="label_paper">Paper</span>
                         </a>
@@ -743,8 +732,6 @@
                         <i class="fas fa-graduation-cap text-slate-400"></i> <span data-i18n="edu_title">Education</span>
                     </h3>
                     <div class="space-y-8 relative border-l border-slate-200 ml-3 pl-8">
-
-                        <!-- PhD -->
                         <div class="relative">
                             <span class="absolute -left-[37px] top-1.5 h-4 w-4 rounded-full bg-white border-2 border-slate-900"></span>
                             <div>
@@ -758,7 +745,6 @@
                             </div>
                         </div>
 
-                        <!-- Master -->
                         <div class="relative">
                             <span class="absolute -left-[37px] top-1.5 h-4 w-4 rounded-full bg-white border-2 border-slate-400"></span>
                             <div>
@@ -771,7 +757,6 @@
                             </div>
                         </div>
 
-                        <!-- Bachelor -->
                         <div class="relative">
                             <span class="absolute -left-[37px] top-1.5 h-4 w-4 rounded-full bg-white border-2 border-slate-400"></span>
                             <div>
@@ -783,6 +768,7 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
 
@@ -792,8 +778,6 @@
                         <i class="fas fa-briefcase text-slate-400"></i> <span data-i18n="work_title">Experience</span>
                     </h3>
                     <div class="space-y-8 relative border-l border-slate-200 ml-3 pl-8">
-
-                        <!-- Researcher -->
                         <div class="relative">
                             <span class="absolute -left-[37px] top-1.5 h-4 w-4 rounded-full bg-slate-900 border-2 border-slate-900"></span>
                             <div>
@@ -809,7 +793,6 @@
                             </div>
                         </div>
 
-                        <!-- Intern -->
                         <div class="relative">
                             <span class="absolute -left-[37px] top-1.5 h-4 w-4 rounded-full bg-white border-2 border-slate-400"></span>
                             <div>
@@ -826,7 +809,6 @@
                             </div>
                         </div>
 
-                        <!-- Quant -->
                         <div class="relative">
                             <span class="absolute -left-[37px] top-1.5 h-4 w-4 rounded-full bg-white border-2 border-slate-400"></span>
                             <div>
@@ -841,6 +823,7 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -866,7 +849,6 @@
             const langMenu = document.getElementById('langMenu');
             const langPill = document.getElementById('langPill');
 
-            // ---- i18n dictionary (edit freely) ----
             const i18n = {
                 en: {
                     nav_about: "About",
@@ -877,25 +859,27 @@
                     lang_label: "Language",
 
                     hero_ai_for: "AI for",
-                    // 修改1：第二行换为你给的更长内容（英文版我做了自然英文表达，含你列的要点）
-                    hero_desc_html:
-                        "Project Researcher at <strong>The University of Tokyo</strong>.<br>" +
-                        "Focusing on applying AI (tabular/time-series prediction & classification, object detection/recognition/tracking, PINNs, generative AI, LLMs, digital twins, multi-agent systems, optimization algorithms, etc.) " +
-                        "to fluid mechanics, two-phase flow, thermal-hydraulics, and nuclear engineering.",
 
-                    // 修改3：服务说明（英文）
+                    // ✅ 更好看的排版：主句 + 小一号“技能列表”一行
+                    hero_desc_html:
+                        "<div class='space-y-2'>" +
+                            "<div>Project Researcher at <strong>The University of Tokyo</strong>.</div>" +
+                            "<div>Applying AI to fluid mechanics, two-phase flow, thermal-hydraulics, and nuclear engineering.</div>" +
+                            "<div class='text-sm text-slate-500 leading-relaxed'>" +
+                                "Methods include tabular/time-series prediction & classification, object detection/recognition/tracking, PINNs, generative AI, LLMs, digital twins, multi-agent systems, optimization algorithms, and more." +
+                            "</div>" +
+                        "</div>",
+
                     hero_service_note:
                         "I’m available for paid consulting, manuscript polishing, coding support, and solution delivery — feel free to reach out.",
 
                     research_title: "Research Interests",
-                    // 修改4：短句
                     research_desc_html:
                         "AI for Science and Engineering." +
                         "<br><br><strong class='text-slate-800'>PhD Dissertation Title:</strong> Evaluation of an AI-Driven Framework for Nuclear Thermal-Hydraulic Modeling and Simulation",
                     phd_dissertation_btn: "PhD Dissertation",
                     phd_slides_btn: "PhD Slides",
 
-                    // 修改5：六个卡片
                     card1_title: "AI for Science",
                     card1_desc: "Data-driven modeling, surrogate learning, and scientific discovery for complex physical systems.",
 
@@ -1000,11 +984,7 @@
                     label_japan: "Japan",
                     label_china: "China",
 
-                    // 修改2：打字机只保留 Science / Engineering
-                    typewriter_phrases: [
-                        "Science.",
-                        "Engineering."
-                    ],
+                    typewriter_phrases: ["Science.", "Engineering."],
 
                     page_title: "Wen ZHOU | AI for Science Researcher",
                     page_desc: "Portfolio of Wen ZHOU, Researcher at The University of Tokyo focusing on AI for science and engineering."
@@ -1017,28 +997,28 @@
                     nav_experience: "教育与经历",
 
                     lang_label: "语言",
-
                     hero_ai_for: "AI for",
 
-                    // 修改1：中文版本按你给的内容组织为更顺的两行
+                    // ✅ 中文也做成：主句 + 应用领域 + 小一号方法列表
                     hero_desc_html:
-                        "东京大学 <strong>项目研究员</strong>。<br>" +
-                        "研究聚焦 AI（包括表格数据与信号的预测/分类、目标检测识别跟踪、PINNs、生成式 AI、LLM、数字孪生、多智能体、优化算法等）" +
-                        "在流体力学、两相流、热工水力学以及核工程中的应用。",
+                        "<div class='space-y-2'>" +
+                            "<div>东京大学 <strong>项目研究员</strong>。</div>" +
+                            "<div>研究聚焦 AI 在流体力学、两相流、热工水力学以及核工程中的应用。</div>" +
+                            "<div class='text-sm text-slate-500 leading-relaxed'>" +
+                                "涉及表格数据与信号的预测/分类、目标检测识别跟踪、PINNs、生成式 AI、LLM、数字孪生、多智能体、优化算法等。" +
+                            "</div>" +
+                        "</div>",
 
-                    // 修改3：中文服务说明（客气委婉）
                     hero_service_note:
                         "如有需要，我也可提供有偿咨询、论文/稿件润色修改、代码实现与工程支持，以及定制化解决方案交付；欢迎邮件联系。",
 
                     research_title: "研究兴趣",
-                    // 修改4：短句
                     research_desc_html:
                         "AI for Science and Engineering。" +
                         "<br><br><strong class='text-slate-800'>博士论文题目：</strong>Evaluation of an AI-Driven Framework for Nuclear Thermal-Hydraulic Modeling and Simulation",
                     phd_dissertation_btn: "博士论文",
                     phd_slides_btn: "博士答辩幻灯",
 
-                    // 修改5：六个卡片（中文）
                     card1_title: "AI for Science",
                     card1_desc: "面向复杂物理系统的数据驱动建模、替代模型与科学发现。",
 
@@ -1143,18 +1123,13 @@
                     label_japan: "日本",
                     label_china: "中国",
 
-                    // 修改2：打字机只保留 Science / Engineering（中文句号风格）
-                    typewriter_phrases: [
-                        "Science.",
-                        "Engineering."
-                    ],
+                    typewriter_phrases: ["Science.", "Engineering."],
 
                     page_title: "Wen ZHOU | AI for Science & Engineering",
                     page_desc: "Wen ZHOU 个人主页：研究 AI for Science and Engineering，面向流体力学、两相流、热工水力与核工程等方向。"
                 }
             };
 
-            // ---- helpers ----
             function setMeta(title, desc) {
                 if (title) document.title = title;
                 const metaDesc = document.querySelector('meta[name="description"]');
@@ -1180,13 +1155,11 @@
                 setMeta(dict.page_title, dict.page_desc);
             }
 
-            // ---- Typewriter (language-aware) ----
             let phraseIndex = 0;
             let charIndex = 0;
             let isDeleting = false;
             let typeSpeed = 100;
 
-            // default: localStorage -> browser -> en
             let currentLang = localStorage.getItem('site_lang');
             if (!currentLang) {
                 currentLang = (navigator.language || '').toLowerCase().startsWith('zh') ? 'zh' : 'en';
@@ -1226,7 +1199,6 @@
                 setTimeout(type, typeSpeed);
             }
 
-            // ---- Language dropdown behavior ----
             function openMenu() {
                 langMenu.classList.remove('hidden');
                 langMenuButton.setAttribute('aria-expanded', 'true');
@@ -1249,13 +1221,11 @@
                 closeMenu();
             }
 
-            // click button -> open/close
             langMenuButton.addEventListener('click', function(e) {
                 e.stopPropagation();
                 toggleMenu();
             });
 
-            // click menu item
             langMenu.querySelectorAll('[data-lang]').forEach(btn => {
                 btn.addEventListener('click', function(e) {
                     e.stopPropagation();
@@ -1263,17 +1233,14 @@
                 });
             });
 
-            // click outside -> close
             document.addEventListener('click', function() {
                 closeMenu();
             });
 
-            // esc -> close
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape') closeMenu();
             });
 
-            // ---- init ----
             applyI18n(currentLang);
             resetTypewriter();
             type();
