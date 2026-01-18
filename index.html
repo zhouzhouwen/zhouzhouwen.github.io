@@ -252,16 +252,20 @@
                         </p>
                     </div>
 
-                    <p class="mt-6 text-slate-600 max-w-lg text-lg leading-relaxed mx-auto md:mx-0 font-light" data-i18n-html="hero_desc_html">
+                    <!-- 修改1：Hero 文案（中英都有） -->
+                    <p class="mt-6 text-slate-600 max-w-xl text-lg leading-relaxed mx-auto md:mx-0 font-light" data-i18n-html="hero_desc_html">
                         Project Researcher at <strong>The University of Tokyo</strong>. <br>
-                        Focusing on the intersection of artificial intelligence and physical sciences (fluid dynamics, nuclear engineering, etc).
+                        Focusing on the intersection of AI and physical sciences (fluid dynamics, nuclear engineering, etc).
                     </p>
 
                     <div class="mt-6 md:hidden">
-                        <!-- TODO: 修改为你的常用联系邮箱 -->
                         <a href="mailto:philzhouwen@gmail.com" class="text-slate-600 hover:text-slate-900 font-mono text-sm border-b border-dotted border-slate-400">
                             philzhouwen@gmail.com
                         </a>
+                        <!-- 修改3：服务说明（移动端） -->
+                        <p class="mt-3 text-slate-500 text-xs leading-relaxed" data-i18n="hero_service_note">
+                            I’m available for paid consulting, manuscript polishing, coding support, and solution delivery — feel free to reach out.
+                        </p>
                     </div>
                 </div>
 
@@ -271,10 +275,13 @@
                         <img src="./avatar.jpg" alt="Wen ZHOU" class="w-full h-full object-cover">
                     </div>
                     <div class="mt-4 text-center hidden md:block">
-                        <!-- TODO: 同上，修改为你的常用邮箱 -->
                         <a href="mailto:philzhouwen@gmail.com" class="text-slate-500 hover:text-slate-900 font-mono text-sm flex items-center gap-2 transition-colors">
                             <i class="far fa-envelope"></i> philzhouwen@gmail.com
                         </a>
+                        <!-- 修改3：服务说明（桌面端） -->
+                        <p class="mt-2 text-slate-500 text-xs leading-relaxed max-w-[260px]" data-i18n="hero_service_note">
+                            I’m available for paid consulting, manuscript polishing, coding support, and solution delivery — feel free to reach out.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -288,9 +295,9 @@
                 Research Interests
             </h2>
 
-            <!-- TODO: 可根据需要修改研究兴趣简介 -->
+            <!-- 修改4：缩短为 AI for Science and Engineering（中英都有） -->
             <p class="text-slate-600 mb-6 text-lg leading-relaxed max-w-4xl" data-i18n-html="research_desc_html">
-                Development and advancement of artificial intelligence in fluid mechanics, two-phase flow, thermal hydraulic and nuclear engineering, including Data Drive AI, Physical informed AI, Generative AI and so on.
+                AI for Science and Engineering.
                 <br><br>
                 <strong class="text-slate-800">PhD Dissertation Title:</strong> Evaluation of an AI-Driven Framework for Nuclear Thermal-Hydraulic Modeling and Simulation
             </p>
@@ -305,59 +312,71 @@
                 </a>
             </div>
 
+            <!-- 修改5：填满 6 个部分（中英都有） -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Card 1 -->
+                <!-- 1 -->
                 <div class="academic-card p-6 rounded-lg">
                     <div class="h-10 w-10 bg-slate-100 rounded-lg flex items-center justify-center mb-4 text-slate-700">
                         <i class="fas fa-brain text-xl"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="card_ai_title">AI for Science</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed" data-i18n="card_ai_desc">
-                        Applying Data-Driven AI, Physics-Informed AI (PINNs), and Generative AI (GANs) to solve scientific problems.
+                    <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="card1_title">AI for Science</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed" data-i18n="card1_desc">
+                        Data-driven modeling, surrogate learning, and scientific discovery for complex physical systems.
                     </p>
                 </div>
 
-                <!-- Card 2 -->
+                <!-- 2 -->
                 <div class="academic-card p-6 rounded-lg">
                     <div class="h-10 w-10 bg-slate-100 rounded-lg flex items-center justify-center mb-4 text-slate-700">
-                        <i class="fas fa-water text-xl"></i>
+                        <i class="fas fa-gear text-xl"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="card_two_phase_title">Two-Phase Flow</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed" data-i18n="card_two_phase_desc">
-                        Advanced simulation and analysis of complex fluid dynamics and interface tracking methods.
+                    <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="card2_title">AI for Engineering</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed" data-i18n="card2_desc">
+                        Prediction, classification, optimization, and decision support for engineering workflows and experiments.
                     </p>
                 </div>
 
-                <!-- Card 3 -->
+                <!-- 3 -->
                 <div class="academic-card p-6 rounded-lg">
                     <div class="h-10 w-10 bg-slate-100 rounded-lg flex items-center justify-center mb-4 text-slate-700">
-                        <i class="fas fa-radiation text-xl"></i>
+                        <i class="fas fa-function text-xl"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="card_nuclear_title">Nuclear Engineering</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed" data-i18n="card_nuclear_desc">
-                        Safety analysis, thermal hydraulics, and radiation field reconstruction.
+                    <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="card3_title">AI for PDE</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed" data-i18n="card3_desc">
+                        Physics-informed learning (PINNs), operator learning (DeepONet), and fast PDE solvers for multiphysics.
                     </p>
                 </div>
 
-                <!-- Card 4 -->
+                <!-- 4 -->
                 <div class="academic-card p-6 rounded-lg">
                     <div class="h-10 w-10 bg-slate-100 rounded-lg flex items-center justify-center mb-4 text-slate-700">
-                        <i class="fas fa-flask text-xl"></i>
+                        <i class="fas fa-cubes text-xl"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="card_chem_env_title">Chemical & Env.</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed" data-i18n="card_chem_env_desc">
-                        Interdisciplinary research involving chemical processes and environmental monitoring.
+                    <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="card4_title">AI for Digital Twins</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed" data-i18n="card4_desc">
+                        Hybrid modeling, real-time calibration, and uncertainty-aware twins for monitoring and control.
                     </p>
                 </div>
 
-                <!-- Card 5 -->
+                <!-- 5 -->
                 <div class="academic-card p-6 rounded-lg">
                     <div class="h-10 w-10 bg-slate-100 rounded-lg flex items-center justify-center mb-4 text-slate-700">
                         <i class="fas fa-eye text-xl"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="card_cv_title">Computer Vision</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed" data-i18n="card_cv_desc">
-                        Object detection (YOLO), segmentation, and tracking for bubble analysis.
+                    <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="card5_title">AI for Vision</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed" data-i18n="card5_desc">
+                        Object detection, segmentation, and tracking for experiments (e.g., bubbles, boiling, interfaces).
+                    </p>
+                </div>
+
+                <!-- 6 -->
+                <div class="academic-card p-6 rounded-lg">
+                    <div class="h-10 w-10 bg-slate-100 rounded-lg flex items-center justify-center mb-4 text-slate-700">
+                        <i class="fas fa-robot text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="card6_title">AI for LLM & Agents</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed" data-i18n="card6_desc">
+                        LLMs, RAG, multi-agent workflows, and tool-using assistants for scientific & engineering productivity.
                     </p>
                 </div>
             </div>
@@ -858,25 +877,42 @@
                     lang_label: "Language",
 
                     hero_ai_for: "AI for",
-                    hero_desc_html: "Project Researcher at <strong>The University of Tokyo</strong>. <br>Focusing on the intersection of artificial intelligence and physical sciences (fluid dynamics, nuclear engineering, etc).",
+                    // 修改1：第二行换为你给的更长内容（英文版我做了自然英文表达，含你列的要点）
+                    hero_desc_html:
+                        "Project Researcher at <strong>The University of Tokyo</strong>.<br>" +
+                        "Focusing on applying AI (tabular/time-series prediction & classification, object detection/recognition/tracking, PINNs, generative AI, LLMs, digital twins, multi-agent systems, optimization algorithms, etc.) " +
+                        "to fluid mechanics, two-phase flow, thermal-hydraulics, and nuclear engineering.",
+
+                    // 修改3：服务说明（英文）
+                    hero_service_note:
+                        "I’m available for paid consulting, manuscript polishing, coding support, and solution delivery — feel free to reach out.",
 
                     research_title: "Research Interests",
+                    // 修改4：短句
                     research_desc_html:
-                        "Development and advancement of artificial intelligence in fluid mechanics, two-phase flow, thermal hydraulic and nuclear engineering, including Data Drive AI, Physical informed AI, Generative AI and so on." +
+                        "AI for Science and Engineering." +
                         "<br><br><strong class='text-slate-800'>PhD Dissertation Title:</strong> Evaluation of an AI-Driven Framework for Nuclear Thermal-Hydraulic Modeling and Simulation",
                     phd_dissertation_btn: "PhD Dissertation",
                     phd_slides_btn: "PhD Slides",
 
-                    card_ai_title: "AI for Science",
-                    card_ai_desc: "Applying Data-Driven AI, Physics-Informed AI (PINNs), and Generative AI (GANs) to solve scientific problems.",
-                    card_two_phase_title: "Two-Phase Flow",
-                    card_two_phase_desc: "Advanced simulation and analysis of complex fluid dynamics and interface tracking methods.",
-                    card_nuclear_title: "Nuclear Engineering",
-                    card_nuclear_desc: "Safety analysis, thermal hydraulics, and radiation field reconstruction.",
-                    card_chem_env_title: "Chemical & Env.",
-                    card_chem_env_desc: "Interdisciplinary research involving chemical processes and environmental monitoring.",
-                    card_cv_title: "Computer Vision",
-                    card_cv_desc: "Object detection (YOLO), segmentation, and tracking for bubble analysis.",
+                    // 修改5：六个卡片
+                    card1_title: "AI for Science",
+                    card1_desc: "Data-driven modeling, surrogate learning, and scientific discovery for complex physical systems.",
+
+                    card2_title: "AI for Engineering",
+                    card2_desc: "Prediction, classification, optimization, and decision support for engineering workflows and experiments.",
+
+                    card3_title: "AI for PDE",
+                    card3_desc: "Physics-informed learning (PINNs), operator learning (DeepONet), and fast PDE solvers for multiphysics.",
+
+                    card4_title: "AI for Digital Twins",
+                    card4_desc: "Hybrid modeling, real-time calibration, and uncertainty-aware twins for monitoring and control.",
+
+                    card5_title: "AI for Vision",
+                    card5_desc: "Object detection, segmentation, and tracking for experiments (e.g., bubbles, boiling, interfaces).",
+
+                    card6_title: "AI for LLM & Agents",
+                    card6_desc: "LLMs, RAG, multi-agent workflows, and tool-using assistants for scientific & engineering productivity.",
 
                     pubs_title: "Publications",
                     label_paper: "Paper",
@@ -964,17 +1000,14 @@
                     label_japan: "Japan",
                     label_china: "China",
 
+                    // 修改2：打字机只保留 Science / Engineering
                     typewriter_phrases: [
                         "Science.",
-                        "Fluid Dynamics.",
-                        "Nuclear Engineering.",
-                        "Chemistry.",
-                        "Environment.",
-                        "Two-phase Flow."
+                        "Engineering."
                     ],
 
                     page_title: "Wen ZHOU | AI for Science Researcher",
-                    page_desc: "Portfolio of Wen ZHOU, Researcher at The University of Tokyo specializing in AI for Science, Fluid Dynamics, and Nuclear Engineering."
+                    page_desc: "Portfolio of Wen ZHOU, Researcher at The University of Tokyo focusing on AI for science and engineering."
                 },
 
                 zh: {
@@ -986,25 +1019,43 @@
                     lang_label: "语言",
 
                     hero_ai_for: "AI for",
-                    hero_desc_html: "东京大学 <strong>项目研究员</strong>。<br>研究方向聚焦人工智能与物理科学交叉（流体力学、核工程等）。",
+
+                    // 修改1：中文版本按你给的内容组织为更顺的两行
+                    hero_desc_html:
+                        "东京大学 <strong>项目研究员</strong>。<br>" +
+                        "研究聚焦 AI（包括表格数据与信号的预测/分类、目标检测识别跟踪、PINNs、生成式 AI、LLM、数字孪生、多智能体、优化算法等）" +
+                        "在流体力学、两相流、热工水力学以及核工程中的应用。",
+
+                    // 修改3：中文服务说明（客气委婉）
+                    hero_service_note:
+                        "如有需要，我也可提供有偿咨询、论文/稿件润色修改、代码实现与工程支持，以及定制化解决方案交付；欢迎邮件联系。",
 
                     research_title: "研究兴趣",
+                    // 修改4：短句
                     research_desc_html:
-                        "致力于推动人工智能在流体力学、两相流、热工水力与核工程中的发展与应用，包括数据驱动 AI、物理约束/物理启发 AI（PINNs）、生成式 AI 等。" +
-                        "<br><br><strong class='text-slate-800'>博士论文题目：</strong>核热工水力建模与仿真的 AI 驱动框架评估",
+                        "AI for Science and Engineering。" +
+                        "<br><br><strong class='text-slate-800'>博士论文题目：</strong>Evaluation of an AI-Driven Framework for Nuclear Thermal-Hydraulic Modeling and Simulation",
                     phd_dissertation_btn: "博士论文",
                     phd_slides_btn: "博士答辩幻灯",
 
-                    card_ai_title: "AI for Science",
-                    card_ai_desc: "使用数据驱动 AI、物理约束 AI（PINNs）与生成式 AI（GANs）解决科学计算与建模问题。",
-                    card_two_phase_title: "两相流",
-                    card_two_phase_desc: "复杂流体动力学与界面追踪方法的先进模拟与分析。",
-                    card_nuclear_title: "核工程",
-                    card_nuclear_desc: "安全分析、热工水力与辐射场重建。",
-                    card_chem_env_title: "化学与环境",
-                    card_chem_env_desc: "化学过程与环境监测相关的交叉研究。",
-                    card_cv_title: "计算机视觉",
-                    card_cv_desc: "用于气泡分析的目标检测（YOLO）、分割与跟踪。",
+                    // 修改5：六个卡片（中文）
+                    card1_title: "AI for Science",
+                    card1_desc: "面向复杂物理系统的数据驱动建模、替代模型与科学发现。",
+
+                    card2_title: "AI for Engineering",
+                    card2_desc: "面向工程流程与实验的预测/分类、优化设计与决策支持。",
+
+                    card3_title: "AI for PDE",
+                    card3_desc: "PINNs、DeepONet 等算子学习与快速 PDE 求解，用于多物理场问题。",
+
+                    card4_title: "AI for Digital Twins",
+                    card4_desc: "混合建模、在线校准与不确定性量化的数字孪生，用于监测与控制。",
+
+                    card5_title: "AI for Vision",
+                    card5_desc: "目标检测、分割与跟踪，用于实验观测（气泡、沸腾、界面等）。",
+
+                    card6_title: "AI for LLM & Agents",
+                    card6_desc: "LLM、RAG、多智能体工作流与工具调用助手，提升科研/工程效率。",
 
                     pubs_title: "论文发表",
                     label_paper: "论文",
@@ -1092,17 +1143,14 @@
                     label_japan: "日本",
                     label_china: "中国",
 
+                    // 修改2：打字机只保留 Science / Engineering（中文句号风格）
                     typewriter_phrases: [
-                        "科学。",
-                        "流体力学。",
-                        "核工程。",
-                        "化学。",
-                        "环境。",
-                        "两相流。"
+                        "Science.",
+                        "Engineering."
                     ],
 
-                    page_title: "Wen ZHOU | AI for Science 研究者",
-                    page_desc: "Wen ZHOU 个人主页：东京大学研究员，研究 AI for Science、流体力学与核工程等方向。"
+                    page_title: "Wen ZHOU | AI for Science & Engineering",
+                    page_desc: "Wen ZHOU 个人主页：研究 AI for Science and Engineering，面向流体力学、两相流、热工水力与核工程等方向。"
                 }
             };
 
