@@ -328,7 +328,7 @@
                             <i class="far fa-envelope"></i> philzhouwen@gmail.com
                         </a>
                         <p class="mt-3 text-slate-500 text-xs leading-relaxed max-w-[340px]" data-i18n="hero_service_note">
-                            I’m available for paid consulting, manuscript polishing, coding support, and solution delivery — feel free to reach out.
+                            I’m available for paid consulting, funding proposal, manuscript polishing, coding support, and solution delivery — feel free to reach out.
                         </p>
                     </div>
                 </div>
@@ -932,23 +932,34 @@
 
                     hero_ai_for: "AI for",
 
-                    // ✅ 更突出：callout + 多色 chips（英文）
+
                     hero_desc_html:
-                        "<div class='hero-callout'>" +
+                         "<div class='hero-callout'>" +
                             "<div class='headline'>Project Researcher at <strong>The University of Tokyo</strong>.</div>" +
                             "<div class='subline mt-1'>Applying AI to fluid mechanics, two-phase flow, thermal-hydraulics, and nuclear engineering.</div>" +
-                            "<div class='chip-wrap'>" +
-                                "<span class='chip chip-blue'><i class='fa-solid fa-table'></i> Tabular</span>" +
-                                "<span class='chip chip-green'><i class='fa-solid fa-wave-square'></i> Time-series</span>" +
-                                "<span class='chip chip-purple'><i class='fa-solid fa-eye'></i> Computer Vision</span>" +
-                                "<span class='chip chip-orange'><i class='fa-solid fa-bolt'></i> PINNs</span>" +
-                                "<span class='chip chip-yellow'><i class='fa-solid fa-wand-magic-sparkles'></i> Generative AI</span>" +
-                                "<span class='chip chip-slate'><i class='fa-solid fa-robot'></i> LLMs & RAG</span>" +
-                                "<span class='chip chip-blue'><i class='fa-solid fa-cubes'></i> Digital Twins</span>" +
-                                "<span class='chip chip-green'><i class='fa-solid fa-people-arrows'></i> Multi-agent</span>" +
-                                "<span class='chip chip-purple'><i class='fa-solid fa-chart-line'></i> Optimization</span>" +
-                            "</div>" +
-                        "</div>",
+
+                                // Row 1: Data
+                                "<div class='mt-3 text-xs font-mono text-slate-500'>I can work with</div>" +
+                                "<div class='chip-wrap'>" +
+                                  "<span class='chip chip-blue'><i class='fa-solid fa-table'></i> Tabular</span>" +
+                                  "<span class='chip chip-green'><i class='fa-solid fa-wave-square'></i> Time-series</span>" +
+                                  "<span class='chip chip-purple'><i class='fa-solid fa-image'></i> Images</span>" +
+                                  "<span class='chip chip-orange'><i class='fa-solid fa-video'></i> Videos</span>" +
+                                  "<span class='chip chip-slate'><i class='fa-solid fa-font'></i> Text</span>" +
+                                "</div>" +
+
+                                // Row 2: Methods
+                                "<div class='mt-3 text-xs font-mono text-slate-500'>Methods</div>" +
+                                "<div class='chip-wrap'>" +
+                                  "<span class='chip chip-purple'><i class='fa-solid fa-eye'></i> CV</span>" +
+                                  "<span class='chip chip-orange'><i class='fa-solid fa-bolt'></i> PINNs / DeepONet</span>" +
+                                  "<span class='chip chip-yellow'><i class='fa-solid fa-wand-magic-sparkles'></i> Generative AI</span>" +
+                                  "<span class='chip chip-slate'><i class='fa-solid fa-robot'></i> LLMs / RAG</span>" +
+                                  "<span class='chip chip-blue'><i class='fa-solid fa-cubes'></i> Digital Twins</span>" +
+                                  "<span class='chip chip-green'><i class='fa-solid fa-people-arrows'></i> Multi-agent</span>" +
+                                  "<span class='chip chip-purple'><i class='fa-solid fa-chart-line'></i> Optimization</span>" +
+                                "</div>" +
+                         "</div>",
 
                     // ✅ 英文更自然，并补上“定制化”
                     hero_service_note:
@@ -1082,25 +1093,36 @@
 
                     // ✅ 更突出：callout + 多色 chips（中文）
                     hero_desc_html:
-                        "<div class='hero-callout'>" +
-                            "<div class='headline'>东京大学 <strong>项目研究员</strong>。</div>" +
-                            "<div class='subline mt-1'>研究聚焦 AI 在流体力学、两相流、热工水力学以及核工程中的应用。</div>" +
-                            "<div class='chip-wrap'>" +
-                                "<span class='chip chip-blue'><i class='fa-solid fa-table'></i> 表格数据</span>" +
-                                "<span class='chip chip-green'><i class='fa-solid fa-wave-square'></i> 时序信号</span>" +
-                                "<span class='chip chip-purple'><i class='fa-solid fa-eye'></i> 计算机视觉</span>" +
-                                "<span class='chip chip-orange'><i class='fa-solid fa-bolt'></i> PINNs</span>" +
-                                "<span class='chip chip-yellow'><i class='fa-solid fa-wand-magic-sparkles'></i> 生成式 AI</span>" +
-                                "<span class='chip chip-slate'><i class='fa-solid fa-robot'></i> LLMs / RAG</span>" +
-                                "<span class='chip chip-blue'><i class='fa-solid fa-cubes'></i> 数字孪生</span>" +
-                                "<span class='chip chip-green'><i class='fa-solid fa-people-arrows'></i> 多智能体</span>" +
-                                "<span class='chip chip-purple'><i class='fa-solid fa-chart-line'></i> 优化算法</span>" +
-                            "</div>" +
-                        "</div>",
+                      "<div class='hero-callout'>" +
+                        "<div class='headline'>东京大学 <strong>项目研究员</strong>。</div>" +
+                        "<div class='subline mt-1'>研究聚焦 AI 在流体力学、两相流、热工水力学以及核工程中的应用。</div>" +
+
+                        // Row 1: Data
+                        "<div class='mt-3 text-xs font-mono text-slate-500'>可处理数据</div>" +
+                        "<div class='chip-wrap'>" +
+                          "<span class='chip chip-blue'><i class='fa-solid fa-table'></i> 表格数据</span>" +
+                          "<span class='chip chip-green'><i class='fa-solid fa-wave-square'></i> 时序数据</span>" +
+                          "<span class='chip chip-purple'><i class='fa-solid fa-image'></i> 图像数据</span>" +
+                          "<span class='chip chip-orange'><i class='fa-solid fa-video'></i> 视频数据</span>" +
+                          "<span class='chip chip-slate'><i class='fa-solid fa-font'></i> 文本数据</span>" +
+                        "</div>" +
+
+                        // Row 2: Methods
+                        "<div class='mt-3 text-xs font-mono text-slate-500'>方法</div>" +
+                        "<div class='chip-wrap'>" +
+                          "<span class='chip chip-purple'><i class='fa-solid fa-eye'></i> 计算机视觉</span>" +
+                          "<span class='chip chip-orange'><i class='fa-solid fa-bolt'></i> PINNs / DeepONet</span>" +
+                          "<span class='chip chip-yellow'><i class='fa-solid fa-wand-magic-sparkles'></i> 生成式 AI</span>" +
+                          "<span class='chip chip-slate'><i class='fa-solid fa-robot'></i> LLM / RAG</span>" +
+                          "<span class='chip chip-blue'><i class='fa-solid fa-cubes'></i> 数字孪生</span>" +
+                          "<span class='chip chip-green'><i class='fa-solid fa-people-arrows'></i> 多智能体</span>" +
+                          "<span class='chip chip-purple'><i class='fa-solid fa-chart-line'></i> 优化算法</span>" +
+                        "</div>" +
+                      "</div>",
 
                     // 中文可微调更顺：强调“定制化解决方案交付”
                     hero_service_note:
-                        "如有需要，我也可提供有偿咨询、论文/稿件润色修改、代码实现与工程支持，以及定制化解决方案交付；欢迎邮件联系。",
+                        "如有需要，我也可提供有偿咨询、基金项目本子、论文/稿件润色修改、代码实现与工程支持，以及定制化解决方案交付；欢迎邮件联系。",
 
                     research_title: "研究兴趣",
                     research_desc_html:
