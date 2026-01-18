@@ -122,6 +122,35 @@
             transform: scaleX(1);
             transform-origin: bottom left;
         }
+
+        /* Language Toggle Button */
+        .lang-btn {
+            border: 1px solid #e5e7eb;
+            background: #fff;
+            color: #334155;
+            padding: 6px 10px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: .02em;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all .2s ease;
+        }
+        .lang-btn:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+            color: #0f172a;
+        }
+        .lang-pill {
+            font-family: 'Fira Code', monospace;
+            font-size: 11px;
+            padding: 2px 6px;
+            border-radius: 999px;
+            background: #0f172a;
+            color: #fff;
+        }
     </style>
 </head>
 
@@ -138,16 +167,23 @@
 
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#about" class="text-sm font-medium text-slate-600 hover:text-slate-900 link-hover">About</a>
-                        <a href="#research" class="text-sm font-medium text-slate-600 hover:text-slate-900 link-hover">Research</a>
-                        <a href="#publications" class="text-sm font-medium text-slate-600 hover:text-slate-900 link-hover">Publications</a>
-                        <a href="#experience" class="text-sm font-medium text-slate-600 hover:text-slate-900 link-hover">Education & Experience</a>
+                        <a href="#about" class="text-sm font-medium text-slate-600 hover:text-slate-900 link-hover" data-i18n="nav_about">About</a>
+                        <a href="#research" class="text-sm font-medium text-slate-600 hover:text-slate-900 link-hover" data-i18n="nav_research">Research</a>
+                        <a href="#publications" class="text-sm font-medium text-slate-600 hover:text-slate-900 link-hover" data-i18n="nav_publications">Publications</a>
+                        <a href="#experience" class="text-sm font-medium text-slate-600 hover:text-slate-900 link-hover" data-i18n="nav_experience">Education & Experience</a>
                     </div>
                 </div>
 
-                <div>
+                <div class="flex items-center gap-3">
+                    <!-- Language Toggle -->
+                    <button id="langToggle" class="lang-btn" type="button" aria-label="Toggle language">
+                        <i class="fas fa-language"></i>
+                        <span data-i18n="lang_label">Language</span>
+                        <span id="langPill" class="lang-pill">EN</span>
+                    </button>
+
                     <!-- TODO: 修改为你的 GitHub 链接 -->
-                    <a href="https://github.com/zhouzhouwen" target="_blank" class="text-slate-500 hover:text-slate-900 transition-colors">
+                    <a href="https://github.com/zhouzhouwen" target="_blank" class="text-slate-500 hover:text-slate-900 transition-colors" aria-label="GitHub">
                         <i class="fab fa-github text-2xl"></i>
                     </a>
                 </div>
@@ -166,10 +202,12 @@
                     </h1>
                     <div class="h-16 flex flex-col justify-center">
                         <p class="text-xl md:text-2xl text-slate-600 font-mono">
-                            AI for <span id="typewriter" class="font-bold text-slate-900 border-b-2 border-slate-900 pb-1"></span><span class="cursor"></span>
+                            <span data-i18n="hero_ai_for">AI for</span>
+                            <span id="typewriter" class="font-bold text-slate-900 border-b-2 border-slate-900 pb-1"></span><span class="cursor"></span>
                         </p>
                     </div>
-                    <p class="mt-6 text-slate-600 max-w-lg text-lg leading-relaxed mx-auto md:mx-0 font-light">
+
+                    <p class="mt-6 text-slate-600 max-w-lg text-lg leading-relaxed mx-auto md:mx-0 font-light" data-i18n-html="hero_desc_html">
                         Project Researcher at <strong>The University of Tokyo</strong>. <br>
                         Focusing on the intersection of artificial intelligence and physical sciences (fluid dynamics, nuclear engineering, etc).
                     </p>
@@ -201,12 +239,12 @@
     <!-- Research Interests -->
     <section id="research" class="py-20 border-t border-slate-100 bg-slate-50">
         <div class="max-w-5xl mx-auto px-6">
-            <h2 class="text-2xl font-bold mb-6 text-slate-900 border-l-4 border-slate-900 pl-4">
+            <h2 class="text-2xl font-bold mb-6 text-slate-900 border-l-4 border-slate-900 pl-4" data-i18n="research_title">
                 Research Interests
             </h2>
 
             <!-- TODO: 可根据需要修改研究兴趣简介 -->
-            <p class="text-slate-600 mb-6 text-lg leading-relaxed max-w-4xl">
+            <p class="text-slate-600 mb-6 text-lg leading-relaxed max-w-4xl" data-i18n-html="research_desc_html">
                 Development and advancement of artificial intelligence in fluid mechanics, two-phase flow, thermal hydraulic and nuclear engineering, including Data Drive AI, Physical informed AI, Generative AI and so on.
                 <br><br>
                 <strong class="text-slate-800">PhD Dissertation Title:</strong> Evaluation of an AI-Driven Framework for Nuclear Thermal-Hydraulic Modeling and Simulation
@@ -216,11 +254,11 @@
             <div class="flex flex-wrap gap-4 mb-10">
                 <!-- TODO: 将 # 替换为博士论文 PDF 链接 -->
                 <a href="https://zenodo.org/records/17720695" class="inline-flex items-center gap-2 px-5 py-2.5 bg-slate-900 text-white rounded-md hover:bg-slate-700 transition-all shadow-sm text-sm font-medium">
-                    <i class="fas fa-file-pdf"></i> PhD Dissertation
+                    <i class="fas fa-file-pdf"></i> <span data-i18n="phd_dissertation_btn">PhD Dissertation</span>
                 </a>
                 <!-- TODO: 将 # 替换为答辩 PPT 链接 -->
                 <a href="https://zenodo.org/records/17720695" class="inline-flex items-center gap-2 px-5 py-2.5 border border-slate-300 text-slate-700 bg-white rounded-md hover:bg-slate-50 transition-all shadow-sm text-sm font-medium">
-                    <i class="fas fa-file-powerpoint text-orange-600"></i> PhD Slides
+                    <i class="fas fa-file-powerpoint text-orange-600"></i> <span data-i18n="phd_slides_btn">PhD Slides</span>
                 </a>
             </div>
 
@@ -230,8 +268,10 @@
                     <div class="h-10 w-10 bg-slate-100 rounded-lg flex items-center justify-center mb-4 text-slate-700">
                         <i class="fas fa-brain text-xl"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-slate-900 mb-2">AI for Science</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">Applying Data-Driven AI, Physics-Informed AI (PINNs), and Generative AI (GANs) to solve scientific problems.</p>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="card_ai_title">AI for Science</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed" data-i18n="card_ai_desc">
+                        Applying Data-Driven AI, Physics-Informed AI (PINNs), and Generative AI (GANs) to solve scientific problems.
+                    </p>
                 </div>
 
                 <!-- Card 2 -->
@@ -239,8 +279,10 @@
                     <div class="h-10 w-10 bg-slate-100 rounded-lg flex items-center justify-center mb-4 text-slate-700">
                         <i class="fas fa-water text-xl"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-slate-900 mb-2">Two-Phase Flow</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">Advanced simulation and analysis of complex fluid dynamics and interface tracking methods.</p>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="card_two_phase_title">Two-Phase Flow</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed" data-i18n="card_two_phase_desc">
+                        Advanced simulation and analysis of complex fluid dynamics and interface tracking methods.
+                    </p>
                 </div>
 
                 <!-- Card 3 -->
@@ -248,8 +290,10 @@
                     <div class="h-10 w-10 bg-slate-100 rounded-lg flex items-center justify-center mb-4 text-slate-700">
                         <i class="fas fa-radiation text-xl"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-slate-900 mb-2">Nuclear Engineering</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">Safety analysis, thermal hydraulics, and radiation field reconstruction.</p>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="card_nuclear_title">Nuclear Engineering</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed" data-i18n="card_nuclear_desc">
+                        Safety analysis, thermal hydraulics, and radiation field reconstruction.
+                    </p>
                 </div>
 
                 <!-- Card 4 -->
@@ -257,8 +301,10 @@
                     <div class="h-10 w-10 bg-slate-100 rounded-lg flex items-center justify-center mb-4 text-slate-700">
                         <i class="fas fa-flask text-xl"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-slate-900 mb-2">Chemical & Env.</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">Interdisciplinary research involving chemical processes and environmental monitoring.</p>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="card_chem_env_title">Chemical & Env.</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed" data-i18n="card_chem_env_desc">
+                        Interdisciplinary research involving chemical processes and environmental monitoring.
+                    </p>
                 </div>
 
                 <!-- Card 5 -->
@@ -266,8 +312,10 @@
                     <div class="h-10 w-10 bg-slate-100 rounded-lg flex items-center justify-center mb-4 text-slate-700">
                         <i class="fas fa-eye text-xl"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-slate-900 mb-2">Computer Vision</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">Object detection (YOLO), segmentation, and tracking for bubble analysis.</p>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="card_cv_title">Computer Vision</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed" data-i18n="card_cv_desc">
+                        Object detection (YOLO), segmentation, and tracking for bubble analysis.
+                    </p>
                 </div>
             </div>
         </div>
@@ -276,7 +324,7 @@
     <!-- Publications -->
     <section id="publications" class="py-20 border-t border-slate-100">
         <div class="max-w-5xl mx-auto px-6">
-            <h2 class="text-2xl font-bold mb-8 text-slate-900 border-l-4 border-slate-900 pl-4">
+            <h2 class="text-2xl font-bold mb-8 text-slate-900 border-l-4 border-slate-900 pl-4" data-i18n="pubs_title">
                 Publications
             </h2>
 
@@ -284,51 +332,43 @@
                 <!-- Pub 1 -->
                 <div class="academic-card p-6 rounded-lg">
                     <div class="flex flex-col sm:flex-row gap-3 sm:items-center justify-between mb-2">
-                        <div class="flex gap-2">
-                            <!-- 使用颜色命名的标签类 -->
-                            <span class="tag tag-blue">Generative AI</span>
-                            <span class="tag tag-green">Fluid Dynamics</span>
-                            <span class="tag tag-purple">Bubbly Flow</span>
-                            <span class="tag tag-orange">Image Generation Model</span>
-                            <span class="tag tag-yellow">GAN</span>
+                        <div class="flex gap-2 flex-wrap">
+                            <span class="tag tag-blue" data-i18n="tag_generative_ai">Generative AI</span>
+                            <span class="tag tag-green" data-i18n="tag_fluid_dynamics">Fluid Dynamics</span>
+                            <span class="tag tag-purple" data-i18n="tag_bubbly_flow">Bubbly Flow</span>
+                            <span class="tag tag-orange" data-i18n="tag_image_generation_model">Image Generation Model</span>
+                            <span class="tag tag-yellow" data-i18n="tag_gan">GAN</span>
                         </div>
-                        <span class="text-xs font-mono text-slate-500"> AI Thermal Fluids; Under Review (2025)</span>
+                        <span class="text-xs font-mono text-slate-500" data-i18n="venue_pub1">AI Thermal Fluids; Under Review (2025)</span>
                     </div>
                     <h3 class="text-lg font-bold text-slate-900 leading-tight flex items-center">
-                        <!-- TODO: 论文标题，如需修改可直接改这里的文字 -->
                         BF-GAN: Development of an AI-driven Bubbly Flow Image Generation Model Using Bubbly Generative Adversarial Networks
-                        <!-- TODO: 将 # 替换为论文链接 -->
                         <a href="#" class="ml-2 text-slate-400 hover:text-slate-700" title="Paper link">
                             <i class="fas fa-file-alt"></i>
                         </a>
                     </h3>
                     <p class="text-sm text-slate-600 mt-2">
-                        <!-- 只保留作者信息 -->
                         Zhou, W., Miwa, S., Liu, Y., & Okamoto, K.
                     </p>
                     <div class="mt-4 flex gap-4 text-xs font-medium font-mono">
-                        <!-- TODO: 如果代码仓库地址有变化，可以在这里修改 -->
-                        <a href="https://github.com/zhouzhouwen/BF-GAN" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fab fa-github"></i> Code</a>
-                        <!-- TODO: 数据集链接也可以在这里修改 -->
-                        <a href="https://data.mendeley.com/datasets/gtbcrhdnrh/1" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fas fa-database"></i> Dataset</a>
+                        <a href="https://github.com/zhouzhouwen/BF-GAN" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fab fa-github"></i> <span data-i18n="label_code">Code</span></a>
+                        <a href="https://data.mendeley.com/datasets/gtbcrhdnrh/1" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fas fa-database"></i> <span data-i18n="label_dataset">Dataset</span></a>
                     </div>
                 </div>
-
 
                 <!-- Pub 5 -->
                 <div class="academic-card p-6 rounded-lg">
                     <div class="flex flex-col sm:flex-row gap-3 sm:items-center justify-between mb-2">
-                        <div class="flex gap-2">
-                            <span class="tag tag-blue">Thermal Hydraulic</span>
-                            <span class="tag tag-green">Subcooled Flow Boiling</span>
-                            <span class="tag tag-purple">Feature Extraction</span>
-                            <span class="tag tag-orange">Object Detection and Tracking</span>
+                        <div class="flex gap-2 flex-wrap">
+                            <span class="tag tag-blue" data-i18n="tag_thermal_hydraulic">Thermal Hydraulic</span>
+                            <span class="tag tag-green" data-i18n="tag_subcooled_flow_boiling">Subcooled Flow Boiling</span>
+                            <span class="tag tag-purple" data-i18n="tag_feature_extraction">Feature Extraction</span>
+                            <span class="tag tag-orange" data-i18n="tag_object_detection_tracking">Object Detection and Tracking</span>
                         </div>
-                        <span class="text-xs font-mono text-slate-500">Intl. J. of Multiphase Flow (2025)</span>
+                        <span class="text-xs font-mono text-slate-500" data-i18n="venue_pub5">Intl. J. of Multiphase Flow (2025)</span>
                     </div>
                     <h3 class="text-lg font-bold text-slate-900 leading-tight flex items-center">
                         Development of the AI-Assisted Thermal Hydraulic Analysis Method for Condensing Bubbles in Vertical Subcooled Flow Boiling
-                        <!-- TODO: 替换为该论文链接 -->
                         <a href="https://www.sciencedirect.com/science/article/pii/S0301932225001247" class="ml-2 text-slate-400 hover:text-slate-700" title="Paper link">
                             <i class="fas fa-file-alt"></i>
                         </a>
@@ -337,25 +377,24 @@
                         Zhou, W., Miwa, S., Tsujimura, R., Nguyen, T. B., Okawa, T., & Okamoto, K.
                     </p>
                     <div class="mt-4 flex gap-4 text-xs font-medium font-mono">
-                        <a href="https://github.com/zhouzhouwen/The-Robust-Development-of-a-TH-Analysis-Method-for-Bubbles-Using-AI" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fab fa-github"></i> Code</a>
-                        <a href="https://data.mendeley.com/datasets/p5zskggvwx/1" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fas fa-database"></i> Dataset</a>
+                        <a href="https://github.com/zhouzhouwen/The-Robust-Development-of-a-TH-Analysis-Method-for-Bubbles-Using-AI" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fab fa-github"></i> <span data-i18n="label_code">Code</span></a>
+                        <a href="https://data.mendeley.com/datasets/p5zskggvwx/1" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fas fa-database"></i> <span data-i18n="label_dataset">Dataset</span></a>
                     </div>
                 </div>
 
                 <!-- Pub 2 -->
                 <div class="academic-card p-6 rounded-lg">
                     <div class="flex flex-col sm:flex-row gap-3 sm:items-center justify-between mb-2">
-                        <div class="flex gap-2">
-                            <span class="tag tag-blue">Physics-informed neural networks</span>
-                            <span class="tag tag-green">Navier-Stokes equations</span>
-                            <span class="tag tag-orange">Fluid dynamic analysis</span>
-                            <span class="tag tag-yellow">Low Re number</span>
+                        <div class="flex gap-2 flex-wrap">
+                            <span class="tag tag-blue" data-i18n="tag_pinns">Physics-informed neural networks</span>
+                            <span class="tag tag-green" data-i18n="tag_navier_stokes">Navier-Stokes equations</span>
+                            <span class="tag tag-orange" data-i18n="tag_fluid_dynamic_analysis">Fluid dynamic analysis</span>
+                            <span class="tag tag-yellow" data-i18n="tag_low_re">Low Re number</span>
                         </div>
-                        <span class="text-xs font-mono text-slate-500">Physics of Fluids (2024)</span>
+                        <span class="text-xs font-mono text-slate-500" data-i18n="venue_pub2">Physics of Fluids (2024)</span>
                     </div>
                     <h3 class="text-lg font-bold text-slate-900 leading-tight flex items-center">
                         Advancing fluid dynamics simulations: A comprehensive approach to optimizing physics-informed neural networks
-                        <!-- TODO: 替换为该论文链接 -->
                         <a href="https://pubs.aip.org/aip/pof/article-abstract/36/1/013615/3023015/Advancing-fluid-dynamics-simulations-A?redirectedFrom=fulltext" class="ml-2 text-slate-400 hover:text-slate-700" title="Paper link">
                             <i class="fas fa-file-alt"></i>
                         </a>
@@ -364,27 +403,24 @@
                         Zhou, W., Miwa, S., & Okamoto, K.
                     </p>
                     <div class="mt-4 flex gap-4 text-xs font-medium font-mono">
-                        <!-- TODO: 如有代码仓库可更新链接 -->
-                        <a href="https://github.com/zhouzhouwen/An-improved-PINNs-with-the-adaptive-weight-sampling-and-DE-algorithm" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fab fa-github"></i> Code</a>
-                        <!-- TODO: 如有数据集可更新链接 -->
-                        <a href="#" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fas fa-database"></i> Public Dataset</a>
+                        <a href="https://github.com/zhouzhouwen/An-improved-PINNs-with-the-adaptive-weight-sampling-and-DE-algorithm" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fab fa-github"></i> <span data-i18n="label_code">Code</span></a>
+                        <a href="#" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fas fa-database"></i> <span data-i18n="label_public_dataset">Public Dataset</span></a>
                     </div>
                 </div>
 
                 <!-- Pub 3 -->
                 <div class="academic-card p-6 rounded-lg">
                     <div class="flex flex-col sm:flex-row gap-3 sm:items-center justify-between mb-2">
-                        <div class="flex gap-2">
-                            <span class="tag tag-blue">Physics-informed neural networks</span>
-                            <span class="tag tag-green">Interface Tracking Methods</span>
-                            <span class="tag tag-purple">Two-Phase Flow</span>
-                            <span class="tag tag-orange">Bubble Dynamics</span>
+                        <div class="flex gap-2 flex-wrap">
+                            <span class="tag tag-blue" data-i18n="tag_pinns">Physics-informed neural networks</span>
+                            <span class="tag tag-green" data-i18n="tag_interface_tracking">Interface Tracking Methods</span>
+                            <span class="tag tag-purple" data-i18n="tag_two_phase_flow">Two-Phase Flow</span>
+                            <span class="tag tag-orange" data-i18n="tag_bubble_dynamics">Bubble Dynamics</span>
                         </div>
-                        <span class="text-xs font-mono text-slate-500">Physics of Fluids (2024)</span>
+                        <span class="text-xs font-mono text-slate-500" data-i18n="venue_pub3">Physics of Fluids (2024)</span>
                     </div>
                     <h3 class="text-lg font-bold text-slate-900 leading-tight flex items-center">
                         Self-adaptive and time divide-and-conquer physics-informed neural networks for two-phase flow simulations using interface tracking methods
-                        <!-- TODO: 替换为该论文链接 -->
                         <a href="https://pubs.aip.org/aip/pof/article-abstract/36/7/073305/3300833/Self-adaptive-and-time-divide-and-conquer-physics?redirectedFrom=PDF" class="ml-2 text-slate-400 hover:text-slate-700" title="Paper link">
                             <i class="fas fa-file-alt"></i>
                         </a>
@@ -393,25 +429,24 @@
                         Zhou, W., Miwa, S., & Okamoto, K.
                     </p>
                     <div class="mt-4 flex gap-4 text-xs font-medium font-mono">
-                        <a href="https://github.com/zhouzhouwen/two-phase-flow-by-self_adaptive-and-time_divide_conquer-PINNs" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fab fa-github"></i> Code</a>
-                        <a href="#" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fas fa-database"></i> Public Dataset</a>
+                        <a href="https://github.com/zhouzhouwen/two-phase-flow-by-self_adaptive-and-time_divide_conquer-PINNs" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fab fa-github"></i> <span data-i18n="label_code">Code</span></a>
+                        <a href="#" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fas fa-database"></i> <span data-i18n="label_public_dataset">Public Dataset</span></a>
                     </div>
                 </div>
 
                 <!-- Pub 4 -->
                 <div class="academic-card p-6 rounded-lg">
                     <div class="flex flex-col sm:flex-row gap-3 sm:items-center justify-between mb-2">
-                        <div class="flex gap-2">
-                            <span class="tag tag-blue">Condensation Bubble</span>
-                            <span class="tag tag-green">Subcooled Flow Boiling</span>
-                            <span class="tag tag-purple">Feature Extraction</span>
-                            <span class="tag tag-orange">Object Detection and Tracking</span>
+                        <div class="flex gap-2 flex-wrap">
+                            <span class="tag tag-blue" data-i18n="tag_condensation_bubble">Condensation Bubble</span>
+                            <span class="tag tag-green" data-i18n="tag_subcooled_flow_boiling">Subcooled Flow Boiling</span>
+                            <span class="tag tag-purple" data-i18n="tag_feature_extraction">Feature Extraction</span>
+                            <span class="tag tag-orange" data-i18n="tag_object_detection_tracking">Object Detection and Tracking</span>
                         </div>
-                        <span class="text-xs font-mono text-slate-500">Intl. J. of Heat and Mass Transfer (2024)</span>
+                        <span class="text-xs font-mono text-slate-500" data-i18n="venue_pub4">Intl. J. of Heat and Mass Transfer (2024)</span>
                     </div>
                     <h3 class="text-lg font-bold text-slate-900 leading-tight flex items-center">
                         Bubble feature extraction in subcooled flow boiling using AI-based object detection and tracking techniques
-                        <!-- TODO: 替换为该论文链接 -->
                         <a href="https://www.sciencedirect.com/science/article/abs/pii/S0017931024000206" class="ml-2 text-slate-400 hover:text-slate-700" title="Paper link">
                             <i class="fas fa-file-alt"></i>
                         </a>
@@ -420,25 +455,24 @@
                         Zhou, W., Miwa, S., Okawa, T., & Okamoto, K.
                     </p>
                     <div class="mt-4 flex gap-4 text-xs font-medium font-mono">
-                        <a href="https://github.com/zhouzhouwen/Bubble_detection_and_tracking_AI_based_YOLO_tracking_alogrithm" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fab fa-github"></i> Code</a>
-                        <a href="https://data.mendeley.com/datasets/p5zskggvwx/1" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fas fa-database"></i> Dataset</a>
+                        <a href="https://github.com/zhouzhouwen/Bubble_detection_and_tracking_AI_based_YOLO_tracking_alogrithm" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fab fa-github"></i> <span data-i18n="label_code">Code</span></a>
+                        <a href="https://data.mendeley.com/datasets/p5zskggvwx/1" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fas fa-database"></i> <span data-i18n="label_dataset">Dataset</span></a>
                     </div>
                 </div>
 
                 <!-- Pub 6 -->
                 <div class="academic-card p-6 rounded-lg">
                     <div class="flex flex-col sm:flex-row gap-3 sm:items-center justify-between mb-2">
-                        <div class="flex gap-2">
-                            <span class="tag tag-blue">Computer Vision</span>
-                            <span class="tag tag-green">Semantic Segmentation</span>
-                            <span class="tag tag-purple">Jet Penetration</span>
-                            <span class="tag tag-orange">Optimization Algorithm</span>
+                        <div class="flex gap-2 flex-wrap">
+                            <span class="tag tag-blue" data-i18n="tag_computer_vision">Computer Vision</span>
+                            <span class="tag tag-green" data-i18n="tag_semantic_segmentation">Semantic Segmentation</span>
+                            <span class="tag tag-purple" data-i18n="tag_jet_penetration">Jet Penetration</span>
+                            <span class="tag tag-orange" data-i18n="tag_optimization_algorithm">Optimization Algorithm</span>
                         </div>
-                        <span class="text-xs font-mono text-slate-500">Progress in Nuclear Energy (2024)</span>
+                        <span class="text-xs font-mono text-slate-500" data-i18n="venue_pub6">Progress in Nuclear Energy (2024)</span>
                     </div>
                     <h3 class="text-lg font-bold text-slate-900 leading-tight flex items-center">
                         Development of advanced AI-based segmentation and prediction method for air entrainment in plunging water jets
-                        <!-- TODO: 替换为该论文链接 -->
                         <a href="https://www.sciencedirect.com/science/article/pii/S0149197024003913" class="ml-2 text-slate-400 hover:text-slate-700" title="Paper link">
                             <i class="fas fa-file-alt"></i>
                         </a>
@@ -447,26 +481,25 @@
                         Zhou, W., Miwa, S., Yamashita, S., & Okamoto, K.
                     </p>
                     <div class="mt-4 flex gap-4 text-xs font-medium font-mono">
-                        <a href="https://github.com/zhouzhouwen/Advanced-AI-Segmentation-of-Air-Entrainment-Motion-YOLO-with-Attention-Mechanism-and-NSGA-III-BPNN" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fab fa-github"></i> Code</a>
-                        <a href="#" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fas fa-database"></i> Dataset(Not Available)</a>
+                        <a href="https://github.com/zhouzhouwen/Advanced-AI-Segmentation-of-Air-Entrainment-Motion-YOLO-with-Attention-Mechanism-and-NSGA-III-BPNN" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fab fa-github"></i> <span data-i18n="label_code">Code</span></a>
+                        <a href="#" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fas fa-database"></i> <span data-i18n="label_dataset_not_available">Dataset(Not Available)</span></a>
                     </div>
                 </div>
 
                 <!-- Pub 7 -->
                 <div class="academic-card p-6 rounded-lg">
                     <div class="flex flex-col sm:flex-row gap-3 sm:items-center justify-between mb-2">
-                        <div class="flex gap-2">
-                            <span class="tag tag-blue">Critical Heat Flux</span>
-                            <span class="tag tag-green">ANN</span>
-                            <span class="tag tag-purple">CNN</span>
-                            <span class="tag tag-orange">Transformer</span>
-                            <span class="tag tag-yellow">Transfer Learning</span>
+                        <div class="flex gap-2 flex-wrap">
+                            <span class="tag tag-blue" data-i18n="tag_critical_heat_flux">Critical Heat Flux</span>
+                            <span class="tag tag-green" data-i18n="tag_ann">ANN</span>
+                            <span class="tag tag-purple" data-i18n="tag_cnn">CNN</span>
+                            <span class="tag tag-orange" data-i18n="tag_transformer">Transformer</span>
+                            <span class="tag tag-yellow" data-i18n="tag_transfer_learning">Transfer Learning</span>
                         </div>
-                        <span class="text-xs font-mono text-slate-500">Intl. Comm. in Heat and Mass Transfer (2024)</span>
+                        <span class="text-xs font-mono text-slate-500" data-i18n="venue_pub7">Intl. Comm. in Heat and Mass Transfer (2024)</span>
                     </div>
                     <h3 class="text-lg font-bold text-slate-900 leading-tight flex items-center">
                         Assessment of the state-of-the-art AI methods for critical heat flux prediction
-                        <!-- TODO: 替换为该论文链接 -->
                         <a href="https://www.sciencedirect.com/science/article/pii/S0735193324006067" class="ml-2 text-slate-400 hover:text-slate-700" title="Paper link">
                             <i class="fas fa-file-alt"></i>
                         </a>
@@ -475,25 +508,24 @@
                         Zhou, W., Miwa, S., Wang, H., & Okamoto, K.
                     </p>
                     <div class="mt-4 flex gap-4 text-xs font-medium font-mono">
-                        <a href="https://github.com/zhouzhouwen/cutting-edge-artificial-intelligence-methods-for-prediction-of-critical-heat-flux" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fab fa-github"></i> Code</a>
-                        <a href="https://github.com/zhouzhouwen/cutting-edge-artificial-intelligence-methods-for-prediction-of-critical-heat-flux" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fas fa-database"></i> Dataset</a>
+                        <a href="https://github.com/zhouzhouwen/cutting-edge-artificial-intelligence-methods-for-prediction-of-critical-heat-flux" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fab fa-github"></i> <span data-i18n="label_code">Code</span></a>
+                        <a href="https://github.com/zhouzhouwen/cutting-edge-artificial-intelligence-methods-for-prediction-of-critical-heat-flux" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fas fa-database"></i> <span data-i18n="label_dataset">Dataset</span></a>
                     </div>
                 </div>
 
                 <!-- Pub 8 -->
                 <div class="academic-card p-6 rounded-lg">
                     <div class="flex flex-col sm:flex-row gap-3 sm:items-center justify-between mb-2">
-                        <div class="flex gap-2">
-                            <span class="tag tag-blue">Optimization design</span>
-                            <span class="tag tag-green">NSGA-III & DE Algorithm</span>
-                            <span class="tag tag-purple">CFETR HCSB blanket</span>
-                            <span class="tag tag-orange">Acceleration Calculation</span>
+                        <div class="flex gap-2 flex-wrap">
+                            <span class="tag tag-blue" data-i18n="tag_optimization_design">Optimization design</span>
+                            <span class="tag tag-green" data-i18n="tag_nsga_de">NSGA-III & DE Algorithm</span>
+                            <span class="tag tag-purple" data-i18n="tag_cfetr_hcsb">CFETR HCSB blanket</span>
+                            <span class="tag tag-orange" data-i18n="tag_acceleration_calculation">Acceleration Calculation</span>
                         </div>
-                        <span class="text-xs font-mono text-slate-500">Nuclear Engineering and Technology (2023)</span>
+                        <span class="text-xs font-mono text-slate-500" data-i18n="venue_pub8">Nuclear Engineering and Technology (2023)</span>
                     </div>
                     <h3 class="text-lg font-bold text-slate-900 leading-tight flex items-center">
                         An intelligent optimization method for the HCSB blanket based on an improved multi-objective NSGA-III algorithm
-                        <!-- TODO: 替换为该论文链接 -->
                         <a href="https://www.sciencedirect.com/science/article/pii/S1738573323002504" class="ml-2 text-slate-400 hover:text-slate-700" title="Paper link">
                             <i class="fas fa-file-alt"></i>
                         </a>
@@ -502,26 +534,25 @@
                         Zhou, W., Sun, G., Miwa, S., et al.
                     </p>
                     <div class="mt-4 flex gap-4 text-xs font-medium font-mono">
-                        <a href="https://github.com/zhouzhouwen/An-AI-method-for-the-HCSB-blanket-based-on-an-improved-NSGA-III-and-an-adaptive-BPNN" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fab fa-github"></i> Code</a>
-                        <a href="https://github.com/zhouzhouwen/An-AI-method-for-the-HCSB-blanket-based-on-an-improved-NSGA-III-and-an-adaptive-BPNN" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fas fa-database"></i> Dataset</a>
+                        <a href="https://github.com/zhouzhouwen/An-AI-method-for-the-HCSB-blanket-based-on-an-improved-NSGA-III-and-an-adaptive-BPNN" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fab fa-github"></i> <span data-i18n="label_code">Code</span></a>
+                        <a href="https://github.com/zhouzhouwen/An-AI-method-for-the-HCSB-blanket-based-on-an-improved-NSGA-III-and-an-adaptive-BPNN" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fas fa-database"></i> <span data-i18n="label_dataset">Dataset</span></a>
                     </div>
                 </div>
 
                 <!-- Pub 9 -->
                 <div class="academic-card p-6 rounded-lg">
                     <div class="flex flex-col sm:flex-row gap-3 sm:items-center justify-between mb-2">
-                        <div class="flex gap-2">
-                            <span class="tag tag-blue">Critical Heat Flux</span>
-                            <span class="tag tag-green">ANN</span>
-                            <span class="tag tag-purple">CNN</span>
-                            <span class="tag tag-orange">Transformer</span>
-                            <span class="tag tag-yellow">Transfer Learning</span>
+                        <div class="flex gap-2 flex-wrap">
+                            <span class="tag tag-blue" data-i18n="tag_critical_heat_flux">Critical Heat Flux</span>
+                            <span class="tag tag-green" data-i18n="tag_ann">ANN</span>
+                            <span class="tag tag-purple" data-i18n="tag_cnn">CNN</span>
+                            <span class="tag tag-orange" data-i18n="tag_transformer">Transformer</span>
+                            <span class="tag tag-yellow" data-i18n="tag_transfer_learning">Transfer Learning</span>
                         </div>
-                        <span class="text-xs font-mono text-slate-500">Nuclear Techniques (2021)</span>
+                        <span class="text-xs font-mono text-slate-500" data-i18n="venue_pub9">Nuclear Techniques (2021)</span>
                     </div>
                     <h3 class="text-lg font-bold text-slate-900 leading-tight flex items-center">
                         Re-examining the input-parameters and AI strategies for Critical Heat Flux prediction
-                        <!-- TODO: 替换为该论文链接 -->
                         <a href="https://www.sciencedirect.com/science/article/pii/S0360544225002488" class="ml-2 text-slate-400 hover:text-slate-700" title="Paper link">
                             <i class="fas fa-file-alt"></i>
                         </a>
@@ -530,24 +561,23 @@
                         Wang, K., Zhou, W.*, ... & Okamoto, K.  et al.
                     </p>
                     <div class="mt-4 flex gap-4 text-xs font-medium font-mono">
-                        <a href="#" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fab fa-github"></i> Code</a>
-                        <a href="#" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fas fa-database"></i> Dataset</a>
+                        <a href="#" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fab fa-github"></i> <span data-i18n="label_code">Code</span></a>
+                        <a href="#" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fas fa-database"></i> <span data-i18n="label_dataset">Dataset</span></a>
                     </div>
                 </div>
 
                 <!-- Pub 10 -->
                 <div class="academic-card p-6 rounded-lg">
                     <div class="flex flex-col sm:flex-row gap-3 sm:items-center justify-between mb-2">
-                        <div class="flex gap-2">
-                            <span class="tag tag-blue">ANN</span>
-                            <span class="tag tag-green">Radiation Field</span>
-                            <span class="tag tag-purple">Reconstruction Method</span>
+                        <div class="flex gap-2 flex-wrap">
+                            <span class="tag tag-blue" data-i18n="tag_ann">ANN</span>
+                            <span class="tag tag-green" data-i18n="tag_radiation_field">Radiation Field</span>
+                            <span class="tag tag-purple" data-i18n="tag_reconstruction_method">Reconstruction Method</span>
                         </div>
-                        <span class="text-xs font-mono text-slate-500">Nuclear Engineering and Design (2021)</span>
+                        <span class="text-xs font-mono text-slate-500" data-i18n="venue_pub10">Nuclear Engineering and Design (2021)</span>
                     </div>
                     <h3 class="text-lg font-bold text-slate-900 leading-tight flex items-center">
                         BP neural network based reconstruction method for radiation field applications
-                        <!-- TODO: 替换为该论文链接 -->
                         <a href="https://www.sciencedirect.com/science/article/abs/pii/S0029549321001801" class="ml-2 text-slate-400 hover:text-slate-700" title="Paper link">
                             <i class="fas fa-file-alt"></i>
                         </a>
@@ -556,11 +586,10 @@
                         Zhou, W., Sun, G., Yang, Z., et al.
                     </p>
                     <div class="mt-4 flex gap-4 text-xs font-medium font-mono">
-                        <a href="https://github.com/zhouzhouwen/BP-neural-network-based-reconstruction-method-for-radiation-field-applications" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fab fa-github"></i> Code</a>
-                        <a href="https://github.com/zhouzhouwen/BP-neural-network-based-reconstruction-method-for-radiation-field-applications" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fas fa-database"></i> Dataset</a>
+                        <a href="https://github.com/zhouzhouwen/BP-neural-network-based-reconstruction-method-for-radiation-field-applications" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fab fa-github"></i> <span data-i18n="label_code">Code</span></a>
+                        <a href="https://github.com/zhouzhouwen/BP-neural-network-based-reconstruction-method-for-radiation-field-applications" class="text-slate-600 hover:text-slate-900 flex items-center gap-1"><i class="fas fa-database"></i> <span data-i18n="label_dataset">Dataset</span></a>
                     </div>
                 </div>
-
 
             </div>
         </div>
@@ -569,7 +598,7 @@
     <!-- Education & Experience -->
     <section id="experience" class="py-20 border-t border-slate-100 bg-slate-50">
         <div class="max-w-5xl mx-auto px-6">
-            <h2 class="text-2xl font-bold mb-12 text-slate-900 border-l-4 border-slate-900 pl-4">
+            <h2 class="text-2xl font-bold mb-12 text-slate-900 border-l-4 border-slate-900 pl-4" data-i18n="exp_title">
                 Education & Experience
             </h2>
 
@@ -577,7 +606,7 @@
                 <!-- Education Column -->
                 <div>
                     <h3 class="text-lg font-serif font-semibold text-slate-700 mb-6 flex items-center gap-2">
-                        <i class="fas fa-graduation-cap text-slate-400"></i> Education
+                        <i class="fas fa-graduation-cap text-slate-400"></i> <span data-i18n="edu_title">Education</span>
                     </h3>
                     <div class="space-y-8 relative border-l border-slate-200 ml-3 pl-8">
 
@@ -585,14 +614,13 @@
                         <div class="relative">
                             <span class="absolute -left-[37px] top-1.5 h-4 w-4 rounded-full bg-white border-2 border-slate-900"></span>
                             <div>
-                                <!-- TODO: 时间、专业、学校信息如有变动可在此修改 -->
-                                <span class="text-xs font-mono text-slate-500">Oct 2022 - Oct 2025</span>
-                                <h4 class="text-base font-bold text-slate-900 mt-1">PhD in Nuclear Engineering</h4>
+                                <span class="text-xs font-mono text-slate-500" data-i18n="edu_phd_time">Oct 2022 - Oct 2025</span>
+                                <h4 class="text-base font-bold text-slate-900 mt-1" data-i18n="edu_phd_degree">PhD in Nuclear Engineering</h4>
                                 <div class="flex justify-between items-start mt-1 mb-2">
-                                    <p class="text-slate-600 text-sm">The University of Tokyo</p>
-                                    <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Japan</span>
+                                    <p class="text-slate-600 text-sm" data-i18n="edu_phd_school">The University of Tokyo</p>
+                                    <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2 py-0.5 rounded" data-i18n="label_japan">Japan</span>
                                 </div>
-                                <p class="text-slate-500 text-xs mt-1">Supervisors: Shuichiro MIWA; Koji OKAMOTO</p>
+                                <p class="text-slate-500 text-xs mt-1" data-i18n="edu_phd_supervisors">Supervisors: Shuichiro MIWA; Koji OKAMOTO</p>
                             </div>
                         </div>
 
@@ -600,11 +628,11 @@
                         <div class="relative">
                             <span class="absolute -left-[37px] top-1.5 h-4 w-4 rounded-full bg-white border-2 border-slate-400"></span>
                             <div>
-                                <span class="text-xs font-mono text-slate-500">Sept 2019 - June 2022</span>
-                                <h4 class="text-base font-bold text-slate-900 mt-1">Master in Nuclear Energy</h4>
+                                <span class="text-xs font-mono text-slate-500" data-i18n="edu_master_time">Sept 2019 - June 2022</span>
+                                <h4 class="text-base font-bold text-slate-900 mt-1" data-i18n="edu_master_degree">Master in Nuclear Energy</h4>
                                 <div class="flex justify-between items-start mt-1">
-                                    <p class="text-slate-600 text-sm">University of Science and Technology of China</p>
-                                    <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2 py-0.5 rounded">China</span>
+                                    <p class="text-slate-600 text-sm" data-i18n="edu_master_school">University of Science and Technology of China</p>
+                                    <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2 py-0.5 rounded" data-i18n="label_china">China</span>
                                 </div>
                             </div>
                         </div>
@@ -613,11 +641,11 @@
                         <div class="relative">
                             <span class="absolute -left-[37px] top-1.5 h-4 w-4 rounded-full bg-white border-2 border-slate-400"></span>
                             <div>
-                                <span class="text-xs font-mono text-slate-500">Sept 2015 - June 2019</span>
-                                <h4 class="text-base font-bold text-slate-900 mt-1">Bachelor in Nuclear Engineering</h4>
+                                <span class="text-xs font-mono text-slate-500" data-i18n="edu_bachelor_time">Sept 2015 - June 2019</span>
+                                <h4 class="text-base font-bold text-slate-900 mt-1" data-i18n="edu_bachelor_degree">Bachelor in Nuclear Engineering</h4>
                                 <div class="flex justify-between items-start mt-1">
-                                    <p class="text-slate-600 text-sm">East China University of Technology</p>
-                                    <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2 py-0.5 rounded">China</span>
+                                    <p class="text-slate-600 text-sm" data-i18n="edu_bachelor_school">East China University of Technology</p>
+                                    <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2 py-0.5 rounded" data-i18n="label_china">China</span>
                                 </div>
                             </div>
                         </div>
@@ -627,7 +655,7 @@
                 <!-- Experience Column -->
                 <div>
                     <h3 class="text-lg font-serif font-semibold text-slate-700 mb-6 flex items-center gap-2">
-                        <i class="fas fa-briefcase text-slate-400"></i> Experience
+                        <i class="fas fa-briefcase text-slate-400"></i> <span data-i18n="work_title">Experience</span>
                     </h3>
                     <div class="space-y-8 relative border-l border-slate-200 ml-3 pl-8">
 
@@ -635,14 +663,14 @@
                         <div class="relative">
                             <span class="absolute -left-[37px] top-1.5 h-4 w-4 rounded-full bg-slate-900 border-2 border-slate-900"></span>
                             <div>
-                                <span class="text-xs font-mono text-slate-500">Oct 2025 - Present</span>
+                                <span class="text-xs font-mono text-slate-500" data-i18n="work_researcher_time">Oct 2025 - Present</span>
                                 <div class="flex items-center gap-2 mt-1">
-                                    <h4 class="text-base font-bold text-slate-900">Project Researcher</h4>
-                                    <span class="text-[10px] uppercase font-bold text-white bg-slate-800 px-1.5 py-0.5 rounded">Full-time</span>
+                                    <h4 class="text-base font-bold text-slate-900" data-i18n="work_researcher_title">Project Researcher</h4>
+                                    <span class="text-[10px] uppercase font-bold text-white bg-slate-800 px-1.5 py-0.5 rounded" data-i18n="label_full_time">Full-time</span>
                                 </div>
                                 <div class="flex justify-between items-start mt-1">
-                                    <p class="text-slate-600 text-sm">The University of Tokyo</p>
-                                    <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Japan</span>
+                                    <p class="text-slate-600 text-sm" data-i18n="work_researcher_org">The University of Tokyo</p>
+                                    <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2 py-0.5 rounded" data-i18n="label_japan">Japan</span>
                                 </div>
                             </div>
                         </div>
@@ -651,16 +679,16 @@
                         <div class="relative">
                             <span class="absolute -left-[37px] top-1.5 h-4 w-4 rounded-full bg-white border-2 border-slate-400"></span>
                             <div>
-                                <span class="text-xs font-mono text-slate-500">Nov 2024 - Feb 2025</span>
+                                <span class="text-xs font-mono text-slate-500" data-i18n="work_intern_time">Nov 2024 - Feb 2025</span>
                                 <div class="flex items-center gap-2 mt-1">
-                                    <h4 class="text-base font-bold text-slate-900">AI Engineering Intern</h4>
-                                    <span class="text-[10px] uppercase font-bold text-slate-500 border border-slate-300 px-1.5 py-0.5 rounded">Internship</span>
+                                    <h4 class="text-base font-bold text-slate-900" data-i18n="work_intern_title">AI Engineering Intern</h4>
+                                    <span class="text-[10px] uppercase font-bold text-slate-500 border border-slate-300 px-1.5 py-0.5 rounded" data-i18n="label_internship">Internship</span>
                                 </div>
                                 <div class="flex justify-between items-start mt-1">
-                                    <p class="text-slate-600 text-sm">OPE.AI, Tokyo</p>
-                                    <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Japan</span>
+                                    <p class="text-slate-600 text-sm" data-i18n="work_intern_org">OPE.AI, Tokyo</p>
+                                    <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2 py-0.5 rounded" data-i18n="label_japan">Japan</span>
                                 </div>
-                                <p class="text-slate-500 text-xs mt-1">LLM, LoRA, RAG, digital human models.</p>
+                                <p class="text-slate-500 text-xs mt-1" data-i18n="work_intern_desc">LLM, LoRA, RAG, digital human models.</p>
                             </div>
                         </div>
 
@@ -668,14 +696,14 @@
                         <div class="relative">
                             <span class="absolute -left-[37px] top-1.5 h-4 w-4 rounded-full bg-white border-2 border-slate-400"></span>
                             <div>
-                                <span class="text-xs font-mono text-slate-500">Apr 2021 - Nov 2021</span>
+                                <span class="text-xs font-mono text-slate-500" data-i18n="work_quant_time">Apr 2021 - Nov 2021</span>
                                 <div class="flex items-center gap-2 mt-1">
-                                    <h4 class="text-base font-bold text-slate-900">Quantitative Trader</h4>
-                                    <span class="text-[10px] uppercase font-bold text-slate-500 border border-slate-300 px-1.5 py-0.5 rounded">Internship</span>
+                                    <h4 class="text-base font-bold text-slate-900" data-i18n="work_quant_title">Quantitative Trader</h4>
+                                    <span class="text-[10px] uppercase font-bold text-slate-500 border border-slate-300 px-1.5 py-0.5 rounded" data-i18n="label_internship">Internship</span>
                                 </div>
                                 <div class="flex justify-between items-start mt-1">
-                                    <p class="text-slate-600 text-sm">Guan Rui Technology Co.</p>
-                                    <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2 py-0.5 rounded">China</span>
+                                    <p class="text-slate-600 text-sm" data-i18n="work_quant_org">Guan Rui Technology Co.</p>
+                                    <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2 py-0.5 rounded" data-i18n="label_china">China</span>
                                 </div>
                             </div>
                         </div>
@@ -694,27 +722,301 @@
         </div>
     </footer>
 
-    <!-- Typewriter Script -->
+    <!-- i18n + Typewriter Script -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const textElement = document.getElementById('typewriter');
+            const toggleBtn = document.getElementById('langToggle');
+            const langPill = document.getElementById('langPill');
 
-            /* TODO: 这里的短语数组可以自由修改，控制打字机轮播的关键词 */
-            const phrases = [
-                "Science.",
-                "Fluid Dynamics.",
-                "Nuclear Engineering.",
-                "Chemistry.",
-                "Environment.",
-                "Two-phase Flow."
-            ];
+            // ---- i18n dictionary (edit freely) ----
+            const i18n = {
+                en: {
+                    // Nav
+                    nav_about: "About",
+                    nav_research: "Research",
+                    nav_publications: "Publications",
+                    nav_experience: "Education & Experience",
+                    // Toggle
+                    lang_label: "Language",
+                    // Hero
+                    hero_ai_for: "AI for",
+                    hero_desc_html: "Project Researcher at <strong>The University of Tokyo</strong>. <br>Focusing on the intersection of artificial intelligence and physical sciences (fluid dynamics, nuclear engineering, etc).",
+                    // Research
+                    research_title: "Research Interests",
+                    research_desc_html:
+                        "Development and advancement of artificial intelligence in fluid mechanics, two-phase flow, thermal hydraulic and nuclear engineering, including Data Drive AI, Physical informed AI, Generative AI and so on." +
+                        "<br><br><strong class='text-slate-800'>PhD Dissertation Title:</strong> Evaluation of an AI-Driven Framework for Nuclear Thermal-Hydraulic Modeling and Simulation",
+                    phd_dissertation_btn: "PhD Dissertation",
+                    phd_slides_btn: "PhD Slides",
+                    // Interest cards
+                    card_ai_title: "AI for Science",
+                    card_ai_desc: "Applying Data-Driven AI, Physics-Informed AI (PINNs), and Generative AI (GANs) to solve scientific problems.",
+                    card_two_phase_title: "Two-Phase Flow",
+                    card_two_phase_desc: "Advanced simulation and analysis of complex fluid dynamics and interface tracking methods.",
+                    card_nuclear_title: "Nuclear Engineering",
+                    card_nuclear_desc: "Safety analysis, thermal hydraulics, and radiation field reconstruction.",
+                    card_chem_env_title: "Chemical & Env.",
+                    card_chem_env_desc: "Interdisciplinary research involving chemical processes and environmental monitoring.",
+                    card_cv_title: "Computer Vision",
+                    card_cv_desc: "Object detection (YOLO), segmentation, and tracking for bubble analysis.",
+                    // Publications
+                    pubs_title: "Publications",
+                    label_code: "Code",
+                    label_dataset: "Dataset",
+                    label_public_dataset: "Public Dataset",
+                    label_dataset_not_available: "Dataset(Not Available)",
+                    // Venues
+                    venue_pub1: "AI Thermal Fluids; Under Review (2025)",
+                    venue_pub5: "Intl. J. of Multiphase Flow (2025)",
+                    venue_pub2: "Physics of Fluids (2024)",
+                    venue_pub3: "Physics of Fluids (2024)",
+                    venue_pub4: "Intl. J. of Heat and Mass Transfer (2024)",
+                    venue_pub6: "Progress in Nuclear Energy (2024)",
+                    venue_pub7: "Intl. Comm. in Heat and Mass Transfer (2024)",
+                    venue_pub8: "Nuclear Engineering and Technology (2023)",
+                    venue_pub9: "Nuclear Techniques (2021)",
+                    venue_pub10: "Nuclear Engineering and Design (2021)",
+                    // Tags
+                    tag_generative_ai: "Generative AI",
+                    tag_fluid_dynamics: "Fluid Dynamics",
+                    tag_bubbly_flow: "Bubbly Flow",
+                    tag_image_generation_model: "Image Generation Model",
+                    tag_gan: "GAN",
+                    tag_thermal_hydraulic: "Thermal Hydraulic",
+                    tag_subcooled_flow_boiling: "Subcooled Flow Boiling",
+                    tag_feature_extraction: "Feature Extraction",
+                    tag_object_detection_tracking: "Object Detection and Tracking",
+                    tag_pinns: "Physics-informed neural networks",
+                    tag_navier_stokes: "Navier-Stokes equations",
+                    tag_fluid_dynamic_analysis: "Fluid dynamic analysis",
+                    tag_low_re: "Low Re number",
+                    tag_interface_tracking: "Interface Tracking Methods",
+                    tag_two_phase_flow: "Two-Phase Flow",
+                    tag_bubble_dynamics: "Bubble Dynamics",
+                    tag_condensation_bubble: "Condensation Bubble",
+                    tag_computer_vision: "Computer Vision",
+                    tag_semantic_segmentation: "Semantic Segmentation",
+                    tag_jet_penetration: "Jet Penetration",
+                    tag_optimization_algorithm: "Optimization Algorithm",
+                    tag_critical_heat_flux: "Critical Heat Flux",
+                    tag_ann: "ANN",
+                    tag_cnn: "CNN",
+                    tag_transformer: "Transformer",
+                    tag_transfer_learning: "Transfer Learning",
+                    tag_optimization_design: "Optimization design",
+                    tag_nsga_de: "NSGA-III & DE Algorithm",
+                    tag_cfetr_hcsb: "CFETR HCSB blanket",
+                    tag_acceleration_calculation: "Acceleration Calculation",
+                    tag_radiation_field: "Radiation Field",
+                    tag_reconstruction_method: "Reconstruction Method",
+                    // Experience/Education
+                    exp_title: "Education & Experience",
+                    edu_title: "Education",
+                    work_title: "Experience",
+                    edu_phd_time: "Oct 2022 - Oct 2025",
+                    edu_phd_degree: "PhD in Nuclear Engineering",
+                    edu_phd_school: "The University of Tokyo",
+                    edu_phd_supervisors: "Supervisors: Shuichiro MIWA; Koji OKAMOTO",
+                    edu_master_time: "Sept 2019 - June 2022",
+                    edu_master_degree: "Master in Nuclear Energy",
+                    edu_master_school: "University of Science and Technology of China",
+                    edu_bachelor_time: "Sept 2015 - June 2019",
+                    edu_bachelor_degree: "Bachelor in Nuclear Engineering",
+                    edu_bachelor_school: "East China University of Technology",
+                    work_researcher_time: "Oct 2025 - Present",
+                    work_researcher_title: "Project Researcher",
+                    work_researcher_org: "The University of Tokyo",
+                    work_intern_time: "Nov 2024 - Feb 2025",
+                    work_intern_title: "AI Engineering Intern",
+                    work_intern_org: "OPE.AI, Tokyo",
+                    work_intern_desc: "LLM, LoRA, RAG, digital human models.",
+                    work_quant_time: "Apr 2021 - Nov 2021",
+                    work_quant_title: "Quantitative Trader",
+                    work_quant_org: "Guan Rui Technology Co.",
+                    // Labels
+                    label_full_time: "Full-time",
+                    label_internship: "Internship",
+                    label_japan: "Japan",
+                    label_china: "China",
+                    // Typewriter phrases
+                    typewriter_phrases: [
+                        "Science.",
+                        "Fluid Dynamics.",
+                        "Nuclear Engineering.",
+                        "Chemistry.",
+                        "Environment.",
+                        "Two-phase Flow."
+                    ],
+                    // SEO
+                    page_title: "Wen ZHOU | AI for Science Researcher",
+                    page_desc: "Portfolio of Wen ZHOU, Researcher at The University of Tokyo specializing in AI for Science, Fluid Dynamics, and Nuclear Engineering."
+                },
 
+                zh: {
+                    // Nav
+                    nav_about: "关于",
+                    nav_research: "研究",
+                    nav_publications: "论文",
+                    nav_experience: "教育与经历",
+                    // Toggle
+                    lang_label: "语言",
+                    // Hero
+                    hero_ai_for: "AI for",
+                    hero_desc_html: "东京大学 <strong>项目研究员</strong>。<br>研究方向聚焦人工智能与物理科学交叉（流体力学、核工程等）。",
+                    // Research
+                    research_title: "研究兴趣",
+                    research_desc_html:
+                        "致力于推动人工智能在流体力学、两相流、热工水力与核工程中的发展与应用，包括数据驱动 AI、物理约束/物理启发 AI（PINNs）、生成式 AI 等。" +
+                        "<br><br><strong class='text-slate-800'>博士论文题目：</strong>核热工水力建模与仿真的 AI 驱动框架评估",
+                    phd_dissertation_btn: "博士论文",
+                    phd_slides_btn: "博士答辩幻灯",
+                    // Interest cards
+                    card_ai_title: "AI for Science",
+                    card_ai_desc: "使用数据驱动 AI、物理约束 AI（PINNs）与生成式 AI（GANs）解决科学计算与建模问题。",
+                    card_two_phase_title: "两相流",
+                    card_two_phase_desc: "复杂流体动力学与界面追踪方法的先进模拟与分析。",
+                    card_nuclear_title: "核工程",
+                    card_nuclear_desc: "安全分析、热工水力与辐射场重建。",
+                    card_chem_env_title: "化学与环境",
+                    card_chem_env_desc: "化学过程与环境监测相关的交叉研究。",
+                    card_cv_title: "计算机视觉",
+                    card_cv_desc: "用于气泡分析的目标检测（YOLO）、分割与跟踪。",
+                    // Publications
+                    pubs_title: "论文发表",
+                    label_code: "代码",
+                    label_dataset: "数据集",
+                    label_public_dataset: "公开数据集",
+                    label_dataset_not_available: "数据集（暂不可用）",
+                    // Venues
+                    venue_pub1: "AI Thermal Fluids；审稿中（2025）",
+                    venue_pub5: "International Journal of Multiphase Flow（2025）",
+                    venue_pub2: "Physics of Fluids（2024）",
+                    venue_pub3: "Physics of Fluids（2024）",
+                    venue_pub4: "International Journal of Heat and Mass Transfer（2024）",
+                    venue_pub6: "Progress in Nuclear Energy（2024）",
+                    venue_pub7: "International Communications in Heat and Mass Transfer（2024）",
+                    venue_pub8: "Nuclear Engineering and Technology（2023）",
+                    venue_pub9: "Nuclear Techniques（2021）",
+                    venue_pub10: "Nuclear Engineering and Design（2021）",
+                    // Tags
+                    tag_generative_ai: "生成式 AI",
+                    tag_fluid_dynamics: "流体力学",
+                    tag_bubbly_flow: "气泡流",
+                    tag_image_generation_model: "图像生成模型",
+                    tag_gan: "GAN",
+                    tag_thermal_hydraulic: "热工水力",
+                    tag_subcooled_flow_boiling: "过冷流动沸腾",
+                    tag_feature_extraction: "特征提取",
+                    tag_object_detection_tracking: "目标检测与跟踪",
+                    tag_pinns: "物理约束神经网络（PINNs）",
+                    tag_navier_stokes: "Navier–Stokes 方程",
+                    tag_fluid_dynamic_analysis: "流体动力学分析",
+                    tag_low_re: "低雷诺数",
+                    tag_interface_tracking: "界面追踪方法",
+                    tag_two_phase_flow: "两相流",
+                    tag_bubble_dynamics: "气泡动力学",
+                    tag_condensation_bubble: "冷凝气泡",
+                    tag_computer_vision: "计算机视觉",
+                    tag_semantic_segmentation: "语义分割",
+                    tag_jet_penetration: "射流贯入",
+                    tag_optimization_algorithm: "优化算法",
+                    tag_critical_heat_flux: "临界热流（CHF）",
+                    tag_ann: "ANN",
+                    tag_cnn: "CNN",
+                    tag_transformer: "Transformer",
+                    tag_transfer_learning: "迁移学习",
+                    tag_optimization_design: "优化设计",
+                    tag_nsga_de: "NSGA-III 与 DE 算法",
+                    tag_cfetr_hcsb: "CFETR HCSB 包层",
+                    tag_acceleration_calculation: "加速计算",
+                    tag_radiation_field: "辐射场",
+                    tag_reconstruction_method: "重建方法",
+                    // Experience/Education
+                    exp_title: "教育与经历",
+                    edu_title: "教育背景",
+                    work_title: "工作经历",
+                    edu_phd_time: "2022.10 - 2025.10",
+                    edu_phd_degree: "核工程 博士",
+                    edu_phd_school: "东京大学",
+                    edu_phd_supervisors: "导师：Shuichiro MIWA；Koji OKAMOTO",
+                    edu_master_time: "2019.09 - 2022.06",
+                    edu_master_degree: "核能工程 硕士",
+                    edu_master_school: "中国科学技术大学",
+                    edu_bachelor_time: "2015.09 - 2019.06",
+                    edu_bachelor_degree: "核工程 学士",
+                    edu_bachelor_school: "东华理工大学",
+                    work_researcher_time: "2025.10 - 至今",
+                    work_researcher_title: "项目研究员",
+                    work_researcher_org: "东京大学",
+                    work_intern_time: "2024.11 - 2025.02",
+                    work_intern_title: "AI 工程实习生",
+                    work_intern_org: "OPE.AI（东京）",
+                    work_intern_desc: "LLM、LoRA、RAG、数字人模型等。",
+                    work_quant_time: "2021.04 - 2021.11",
+                    work_quant_title: "量化交易员",
+                    work_quant_org: "冠睿科技",
+                    // Labels
+                    label_full_time: "全职",
+                    label_internship: "实习",
+                    label_japan: "日本",
+                    label_china: "中国",
+                    // Typewriter phrases
+                    typewriter_phrases: [
+                        "科学。",
+                        "流体力学。",
+                        "核工程。",
+                        "化学。",
+                        "环境。",
+                        "两相流。"
+                    ],
+                    // SEO
+                    page_title: "Wen ZHOU | AI for Science 研究者",
+                    page_desc: "Wen ZHOU 个人主页：东京大学研究员，研究 AI for Science、流体力学与核工程等方向。"
+                }
+            };
+
+            // ---- helpers ----
+            function setMeta(title, desc) {
+                if (title) document.title = title;
+                const metaDesc = document.querySelector('meta[name="description"]');
+                if (metaDesc && desc) metaDesc.setAttribute('content', desc);
+            }
+
+            function applyI18n(lang) {
+                const dict = i18n[lang] || i18n.en;
+
+                // text nodes
+                document.querySelectorAll('[data-i18n]').forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    if (dict[key] != null) el.textContent = dict[key];
+                });
+
+                // html nodes
+                document.querySelectorAll('[data-i18n-html]').forEach(el => {
+                    const key = el.getAttribute('data-i18n-html');
+                    if (dict[key] != null) el.innerHTML = dict[key];
+                });
+
+                // lang attribute
+                document.documentElement.lang = lang === 'zh' ? 'zh' : 'en';
+
+                // pill
+                langPill.textContent = (lang === 'zh') ? '中文' : 'EN';
+
+                // meta
+                setMeta(dict.page_title, dict.page_desc);
+            }
+
+            // ---- Typewriter (keeps original behavior, now language-aware) ----
             let phraseIndex = 0;
             let charIndex = 0;
             let isDeleting = false;
             let typeSpeed = 100;
+            let currentLang = localStorage.getItem('site_lang') || 'en';
 
             function type() {
+                const phrases = (i18n[currentLang] || i18n.en).typewriter_phrases;
                 const currentPhrase = phrases[phraseIndex];
 
                 if (isDeleting) {
@@ -739,7 +1041,27 @@
                 setTimeout(type, typeSpeed);
             }
 
+            // Reset typewriter when language changes
+            function resetTypewriter() {
+                phraseIndex = 0;
+                charIndex = 0;
+                isDeleting = false;
+                typeSpeed = 100;
+                textElement.textContent = "";
+            }
+
+            // ---- init ----
+            applyI18n(currentLang);
+            resetTypewriter();
             type();
+
+            // ---- toggle ----
+            toggleBtn.addEventListener('click', function() {
+                currentLang = (currentLang === 'en') ? 'zh' : 'en';
+                localStorage.setItem('site_lang', currentLang);
+                applyI18n(currentLang);
+                resetTypewriter();
+            });
         });
     </script>
 </body>
