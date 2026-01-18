@@ -1,1362 +1,1191 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <!-- TODO: 可以修改为你喜欢的默认视口设置 -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- TODO: 修改网页标题 -->
-    <title>Wen ZHOU | AI for Science Researcher</title>
+  <title>Wen ZHOU | AI for Science Researcher</title>
+  <meta name="description" content="Portfolio of Wen ZHOU, Researcher at The University of Tokyo specializing in AI for Science, Fluid Dynamics, and Nuclear Engineering." />
 
-    <!-- TODO: 修改 SEO 描述 -->
-    <meta name="description" content="Portfolio of Wen ZHOU, Researcher at The University of Tokyo specializing in AI for Science, Fluid Dynamics, and Nuclear Engineering.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Inter:wght@300;400;600&family=Fira+Code:wght@400;600&display=swap" />
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Inter:wght@300;400;600&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fff;
+      color: #1f2937;
+    }
+    h1, h2, h3, h4 { font-family: 'Merriweather', serif; }
+    .font-mono { font-family: 'Fira Code', monospace; }
 
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #ffffff;
-            color: #1f2937; /* Slate 800 */
-        }
+    .cursor {
+      display: inline-block;
+      width: 8px;
+      height: 1em;
+      background-color: #1f2937;
+      vertical-align: middle;
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
 
-        h1, h2, h3, h4 {
-            font-family: 'Merriweather', serif;
-        }
+    .academic-card {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      transition: all 0.2s ease-in-out;
+      height: 100%;
+    }
+    .academic-card:hover {
+      border-color: #94a3b8;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+      transform: translateY(-2px);
+    }
 
-        .font-mono {
-            font-family: 'Fira Code', monospace;
-        }
+    .tag {
+      display: inline-block;
+      padding: 2px 8px;
+      font-size: 0.75rem;
+      border-radius: 4px;
+      font-weight: 500;
+      border: 1px solid transparent;
+    }
+    .tag-blue   { background:#eff6ff; color:#1d4ed8; border-color:#dbeafe; }
+    .tag-green  { background:#ecfdf5; color:#15803d; border-color:#bbf7d0; }
+    .tag-purple { background:#f5f3ff; color:#6d28d9; border-color:#ddd6fe; }
+    .tag-orange { background:#fff7ed; color:#c2410c; border-color:#fed7aa; }
+    .tag-yellow { background:#fefce8; color:#a16207; border-color:#fef9c3; }
 
-        /* Minimalist Typewriter Cursor */
-        .cursor {
-            display: inline-block;
-            width: 8px;
-            height: 1em;
-            background-color: #1f2937;
-            vertical-align: middle;
-            animation: blink 1s step-end infinite;
-        }
+    .link-hover {
+      position: relative;
+      text-decoration: none;
+      color: inherit;
+    }
+    .link-hover::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      bottom: -2px;
+      left: 0;
+      background-color: #1f2937;
+      transform: scaleX(0);
+      transform-origin: bottom right;
+      transition: transform 0.25s ease-out;
+    }
+    .link-hover:hover::after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
 
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
+    .lang-btn {
+      border: 1px solid #e5e7eb;
+      background: #fff;
+      color: #334155;
+      padding: 6px 10px;
+      border-radius: 10px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .02em;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all .2s ease;
+      user-select: none;
+    }
+    .lang-btn:hover {
+      background: #f8fafc;
+      border-color: #cbd5e1;
+      color: #0f172a;
+    }
+    .lang-pill {
+      font-family: 'Fira Code', monospace;
+      font-size: 11px;
+      padding: 2px 6px;
+      border-radius: 999px;
+      background: #0f172a;
+      color: #fff;
+    }
+    .lang-menu {
+      position: absolute;
+      right: 0;
+      top: calc(100% + 8px);
+      width: 180px;
+      background: rgba(255,255,255,0.98);
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+      overflow: hidden;
+      z-index: 80;
+    }
+    .lang-item {
+      width: 100%;
+      text-align: left;
+      padding: 10px 12px;
+      font-size: 13px;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      background: transparent;
+      transition: background .15s ease;
+    }
+    .lang-item:hover { background: #f8fafc; }
+    .lang-item small {
+      font-family: 'Fira Code', monospace;
+      color: #64748b;
+    }
 
-        /* Clean Card Style */
-        .academic-card {
-            background: #ffffff;
-            border: 1px solid #e5e7eb; /* Slate 200 */
-            transition: all 0.2s ease-in-out;
-            height: 100%;
-        }
+    .hero-callout {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-left: 4px solid #0f172a;
+      border-radius: 14px;
+      padding: 14px 16px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.04);
+      text-align: left;
+    }
+    .hero-callout .headline { font-weight: 650; color: #0f172a; }
+    .hero-callout .subline { color: #334155; }
 
-        .academic-card:hover {
-            border-color: #94a3b8; /* Slate 400 */
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
-            transform: translateY(-2px);
-        }
-
-        /* Tag Styles */
-        .tag {
-            display: inline-block;
-            padding: 2px 8px;
-            font-size: 0.75rem;
-            border-radius: 4px;
-            font-weight: 500;
-            border: 1px solid transparent;
-        }
-
-        /* === 标签颜色（可自行调整配色） === */
-        .tag-blue {
-            background-color: #eff6ff;
-            color: #1d4ed8;
-            border-color: #dbeafe;
-        }
-        .tag-green {
-            background-color: #ecfdf5;
-            color: #15803d;
-            border-color: #bbf7d0;
-        }
-        .tag-purple {
-            background-color: #f5f3ff;
-            color: #6d28d9;
-            border-color: #ddd6fe;
-        }
-        .tag-orange {
-            background-color: #fff7ed;
-            color: #c2410c;
-            border-color: #fed7aa;
-        }
-        .tag-yellow {
-            background-color: #fefce8;
-            color: #a16207;
-            border-color: #fef9c3;
-        }
-
-        /* Link Styles */
-        .link-hover {
-            position: relative;
-            text-decoration: none;
-            color: inherit;
-        }
-        .link-hover::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 1px;
-            bottom: -2px;
-            left: 0;
-            background-color: #1f2937;
-            transform: scaleX(0);
-            transform-origin: bottom right;
-            transition: transform 0.25s ease-out;
-        }
-        .link-hover:hover::after {
-            transform: scaleX(1);
-            transform-origin: bottom left;
-        }
-
-        /* Language Dropdown Button */
-        .lang-btn {
-            border: 1px solid #e5e7eb;
-            background: #fff;
-            color: #334155;
-            padding: 6px 10px;
-            border-radius: 10px;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: .02em;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: all .2s ease;
-            user-select: none;
-        }
-        .lang-btn:hover {
-            background: #f8fafc;
-            border-color: #cbd5e1;
-            color: #0f172a;
-        }
-        .lang-pill {
-            font-family: 'Fira Code', monospace;
-            font-size: 11px;
-            padding: 2px 6px;
-            border-radius: 999px;
-            background: #0f172a;
-            color: #fff;
-        }
-        .lang-menu {
-            position: absolute;
-            right: 0;
-            top: calc(100% + 8px);
-            width: 180px;
-            background: rgba(255,255,255,0.98);
-            border: 1px solid #e5e7eb;
-            border-radius: 12px;
-            box-shadow: 0 12px 24px rgba(0,0,0,0.08);
-            overflow: hidden;
-            z-index: 80;
-        }
-        .lang-item {
-            width: 100%;
-            text-align: left;
-            padding: 10px 12px;
-            font-size: 13px;
-            color: #0f172a;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 8px;
-            background: transparent;
-            transition: background .15s ease;
-        }
-        .lang-item:hover {
-            background: #f8fafc;
-        }
-        .lang-item small {
-            font-family: 'Fira Code', monospace;
-            color: #64748b;
-        }
-
-        /* =========================
-           ✅ Hero 描述高亮 + 技术彩色 Chips（新增）
-           ========================= */
-        .hero-callout {
-            background: #ffffff;
-            border: 1px solid #e5e7eb;
-            border-left: 4px solid #0f172a;
-            border-radius: 14px;
-            padding: 14px 16px;
-            box-shadow: 0 8px 18px rgba(0,0,0,0.04);
-        }
-        .hero-callout .headline {
-            font-weight: 650;
-            color: #0f172a;
-        }
-        .hero-callout .subline {
-            color: #334155;
-        }
-        .chip-wrap {
-            margin-top: 10px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-        .chip {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 5px 10px;
-            font-size: 12px;
-            border-radius: 999px;
-            border: 1px solid transparent;
-            font-weight: 600;
-            letter-spacing: .01em;
-            white-space: nowrap;
-        }
-
-        /* pastel chip palettes */
-        .chip-blue   { background:#eff6ff; color:#1d4ed8; border-color:#dbeafe; }
-        .chip-green  { background:#ecfdf5; color:#15803d; border-color:#bbf7d0; }
-        .chip-purple { background:#f5f3ff; color:#6d28d9; border-color:#ddd6fe; }
-        .chip-orange { background:#fff7ed; color:#c2410c; border-color:#fed7aa; }
-        .chip-yellow { background:#fefce8; color:#a16207; border-color:#fef9c3; }
-        .chip-slate  { background:#f8fafc; color:#0f172a; border-color:#e2e8f0; }
-
-        /* make callout align nicely on mobile center layouts */
-        .hero-callout {
-            text-align: left;
-        }
-        @media (max-width: 768px) {
-            .hero-callout {
-                text-align: left;
-            }
-        }
-    </style>
+    .chip-wrap {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 10px;
+      font-size: 12px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 600;
+      letter-spacing: .01em;
+      white-space: nowrap;
+    }
+    .chip-blue   { background:#eff6ff; color:#1d4ed8; border-color:#dbeafe; }
+    .chip-green  { background:#ecfdf5; color:#15803d; border-color:#bbf7d0; }
+    .chip-purple { background:#f5f3ff; color:#6d28d9; border-color:#ddd6fe; }
+    .chip-orange { background:#fff7ed; color:#c2410c; border-color:#fed7aa; }
+    .chip-yellow { background:#fefce8; color:#a16207; border-color:#fef9c3; }
+    .chip-slate  { background:#f8fafc; color:#0f172a; border-color:#e2e8f0; }
+  </style>
 </head>
 
 <body class="antialiased selection:bg-slate-200 selection:text-slate-900">
-
-    <!-- Simple Navigation -->
-    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-sm border-b border-slate-100">
-        <div class="max-w-5xl mx-auto px-6">
-            <div class="flex items-center justify-between h-16">
-                <div class="flex-shrink-0">
-                    <a href="#" class="font-serif font-bold text-xl tracking-tight text-slate-900">Wen.Z</a>
-                </div>
-
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#about" class="text-sm font-medium text-slate-600 hover:text-slate-900 link-hover" data-i18n="nav_about">About</a>
-                        <a href="#research" class="text-sm font-medium text-slate-600 hover:text-slate-900 link-hover" data-i18n="nav_research">Research</a>
-                        <a href="#publications" class="text-sm font-medium text-slate-600 hover:text-slate-900 link-hover" data-i18n="nav_publications">Publications</a>
-                        <a href="#experience" class="text-sm font-medium text-slate-600 hover:text-slate-900 link-hover" data-i18n="nav_experience">Education & Experience</a>
-                    </div>
-                </div>
-
-                <div class="flex items-center gap-3">
-                    <!-- Language Dropdown -->
-                    <div class="relative">
-                        <button id="langMenuButton" class="lang-btn" type="button" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-language"></i>
-                            <span data-i18n="lang_label">Language</span>
-                            <span id="langPill" class="lang-pill">EN</span>
-                            <i class="fas fa-chevron-down text-[10px] text-slate-500"></i>
-                        </button>
-
-                        <div id="langMenu" class="lang-menu hidden" role="menu" aria-label="Language menu">
-                            <button class="lang-item" type="button" data-lang="en" role="menuitem">
-                                English <small>EN</small>
-                            </button>
-                            <button class="lang-item" type="button" data-lang="zh" role="menuitem">
-                                中文 <small>ZH</small>
-                            </button>
-                        </div>
-                    </div>
-
-                    <a href="https://github.com/zhouzhouwen" target="_blank" class="text-slate-500 hover:text-slate-900 transition-colors" aria-label="GitHub">
-                        <i class="fab fa-github text-2xl"></i>
-                    </a>
-                </div>
-            </div>
+  <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-sm border-b border-slate-100">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex-shrink-0">
+          <a href="#" class="font-serif font-bold text-xl tracking-tight text-slate-900">Wen.Z</a>
         </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section id="about" class="min-h-[70vh] flex items-center justify-center pt-20">
-        <div class="max-w-5xl mx-auto px-6 w-full">
-            <div class="flex flex-col-reverse md:flex-row items-center justify-between gap-12">
-                <!-- Text Content -->
-                <div class="flex-1 text-center md:text-left">
-                    <h1 class="text-4xl md:text-6xl font-bold text-slate-900 mb-4 tracking-tight">
-                        Wen ZHOU
-                    </h1>
-
-                    <div class="h-16 flex flex-col justify-center">
-                        <p class="text-xl md:text-2xl text-slate-600 font-mono">
-                            <span data-i18n="hero_ai_for">AI for</span>
-                            <span id="typewriter" class="font-bold text-slate-900 border-b-2 border-slate-900 pb-1"></span><span class="cursor"></span>
-                        </p>
-                    </div>
-
-                    <!-- ✅ 更突出：使用 callout + 技术彩色 chips -->
-                    <div class="mt-6 max-w-2xl mx-auto md:mx-0" data-i18n-html="hero_desc_html">
-                        <div class="hero-callout">
-                            <div class="headline">Project Researcher at <strong>The University of Tokyo</strong>.</div>
-                            <div class="subline mt-1">Applying AI to fluid mechanics, two-phase flow, thermal-hydraulics, and nuclear engineering.</div>
-                            <div class="chip-wrap">
-                                <span class="chip chip-blue"><i class="fa-solid fa-table"></i> Tabular</span>
-                                <span class="chip chip-green"><i class="fa-solid fa-wave-square"></i> Time-series</span>
-                                <span class="chip chip-purple"><i class="fa-solid fa-eye"></i> Computer Vision</span>
-                                <span class="chip chip-orange"><i class="fa-solid fa-bolt"></i> PINNs</span>
-                                <span class="chip chip-yellow"><i class="fa-solid fa-wand-magic-sparkles"></i> Generative AI</span>
-                                <span class="chip chip-slate"><i class="fa-solid fa-robot"></i> LLMs & RAG</span>
-                                <span class="chip chip-blue"><i class="fa-solid fa-cubes"></i> Digital Twins</span>
-                                <span class="chip chip-green"><i class="fa-solid fa-people-arrows"></i> Multi-agent</span>
-                                <span class="chip chip-purple"><i class="fa-solid fa-chart-line"></i> Optimization</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- ✅ 邮箱居中修复（移动端）：加 inline-flex + justify-center -->
-                    <div class="mt-6 md:hidden flex flex-col items-center">
-                        <a href="mailto:philzhouwen@gmail.com"
-                           class="inline-flex items-center justify-center gap-2 text-slate-600 hover:text-slate-900 font-mono text-sm border-b border-dotted border-slate-400">
-                            <i class="far fa-envelope"></i> philzhouwen@gmail.com
-                        </a>
-                        <p class="mt-3 text-slate-500 text-xs leading-relaxed max-w-[340px]" data-i18n="hero_service_note">
-                            I’m available for paid consulting, funding proposal, manuscript polishing, coding support, and solution delivery — feel free to reach out.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Profile Image & Contact -->
-                <div class="flex flex-col items-center">
-                    <div class="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border border-slate-200 shadow-sm transition-all duration-500">
-                        <img src="./avatar.jpg" alt="Wen ZHOU" class="w-full h-full object-cover">
-                    </div>
-
-                    <!-- ✅ 邮箱居中修复（桌面端）：flex 需要 justify-center -->
-                    <div class="mt-4 text-center hidden md:block w-full">
-                        <a href="mailto:philzhouwen@gmail.com"
-                           class="text-slate-500 hover:text-slate-900 font-mono text-sm flex items-center justify-center gap-2 transition-colors">
-                            <i class="far fa-envelope"></i> philzhouwen@gmail.com
-                        </a>
-                        <p class="mt-2 text-slate-500 text-xs leading-relaxed max-w-[300px] mx-auto" data-i18n="hero_service_note">
-                            I’m available for paid consulting, manuscript polishing, coding support, and solution delivery — feel free to reach out.
-                        </p>
-                    </div>
-                </div>
-            </div>
+        <div class="hidden md:block">
+          <div class="ml-10 flex items-baseline space-x-8">
+            <a href="#about" class="text-sm font-medium text-slate-600 hover:text-slate-900 link-hover" data-i18n="nav_about">About</a>
+            <a href="#research" class="text-sm font-medium text-slate-600 hover:text-slate-900 link-hover" data-i18n="nav_research">Research</a>
+            <a href="#publications" class="text-sm font-medium text-slate-600 hover:text-slate-900 link-hover" data-i18n="nav_publications">Publications</a>
+            <a href="#experience" class="text-sm font-medium text-slate-600 hover:text-slate-900 link-hover" data-i18n="nav_experience">Education & Experience</a>
+          </div>
         </div>
-    </section>
 
-    <!-- Research Interests -->
-    <section id="research" class="py-20 border-t border-slate-100 bg-slate-50">
-        <div class="max-w-5xl mx-auto px-6">
-            <h2 class="text-2xl font-bold mb-6 text-slate-900 border-l-4 border-slate-900 pl-4" data-i18n="research_title">
-                Research Interests
-            </h2>
+        <div class="flex items-center gap-3">
+          <div class="relative">
+            <button id="langMenuButton" class="lang-btn" type="button" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-language"></i>
+              <span data-i18n="lang_label">Language</span>
+              <span id="langPill" class="lang-pill">EN</span>
+              <i class="fas fa-chevron-down text-[10px] text-slate-500"></i>
+            </button>
 
-            <p class="text-slate-600 mb-6 text-lg leading-relaxed max-w-4xl" data-i18n-html="research_desc_html">
-                AI for Science and Engineering.
-                <br><br>
-                <strong class="text-slate-800">PhD Dissertation Title:</strong> Evaluation of an AI-Driven Framework for Nuclear Thermal-Hydraulic Modeling and Simulation
+            <div id="langMenu" class="lang-menu hidden" role="menu" aria-label="Language menu">
+              <button class="lang-item" type="button" data-lang="en" role="menuitem">English <small>EN</small></button>
+              <button class="lang-item" type="button" data-lang="zh" role="menuitem">中文 <small>ZH</small></button>
+            </div>
+          </div>
+
+          <a href="https://github.com/zhouzhouwen" target="_blank" class="text-slate-500 hover:text-slate-900 transition-colors" aria-label="GitHub" rel="noreferrer">
+            <i class="fab fa-github text-2xl"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section id="about" class="min-h-[70vh] flex items-center justify-center pt-20">
+    <div class="max-w-5xl mx-auto px-6 w-full">
+      <div class="flex flex-col-reverse md:flex-row items-center justify-between gap-12">
+        <div class="flex-1 text-center md:text-left">
+          <h1 class="text-4xl md:text-6xl font-bold text-slate-900 mb-4 tracking-tight">Wen ZHOU</h1>
+
+          <div class="h-16 flex flex-col justify-center">
+            <p class="text-xl md:text-2xl text-slate-600 font-mono">
+              <span data-i18n="hero_ai_for">AI for</span>
+              <span id="typewriter" class="font-bold text-slate-900 border-b-2 border-slate-900 pb-1"></span><span class="cursor"></span>
             </p>
+          </div>
 
-            <div class="flex flex-wrap gap-4 mb-10">
-                <a href="https://zenodo.org/records/17720695" class="inline-flex items-center gap-2 px-5 py-2.5 bg-slate-900 text-white rounded-md hover:bg-slate-700 transition-all shadow-sm text-sm font-medium">
-                    <i class="fas fa-file-pdf"></i> <span data-i18n="phd_dissertation_btn">PhD Dissertation</span>
-                </a>
-                <a href="https://zenodo.org/records/17720695" class="inline-flex items-center gap-2 px-5 py-2.5 border border-slate-300 text-slate-700 bg-white rounded-md hover:bg-slate-50 transition-all shadow-sm text-sm font-medium">
-                    <i class="fas fa-file-powerpoint text-orange-600"></i> <span data-i18n="phd_slides_btn">PhD Slides</span>
-                </a>
-            </div>
+          <div class="mt-6 max-w-2xl mx-auto md:mx-0" data-i18n-html="hero_desc_html"></div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- 1 -->
-                <div class="academic-card p-6 rounded-lg">
-                    <div class="h-10 w-10 bg-slate-100 rounded-lg flex items-center justify-center mb-4 text-slate-700">
-                        <i class="fas fa-brain text-xl"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="card1_title">AI for Science</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed" data-i18n="card1_desc">
-                        Data-driven modeling, surrogate learning, and scientific discovery for complex physical systems.
-                    </p>
-                </div>
-
-                <!-- 2 -->
-                <div class="academic-card p-6 rounded-lg">
-                    <div class="h-10 w-10 bg-slate-100 rounded-lg flex items-center justify-center mb-4 text-slate-700">
-                        <i class="fas fa-gear text-xl"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="card2_title">AI for Engineering</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed" data-i18n="card2_desc">
-                        Prediction, classification, optimization, and decision support for engineering workflows and experiments.
-                    </p>
-                </div>
-
-                <!-- 3 -->
-                <div class="academic-card p-6 rounded-lg">
-                    <div class="h-10 w-10 bg-slate-100 rounded-lg flex items-center justify-center mb-4 text-slate-700">
-                        <i class="fas fa-wave-square text-xl"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="card3_title">AI for PDE</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed" data-i18n="card3_desc">
-                        Physics-informed learning (PINNs), operator learning (DeepONet), and fast PDE solvers for multiphysics.
-                    </p>
-                </div>
-
-                <!-- 4 -->
-                <div class="academic-card p-6 rounded-lg">
-                    <div class="h-10 w-10 bg-slate-100 rounded-lg flex items-center justify-center mb-4 text-slate-700">
-                        <i class="fas fa-cubes text-xl"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="card4_title">AI for Digital Twins</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed" data-i18n="card4_desc">
-                        Hybrid modeling, real-time calibration, and uncertainty-aware twins for monitoring and control.
-                    </p>
-                </div>
-
-                <!-- 5 -->
-                <div class="academic-card p-6 rounded-lg">
-                    <div class="h-10 w-10 bg-slate-100 rounded-lg flex items-center justify-center mb-4 text-slate-700">
-                        <i class="fas fa-eye text-xl"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="card5_title">AI for Vision</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed" data-i18n="card5_desc">
-                        Object detection, segmentation, and tracking for experiments (e.g., bubbles, boiling, interfaces).
-                    </p>
-                </div>
-
-                <!-- 6 -->
-                <div class="academic-card p-6 rounded-lg">
-                    <div class="h-10 w-10 bg-slate-100 rounded-lg flex items-center justify-center mb-4 text-slate-700">
-                        <i class="fas fa-robot text-xl"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="card6_title">AI for LLM & Agents</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed" data-i18n="card6_desc">
-                        LLMs, RAG, multi-agent workflows, and tool-using assistants for scientific & engineering productivity.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Publications -->
-    <section id="publications" class="py-20 border-t border-slate-100">
-        <div class="max-w-5xl mx-auto px-6">
-            <h2 class="text-2xl font-bold mb-8 text-slate-900 border-l-4 border-slate-900 pl-4" data-i18n="pubs_title">
-                Publications
-            </h2>
-
-            <div class="grid gap-6">
-                <!-- Pub 1 -->
-                <div class="academic-card p-6 rounded-lg">
-                    <div class="flex flex-col sm:flex-row gap-3 sm:items-center justify-between mb-2">
-                        <div class="flex gap-2 flex-wrap">
-                            <span class="tag tag-blue" data-i18n="tag_generative_ai">Generative AI</span>
-                            <span class="tag tag-green" data-i18n="tag_fluid_dynamics">Fluid Dynamics</span>
-                            <span class="tag tag-purple" data-i18n="tag_bubbly_flow">Bubbly Flow</span>
-                            <span class="tag tag-orange" data-i18n="tag_image_generation_model">Image Generation Model</span>
-                            <span class="tag tag-yellow" data-i18n="tag_gan">GAN</span>
-                        </div>
-                        <span class="text-xs font-mono text-slate-500" data-i18n="venue_pub1"> AI Thermal Fluids; Under Review (2025)</span>
-                    </div>
-
-                    <h3 class="text-lg font-bold text-slate-900 leading-tight">
-                        BF-GAN: Development of an AI-driven Bubbly Flow Image Generation Model Using Bubbly Generative Adversarial Networks
-                    </h3>
-
-                    <p class="text-sm text-slate-600 mt-2">
-                        Zhou, W., Miwa, S., Liu, Y., & Okamoto, K.
-                    </p>
-
-                    <div class="mt-4 flex gap-4 text-xs font-medium font-mono">
-                        <a href="#" class="text-slate-600 hover:text-slate-900 flex items-center gap-1" title="Paper link">
-                            <i class="fas fa-file-alt"></i> <span data-i18n="label_paper">Paper</span>
-                        </a>
-                        <a href="https://github.com/zhouzhouwen/BF-GAN" class="text-slate-600 hover:text-slate-900 flex items-center gap-1">
-                            <i class="fab fa-github"></i> <span data-i18n="label_code">Code</span>
-                        </a>
-                        <a href="https://data.mendeley.com/datasets/gtbcrhdnrh/1" class="text-slate-600 hover:text-slate-900 flex items-center gap-1">
-                            <i class="fas fa-database"></i> <span data-i18n="label_dataset">Dataset</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Pub 5 -->
-                <div class="academic-card p-6 rounded-lg">
-                    <div class="flex flex-col sm:flex-row gap-3 sm:items-center justify-between mb-2">
-                        <div class="flex gap-2 flex-wrap">
-                            <span class="tag tag-blue" data-i18n="tag_thermal_hydraulic">Thermal Hydraulic</span>
-                            <span class="tag tag-green" data-i18n="tag_subcooled_flow_boiling">Subcooled Flow Boiling</span>
-                            <span class="tag tag-purple" data-i18n="tag_feature_extraction">Feature Extraction</span>
-                            <span class="tag tag-orange" data-i18n="tag_object_detection_tracking">Object Detection and Tracking</span>
-                        </div>
-                        <span class="text-xs font-mono text-slate-500" data-i18n="venue_pub5">Intl. J. of Multiphase Flow (2025)</span>
-                    </div>
-
-                    <h3 class="text-lg font-bold text-slate-900 leading-tight">
-                        Development of the AI-Assisted Thermal Hydraulic Analysis Method for Condensing Bubbles in Vertical Subcooled Flow Boiling
-                    </h3>
-
-                    <p class="text-sm text-slate-600 mt-2">
-                        Zhou, W., Miwa, S., Tsujimura, R., Nguyen, T. B., Okawa, T., & Okamoto, K.
-                    </p>
-
-                    <div class="mt-4 flex gap-4 text-xs font-medium font-mono">
-                        <a href="https://www.sciencedirect.com/science/article/pii/S0301932225001247" class="text-slate-600 hover:text-slate-900 flex items-center gap-1" title="Paper link">
-                            <i class="fas fa-file-alt"></i> <span data-i18n="label_paper">Paper</span>
-                        </a>
-                        <a href="https://github.com/zhouzhouwen/The-Robust-Development-of-a-TH-Analysis-Method-for-Bubbles-Using-AI" class="text-slate-600 hover:text-slate-900 flex items-center gap-1">
-                            <i class="fab fa-github"></i> <span data-i18n="label_code">Code</span>
-                        </a>
-                        <a href="https://data.mendeley.com/datasets/p5zskggvwx/1" class="text-slate-600 hover:text-slate-900 flex items-center gap-1">
-                            <i class="fas fa-database"></i> <span data-i18n="label_dataset">Dataset</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Pub 2 -->
-                <div class="academic-card p-6 rounded-lg">
-                    <div class="flex flex-col sm:flex-row gap-3 sm:items-center justify-between mb-2">
-                        <div class="flex gap-2 flex-wrap">
-                            <span class="tag tag-blue" data-i18n="tag_pinns">Physics-informed neural networks</span>
-                            <span class="tag tag-green" data-i18n="tag_navier_stokes">Navier-Stokes equations</span>
-                            <span class="tag tag-orange" data-i18n="tag_fluid_dynamic_analysis">Fluid dynamic analysis</span>
-                            <span class="tag tag-yellow" data-i18n="tag_low_re">Low Re number</span>
-                        </div>
-                        <span class="text-xs font-mono text-slate-500" data-i18n="venue_pub2">Physics of Fluids (2024)</span>
-                    </div>
-
-                    <h3 class="text-lg font-bold text-slate-900 leading-tight">
-                        Advancing fluid dynamics simulations: A comprehensive approach to optimizing physics-informed neural networks
-                    </h3>
-
-                    <p class="text-sm text-slate-600 mt-2">
-                        Zhou, W., Miwa, S., & Okamoto, K.
-                    </p>
-
-                    <div class="mt-4 flex gap-4 text-xs font-medium font-mono">
-                        <a href="https://pubs.aip.org/aip/pof/article-abstract/36/1/013615/3023015/Advancing-fluid-dynamics-simulations-A?redirectedFrom=fulltext" class="text-slate-600 hover:text-slate-900 flex items-center gap-1" title="Paper link">
-                            <i class="fas fa-file-alt"></i> <span data-i18n="label_paper">Paper</span>
-                        </a>
-                        <a href="https://github.com/zhouzhouwen/An-improved-PINNs-with-the-adaptive-weight-sampling-and-DE-algorithm" class="text-slate-600 hover:text-slate-900 flex items-center gap-1">
-                            <i class="fab fa-github"></i> <span data-i18n="label_code">Code</span>
-                        </a>
-                        <a href="#" class="text-slate-600 hover:text-slate-900 flex items-center gap-1">
-                            <i class="fas fa-database"></i> <span data-i18n="label_public_dataset">Public Dataset</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Pub 3 -->
-                <div class="academic-card p-6 rounded-lg">
-                    <div class="flex flex-col sm:flex-row gap-3 sm:items-center justify-between mb-2">
-                        <div class="flex gap-2 flex-wrap">
-                            <span class="tag tag-blue" data-i18n="tag_pinns">Physics-informed neural networks</span>
-                            <span class="tag tag-green" data-i18n="tag_interface_tracking">Interface Tracking Methods</span>
-                            <span class="tag tag-purple" data-i18n="tag_two_phase_flow">Two-Phase Flow</span>
-                            <span class="tag tag-orange" data-i18n="tag_bubble_dynamics">Bubble Dynamics</span>
-                        </div>
-                        <span class="text-xs font-mono text-slate-500" data-i18n="venue_pub3">Physics of Fluids (2024)</span>
-                    </div>
-
-                    <h3 class="text-lg font-bold text-slate-900 leading-tight">
-                        Self-adaptive and time divide-and-conquer physics-informed neural networks for two-phase flow simulations using interface tracking methods
-                    </h3>
-
-                    <p class="text-sm text-slate-600 mt-2">
-                        Zhou, W., Miwa, S., & Okamoto, K.
-                    </p>
-
-                    <div class="mt-4 flex gap-4 text-xs font-medium font-mono">
-                        <a href="https://pubs.aip.org/aip/pof/article-abstract/36/7/073305/3300833/Self-adaptive-and-time-divide-and-conquer-physics?redirectedFrom=PDF" class="text-slate-600 hover:text-slate-900 flex items-center gap-1" title="Paper link">
-                            <i class="fas fa-file-alt"></i> <span data-i18n="label_paper">Paper</span>
-                        </a>
-                        <a href="https://github.com/zhouzhouwen/two-phase-flow-by-self_adaptive-and-time_divide_conquer-PINNs" class="text-slate-600 hover:text-slate-900 flex items-center gap-1">
-                            <i class="fab fa-github"></i> <span data-i18n="label_code">Code</span>
-                        </a>
-                        <a href="#" class="text-slate-600 hover:text-slate-900 flex items-center gap-1">
-                            <i class="fas fa-database"></i> <span data-i18n="label_public_dataset">Public Dataset</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Pub 4 -->
-                <div class="academic-card p-6 rounded-lg">
-                    <div class="flex flex-col sm:flex-row gap-3 sm:items-center justify-between mb-2">
-                        <div class="flex gap-2 flex-wrap">
-                            <span class="tag tag-blue" data-i18n="tag_condensation_bubble">Condensation Bubble</span>
-                            <span class="tag tag-green" data-i18n="tag_subcooled_flow_boiling">Subcooled Flow Boiling</span>
-                            <span class="tag tag-purple" data-i18n="tag_feature_extraction">Feature Extraction</span>
-                            <span class="tag tag-orange" data-i18n="tag_object_detection_tracking">Object Detection and Tracking</span>
-                        </div>
-                        <span class="text-xs font-mono text-slate-500" data-i18n="venue_pub4">Intl. J. of Heat and Mass Transfer (2024)</span>
-                    </div>
-
-                    <h3 class="text-lg font-bold text-slate-900 leading-tight">
-                        Bubble feature extraction in subcooled flow boiling using AI-based object detection and tracking techniques
-                    </h3>
-
-                    <p class="text-sm text-slate-600 mt-2">
-                        Zhou, W., Miwa, S., Okawa, T., & Okamoto, K.
-                    </p>
-
-                    <div class="mt-4 flex gap-4 text-xs font-medium font-mono">
-                        <a href="https://www.sciencedirect.com/science/article/abs/pii/S0017931024000206" class="text-slate-600 hover:text-slate-900 flex items-center gap-1" title="Paper link">
-                            <i class="fas fa-file-alt"></i> <span data-i18n="label_paper">Paper</span>
-                        </a>
-                        <a href="https://github.com/zhouzhouwen/Bubble_detection_and_tracking_AI_based_YOLO_tracking_alogrithm" class="text-slate-600 hover:text-slate-900 flex items-center gap-1">
-                            <i class="fab fa-github"></i> <span data-i18n="label_code">Code</span>
-                        </a>
-                        <a href="https://data.mendeley.com/datasets/p5zskggvwx/1" class="text-slate-600 hover:text-slate-900 flex items-center gap-1">
-                            <i class="fas fa-database"></i> <span data-i18n="label_dataset">Dataset</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Pub 6 -->
-                <div class="academic-card p-6 rounded-lg">
-                    <div class="flex flex-col sm:flex-row gap-3 sm:items-center justify-between mb-2">
-                        <div class="flex gap-2 flex-wrap">
-                            <span class="tag tag-blue" data-i18n="tag_computer_vision">Computer Vision</span>
-                            <span class="tag tag-green" data-i18n="tag_semantic_segmentation">Semantic Segmentation</span>
-                            <span class="tag tag-purple" data-i18n="tag_jet_penetration">Jet Penetration</span>
-                            <span class="tag tag-orange" data-i18n="tag_optimization_algorithm">Optimization Algorithm</span>
-                        </div>
-                        <span class="text-xs font-mono text-slate-500" data-i18n="venue_pub6">Progress in Nuclear Energy (2024)</span>
-                    </div>
-
-                    <h3 class="text-lg font-bold text-slate-900 leading-tight">
-                        Development of advanced AI-based segmentation and prediction method for air entrainment in plunging water jets
-                    </h3>
-
-                    <p class="text-sm text-slate-600 mt-2">
-                        Zhou, W., Miwa, S., Yamashita, S., & Okamoto, K.
-                    </p>
-
-                    <div class="mt-4 flex gap-4 text-xs font-medium font-mono">
-                        <a href="https://www.sciencedirect.com/science/article/pii/S0149197024003913" class="text-slate-600 hover:text-slate-900 flex items-center gap-1" title="Paper link">
-                            <i class="fas fa-file-alt"></i> <span data-i18n="label_paper">Paper</span>
-                        </a>
-                        <a href="https://github.com/zhouzhouwen/Advanced-AI-Segmentation-of-Air-Entrainment-Motion-YOLO-with-Attention-Mechanism-and-NSGA-III-BPNN" class="text-slate-600 hover:text-slate-900 flex items-center gap-1">
-                            <i class="fab fa-github"></i> <span data-i18n="label_code">Code</span>
-                        </a>
-                        <a href="#" class="text-slate-600 hover:text-slate-900 flex items-center gap-1">
-                            <i class="fas fa-database"></i> <span data-i18n="label_dataset_not_available">Dataset(Not Available)</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Pub 7 -->
-                <div class="academic-card p-6 rounded-lg">
-                    <div class="flex flex-col sm:flex-row gap-3 sm:items-center justify-between mb-2">
-                        <div class="flex gap-2 flex-wrap">
-                            <span class="tag tag-blue" data-i18n="tag_critical_heat_flux">Critical Heat Flux</span>
-                            <span class="tag tag-green" data-i18n="tag_ann">ANN</span>
-                            <span class="tag tag-purple" data-i18n="tag_cnn">CNN</span>
-                            <span class="tag tag-orange" data-i18n="tag_transformer">Transformer</span>
-                            <span class="tag tag-yellow" data-i18n="tag_transfer_learning">Transfer Learning</span>
-                        </div>
-                        <span class="text-xs font-mono text-slate-500" data-i18n="venue_pub7">Intl. Comm. in Heat and Mass Transfer (2024)</span>
-                    </div>
-
-                    <h3 class="text-lg font-bold text-slate-900 leading-tight">
-                        Assessment of the state-of-the-art AI methods for critical heat flux prediction
-                    </h3>
-
-                    <p class="text-sm text-slate-600 mt-2">
-                        Zhou, W., Miwa, S., Wang, H., & Okamoto, K.
-                    </p>
-
-                    <div class="mt-4 flex gap-4 text-xs font-medium font-mono">
-                        <a href="https://www.sciencedirect.com/science/article/pii/S0735193324006067" class="text-slate-600 hover:text-slate-900 flex items-center gap-1" title="Paper link">
-                            <i class="fas fa-file-alt"></i> <span data-i18n="label_paper">Paper</span>
-                        </a>
-                        <a href="https://github.com/zhouzhouwen/cutting-edge-artificial-intelligence-methods-for-prediction-of-critical-heat-flux" class="text-slate-600 hover:text-slate-900 flex items-center gap-1">
-                            <i class="fab fa-github"></i> <span data-i18n="label_code">Code</span>
-                        </a>
-                        <a href="https://github.com/zhouzhouwen/cutting-edge-artificial-intelligence-methods-for-prediction-of-critical-heat-flux" class="text-slate-600 hover:text-slate-900 flex items-center gap-1">
-                            <i class="fas fa-database"></i> <span data-i18n="label_dataset">Dataset</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Pub 8 -->
-                <div class="academic-card p-6 rounded-lg">
-                    <div class="flex flex-col sm:flex-row gap-3 sm:items-center justify-between mb-2">
-                        <div class="flex gap-2 flex-wrap">
-                            <span class="tag tag-blue" data-i18n="tag_optimization_design">Optimization design</span>
-                            <span class="tag tag-green" data-i18n="tag_nsga_de">NSGA-III & DE Algorithm</span>
-                            <span class="tag tag-purple" data-i18n="tag_cfetr_hcsb">CFETR HCSB blanket</span>
-                            <span class="tag tag-orange" data-i18n="tag_acceleration_calculation">Acceleration Calculation</span>
-                        </div>
-                        <span class="text-xs font-mono text-slate-500" data-i18n="venue_pub8">Nuclear Engineering and Technology (2023)</span>
-                    </div>
-
-                    <h3 class="text-lg font-bold text-slate-900 leading-tight">
-                        An intelligent optimization method for the HCSB blanket based on an improved multi-objective NSGA-III algorithm
-                    </h3>
-
-                    <p class="text-sm text-slate-600 mt-2">
-                        Zhou, W., Sun, G., Miwa, S., et al.
-                    </p>
-
-                    <div class="mt-4 flex gap-4 text-xs font-medium font-mono">
-                        <a href="https://www.sciencedirect.com/science/article/pii/S1738573323002504" class="text-slate-600 hover:text-slate-900 flex items-center gap-1" title="Paper link">
-                            <i class="fas fa-file-alt"></i> <span data-i18n="label_paper">Paper</span>
-                        </a>
-                        <a href="https://github.com/zhouzhouwen/An-AI-method-for-the-HCSB-blanket-based-on-an-improved-NSGA-III-and-an-adaptive-BPNN" class="text-slate-600 hover:text-slate-900 flex items-center gap-1">
-                            <i class="fab fa-github"></i> <span data-i18n="label_code">Code</span>
-                        </a>
-                        <a href="https://github.com/zhouzhouwen/An-AI-method-for-the-HCSB-blanket-based-on-an-improved-NSGA-III-and-an-adaptive-BPNN" class="text-slate-600 hover:text-slate-900 flex items-center gap-1">
-                            <i class="fas fa-database"></i> <span data-i18n="label_dataset">Dataset</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Pub 9 -->
-                <div class="academic-card p-6 rounded-lg">
-                    <div class="flex flex-col sm:flex-row gap-3 sm:items-center justify-between mb-2">
-                        <div class="flex gap-2 flex-wrap">
-                            <span class="tag tag-blue" data-i18n="tag_critical_heat_flux">Critical Heat Flux</span>
-                            <span class="tag tag-green" data-i18n="tag_ann">ANN</span>
-                            <span class="tag tag-purple" data-i18n="tag_cnn">CNN</span>
-                            <span class="tag tag-orange" data-i18n="tag_transformer">Transformer</span>
-                            <span class="tag tag-yellow" data-i18n="tag_transfer_learning">Transfer Learning</span>
-                        </div>
-                        <span class="text-xs font-mono text-slate-500" data-i18n="venue_pub9">Nuclear Techniques (2021)</span>
-                    </div>
-
-                    <h3 class="text-lg font-bold text-slate-900 leading-tight">
-                        Re-examining the input-parameters and AI strategies for Critical Heat Flux prediction
-                    </h3>
-
-                    <p class="text-sm text-slate-600 mt-2">
-                        Wang, K., Zhou, W.*, ... & Okamoto, K.  et al.
-                    </p>
-
-                    <div class="mt-4 flex gap-4 text-xs font-medium font-mono">
-                        <a href="https://www.sciencedirect.com/science/article/pii/S0360544225002488" class="text-slate-600 hover:text-slate-900 flex items-center gap-1" title="Paper link">
-                            <i class="fas fa-file-alt"></i> <span data-i18n="label_paper">Paper</span>
-                        </a>
-                        <a href="#" class="text-slate-600 hover:text-slate-900 flex items-center gap-1">
-                            <i class="fab fa-github"></i> <span data-i18n="label_code">Code</span>
-                        </a>
-                        <a href="#" class="text-slate-600 hover:text-slate-900 flex items-center gap-1">
-                            <i class="fas fa-database"></i> <span data-i18n="label_dataset">Dataset</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Pub 10 -->
-                <div class="academic-card p-6 rounded-lg">
-                    <div class="flex flex-col sm:flex-row gap-3 sm:items-center justify-between mb-2">
-                        <div class="flex gap-2 flex-wrap">
-                            <span class="tag tag-blue" data-i18n="tag_ann">ANN</span>
-                            <span class="tag tag-green" data-i18n="tag_radiation_field">Radiation Field</span>
-                            <span class="tag tag-purple" data-i18n="tag_reconstruction_method">Reconstruction Method</span>
-                        </div>
-                        <span class="text-xs font-mono text-slate-500" data-i18n="venue_pub10">Nuclear Engineering and Design (2021)</span>
-                    </div>
-
-                    <h3 class="text-lg font-bold text-slate-900 leading-tight">
-                        BP neural network based reconstruction method for radiation field applications
-                    </h3>
-
-                    <p class="text-sm text-slate-600 mt-2">
-                        Zhou, W., Sun, G., Yang, Z., et al.
-                    </p>
-
-                    <div class="mt-4 flex gap-4 text-xs font-medium font-mono">
-                        <a href="https://www.sciencedirect.com/science/article/abs/pii/S0029549321001801" class="text-slate-600 hover:text-slate-900 flex items-center gap-1" title="Paper link">
-                            <i class="fas fa-file-alt"></i> <span data-i18n="label_paper">Paper</span>
-                        </a>
-                        <a href="https://github.com/zhouzhouwen/BP-neural-network-based-reconstruction-method-for-radiation-field-applications" class="text-slate-600 hover:text-slate-900 flex items-center gap-1">
-                            <i class="fab fa-github"></i> <span data-i18n="label_code">Code</span>
-                        </a>
-                        <a href="https://github.com/zhouzhouwen/BP-neural-network-based-reconstruction-method-for-radiation-field-applications" class="text-slate-600 hover:text-slate-900 flex items-center gap-1">
-                            <i class="fas fa-database"></i> <span data-i18n="label_dataset">Dataset</span>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Education & Experience -->
-    <section id="experience" class="py-20 border-t border-slate-100 bg-slate-50">
-        <div class="max-w-5xl mx-auto px-6">
-            <h2 class="text-2xl font-bold mb-12 text-slate-900 border-l-4 border-slate-900 pl-4" data-i18n="exp_title">
-                Education & Experience
-            </h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <!-- Education Column -->
-                <div>
-                    <h3 class="text-lg font-serif font-semibold text-slate-700 mb-6 flex items-center gap-2">
-                        <i class="fas fa-graduation-cap text-slate-400"></i> <span data-i18n="edu_title">Education</span>
-                    </h3>
-                    <div class="space-y-8 relative border-l border-slate-200 ml-3 pl-8">
-                        <div class="relative">
-                            <span class="absolute -left-[37px] top-1.5 h-4 w-4 rounded-full bg-white border-2 border-slate-900"></span>
-                            <div>
-                                <span class="text-xs font-mono text-slate-500" data-i18n="edu_phd_time">Oct 2022 - Oct 2025</span>
-                                <h4 class="text-base font-bold text-slate-900 mt-1" data-i18n="edu_phd_degree">PhD in Nuclear Engineering</h4>
-                                <div class="flex justify-between items-start mt-1 mb-2">
-                                    <p class="text-slate-600 text-sm" data-i18n="edu_phd_school">The University of Tokyo</p>
-                                    <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2 py-0.5 rounded" data-i18n="label_japan">Japan</span>
-                                </div>
-                                <p class="text-slate-500 text-xs mt-1" data-i18n="edu_phd_supervisors">Supervisors: Shuichiro MIWA; Koji OKAMOTO</p>
-                            </div>
-                        </div>
-
-                        <div class="relative">
-                            <span class="absolute -left-[37px] top-1.5 h-4 w-4 rounded-full bg-white border-2 border-slate-400"></span>
-                            <div>
-                                <span class="text-xs font-mono text-slate-500" data-i18n="edu_master_time">Sept 2019 - June 2022</span>
-                                <h4 class="text-base font-bold text-slate-900 mt-1" data-i18n="edu_master_degree">Master in Nuclear Energy</h4>
-                                <div class="flex justify-between items-start mt-1">
-                                    <p class="text-slate-600 text-sm" data-i18n="edu_master_school">University of Science and Technology of China</p>
-                                    <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2 py-0.5 rounded" data-i18n="label_china">China</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="relative">
-                            <span class="absolute -left-[37px] top-1.5 h-4 w-4 rounded-full bg-white border-2 border-slate-400"></span>
-                            <div>
-                                <span class="text-xs font-mono text-slate-500" data-i18n="edu_bachelor_time">Sept 2015 - June 2019</span>
-                                <h4 class="text-base font-bold text-slate-900 mt-1" data-i18n="edu_bachelor_degree">Bachelor in Nuclear Engineering</h4>
-                                <div class="flex justify-between items-start mt-1">
-                                    <p class="text-slate-600 text-sm" data-i18n="edu_bachelor_school">East China University of Technology</p>
-                                    <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2 py-0.5 rounded" data-i18n="label_china">China</span>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <!-- Experience Column -->
-                <div>
-                    <h3 class="text-lg font-serif font-semibold text-slate-700 mb-6 flex items-center gap-2">
-                        <i class="fas fa-briefcase text-slate-400"></i> <span data-i18n="work_title">Experience</span>
-                    </h3>
-                    <div class="space-y-8 relative border-l border-slate-200 ml-3 pl-8">
-                        <div class="relative">
-                            <span class="absolute -left-[37px] top-1.5 h-4 w-4 rounded-full bg-slate-900 border-2 border-slate-900"></span>
-                            <div>
-                                <span class="text-xs font-mono text-slate-500" data-i18n="work_researcher_time">Oct 2025 - Present</span>
-                                <div class="flex items-center gap-2 mt-1">
-                                    <h4 class="text-base font-bold text-slate-900" data-i18n="work_researcher_title">Project Researcher</h4>
-                                    <span class="text-[10px] uppercase font-bold text-white bg-slate-800 px-1.5 py-0.5 rounded" data-i18n="label_full_time">Full-time</span>
-                                </div>
-                                <div class="flex justify-between items-start mt-1">
-                                    <p class="text-slate-600 text-sm" data-i18n="work_researcher_org">The University of Tokyo</p>
-                                    <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2 py-0.5 rounded" data-i18n="label_japan">Japan</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="relative">
-                            <span class="absolute -left-[37px] top-1.5 h-4 w-4 rounded-full bg-white border-2 border-slate-400"></span>
-                            <div>
-                                <span class="text-xs font-mono text-slate-500" data-i18n="work_intern_time">Nov 2024 - Feb 2025</span>
-                                <div class="flex items-center gap-2 mt-1">
-                                    <h4 class="text-base font-bold text-slate-900" data-i18n="work_intern_title">AI Engineering Intern</h4>
-                                    <span class="text-[10px] uppercase font-bold text-slate-500 border border-slate-300 px-1.5 py-0.5 rounded" data-i18n="label_internship">Internship</span>
-                                </div>
-                                <div class="flex justify-between items-start mt-1">
-                                    <p class="text-slate-600 text-sm" data-i18n="work_intern_org">OPE.AI, Tokyo</p>
-                                    <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2 py-0.5 rounded" data-i18n="label_japan">Japan</span>
-                                </div>
-                                <p class="text-slate-500 text-xs mt-1" data-i18n="work_intern_desc">LLM, LoRA, RAG, digital human models.</p>
-                            </div>
-                        </div>
-
-                        <div class="relative">
-                            <span class="absolute -left-[37px] top-1.5 h-4 w-4 rounded-full bg-white border-2 border-slate-400"></span>
-                            <div>
-                                <span class="text-xs font-mono text-slate-500" data-i18n="work_quant_time">Apr 2021 - Nov 2021</span>
-                                <div class="flex items-center gap-2 mt-1">
-                                    <h4 class="text-base font-bold text-slate-900" data-i18n="work_quant_title">Quantitative Trader</h4>
-                                    <span class="text-[10px] uppercase font-bold text-slate-500 border border-slate-300 px-1.5 py-0.5 rounded" data-i18n="label_internship">Internship</span>
-                                </div>
-                                <div class="flex justify-between items-start mt-1">
-                                    <p class="text-slate-600 text-sm" data-i18n="work_quant_org">Guan Rui Technology Co.</p>
-                                    <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2 py-0.5 rounded" data-i18n="label_china">China</span>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-white py-12 border-t border-slate-100">
-        <div class="max-w-5xl mx-auto px-6 text-center">
-            <p class="text-slate-500 text-sm font-mono">
-                &copy; 2025 Wen ZHOU.
+          <div class="mt-6 md:hidden flex flex-col items-center">
+            <a
+              href="mailto:philzhouwen@gmail.com"
+              class="inline-flex items-center justify-center gap-2 text-slate-600 hover:text-slate-900 font-mono text-sm border-b border-dotted border-slate-400"
+            >
+              <i class="far fa-envelope"></i> philzhouwen@gmail.com
+            </a>
+            <p class="mt-3 text-slate-500 text-xs leading-relaxed max-w-[340px]" data-i18n="hero_service_note">
+              Available for paid consulting, manuscript editing/polishing, implementation & engineering support, and delivery of customized solutions — feel free to reach out by email.
             </p>
+          </div>
         </div>
-    </footer>
-
-    <!-- i18n + Typewriter Script -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const textElement = document.getElementById('typewriter');
-
-            // language menu elements
-            const langMenuButton = document.getElementById('langMenuButton');
-            const langMenu = document.getElementById('langMenu');
-            const langPill = document.getElementById('langPill');
-
-            const i18n = {
-                en: {
-                    nav_about: "About",
-                    nav_research: "Research",
-                    nav_publications: "Publications",
-                    nav_experience: "Education & Experience",
-
-                    lang_label: "Language",
-
-                    hero_ai_for: "AI for",
-
-
-                    hero_desc_html:
-                         "<div class='hero-callout'>" +
-                            "<div class='headline'>Project Researcher at <strong>The University of Tokyo</strong>.</div>" +
-                            "<div class='subline mt-1'>Applying AI to fluid mechanics, two-phase flow, thermal-hydraulics, and nuclear engineering.</div>" +
-
-                                // Row 1: Data
-                                "<div class='mt-3 text-xs font-mono text-slate-500'>I can work with</div>" +
-                                "<div class='chip-wrap'>" +
-                                  "<span class='chip chip-blue'><i class='fa-solid fa-table'></i> Tabular</span>" +
-                                  "<span class='chip chip-green'><i class='fa-solid fa-wave-square'></i> Time-series</span>" +
-                                  "<span class='chip chip-purple'><i class='fa-solid fa-image'></i> Images</span>" +
-                                  "<span class='chip chip-orange'><i class='fa-solid fa-video'></i> Videos</span>" +
-                                  "<span class='chip chip-slate'><i class='fa-solid fa-font'></i> Text</span>" +
-                                "</div>" +
-
-                                // Row 2: Methods
-                                "<div class='mt-3 text-xs font-mono text-slate-500'>Methods</div>" +
-                                "<div class='chip-wrap'>" +
-                                  "<span class='chip chip-purple'><i class='fa-solid fa-eye'></i> CV</span>" +
-                                  "<span class='chip chip-orange'><i class='fa-solid fa-bolt'></i> PINNs / DeepONet</span>" +
-                                  "<span class='chip chip-yellow'><i class='fa-solid fa-wand-magic-sparkles'></i> Generative AI</span>" +
-                                  "<span class='chip chip-slate'><i class='fa-solid fa-robot'></i> LLMs / RAG</span>" +
-                                  "<span class='chip chip-blue'><i class='fa-solid fa-cubes'></i> Digital Twins</span>" +
-                                  "<span class='chip chip-green'><i class='fa-solid fa-people-arrows'></i> Multi-agent</span>" +
-                                  "<span class='chip chip-purple'><i class='fa-solid fa-chart-line'></i> Optimization</span>" +
-                                "</div>" +
-                         "</div>",
-
-                    // ✅ 英文更自然，并补上“定制化”
-                    hero_service_note:
-                        "Available for paid consulting, manuscript editing/polishing, implementation & engineering support, and delivery of customized solutions — feel free to reach out by email.",
-
-                    research_title: "Research Interests",
-                    research_desc_html:
-                        "AI for Science and Engineering." +
-                        "<br><br><strong class='text-slate-800'>PhD Dissertation Title:</strong> Evaluation of an AI-Driven Framework for Nuclear Thermal-Hydraulic Modeling and Simulation",
-                    phd_dissertation_btn: "PhD Dissertation",
-                    phd_slides_btn: "PhD Slides",
-
-                    card1_title: "AI for Science",
-                    card1_desc: "Data-driven modeling, surrogate learning, and scientific discovery for complex physical systems.",
-
-                    card2_title: "AI for Engineering",
-                    card2_desc: "Prediction, classification, optimization, and decision support for engineering workflows and experiments.",
-
-                    card3_title: "AI for PDE",
-                    card3_desc: "Physics-informed learning (PINNs), operator learning (DeepONet), and fast PDE solvers for multiphysics.",
-
-                    card4_title: "AI for Digital Twins",
-                    card4_desc: "Hybrid modeling, real-time calibration, and uncertainty-aware twins for monitoring and control.",
-
-                    card5_title: "AI for Vision",
-                    card5_desc: "Object detection, segmentation, and tracking for experiments (e.g., bubbles, boiling, interfaces).",
-
-                    card6_title: "AI for LLM & Agents",
-                    card6_desc: "LLMs, RAG, multi-agent workflows, and tool-using assistants for scientific & engineering productivity.",
-
-                    pubs_title: "Publications",
-                    label_paper: "Paper",
-                    label_code: "Code",
-                    label_dataset: "Dataset",
-                    label_public_dataset: "Public Dataset",
-                    label_dataset_not_available: "Dataset(Not Available)",
-
-                    venue_pub1: "AI Thermal Fluids; Under Review (2025)",
-                    venue_pub5: "Intl. J. of Multiphase Flow (2025)",
-                    venue_pub2: "Physics of Fluids (2024)",
-                    venue_pub3: "Physics of Fluids (2024)",
-                    venue_pub4: "Intl. J. of Heat and Mass Transfer (2024)",
-                    venue_pub6: "Progress in Nuclear Energy (2024)",
-                    venue_pub7: "Intl. Comm. in Heat and Mass Transfer (2024)",
-                    venue_pub8: "Nuclear Engineering and Technology (2023)",
-                    venue_pub9: "Nuclear Techniques (2021)",
-                    venue_pub10: "Nuclear Engineering and Design (2021)",
-
-                    tag_generative_ai: "Generative AI",
-                    tag_fluid_dynamics: "Fluid Dynamics",
-                    tag_bubbly_flow: "Bubbly Flow",
-                    tag_image_generation_model: "Image Generation Model",
-                    tag_gan: "GAN",
-                    tag_thermal_hydraulic: "Thermal Hydraulic",
-                    tag_subcooled_flow_boiling: "Subcooled Flow Boiling",
-                    tag_feature_extraction: "Feature Extraction",
-                    tag_object_detection_tracking: "Object Detection and Tracking",
-                    tag_pinns: "Physics-informed neural networks",
-                    tag_navier_stokes: "Navier-Stokes equations",
-                    tag_fluid_dynamic_analysis: "Fluid dynamic analysis",
-                    tag_low_re: "Low Re number",
-                    tag_interface_tracking: "Interface Tracking Methods",
-                    tag_two_phase_flow: "Two-Phase Flow",
-                    tag_bubble_dynamics: "Bubble Dynamics",
-                    tag_condensation_bubble: "Condensation Bubble",
-                    tag_computer_vision: "Computer Vision",
-                    tag_semantic_segmentation: "Semantic Segmentation",
-                    tag_jet_penetration: "Jet Penetration",
-                    tag_optimization_algorithm: "Optimization Algorithm",
-                    tag_critical_heat_flux: "Critical Heat Flux",
-                    tag_ann: "ANN",
-                    tag_cnn: "CNN",
-                    tag_transformer: "Transformer",
-                    tag_transfer_learning: "Transfer Learning",
-                    tag_optimization_design: "Optimization design",
-                    tag_nsga_de: "NSGA-III & DE Algorithm",
-                    tag_cfetr_hcsb: "CFETR HCSB blanket",
-                    tag_acceleration_calculation: "Acceleration Calculation",
-                    tag_radiation_field: "Radiation Field",
-                    tag_reconstruction_method: "Reconstruction Method",
-
-                    exp_title: "Education & Experience",
-                    edu_title: "Education",
-                    work_title: "Experience",
-
-                    edu_phd_time: "Oct 2022 - Oct 2025",
-                    edu_phd_degree: "PhD in Nuclear Engineering",
-                    edu_phd_school: "The University of Tokyo",
-                    edu_phd_supervisors: "Supervisors: Shuichiro MIWA; Koji OKAMOTO",
-
-                    edu_master_time: "Sept 2019 - June 2022",
-                    edu_master_degree: "Master in Nuclear Energy",
-                    edu_master_school: "University of Science and Technology of China",
-
-                    edu_bachelor_time: "Sept 2015 - June 2019",
-                    edu_bachelor_degree: "Bachelor in Nuclear Engineering",
-                    edu_bachelor_school: "East China University of Technology",
-
-                    work_researcher_time: "Oct 2025 - Present",
-                    work_researcher_title: "Project Researcher",
-                    work_researcher_org: "The University of Tokyo",
-
-                    work_intern_time: "Nov 2024 - Feb 2025",
-                    work_intern_title: "AI Engineering Intern",
-                    work_intern_org: "OPE.AI, Tokyo",
-                    work_intern_desc: "LLM, LoRA, RAG, digital human models.",
-
-                    work_quant_time: "Apr 2021 - Nov 2021",
-                    work_quant_title: "Quantitative Trader",
-                    work_quant_org: "Guan Rui Technology Co.",
-
-                    label_full_time: "Full-time",
-                    label_internship: "Internship",
-                    label_japan: "Japan",
-                    label_china: "China",
-
-                    typewriter_phrases: ["Science.", "Engineering."],
-
-                    page_title: "Wen ZHOU | AI for Science Researcher",
-                    page_desc: "Portfolio of Wen ZHOU, Researcher at The University of Tokyo focusing on AI for science and engineering."
-                },
-
-                zh: {
-                    nav_about: "关于",
-                    nav_research: "研究",
-                    nav_publications: "论文",
-                    nav_experience: "教育与经历",
-
-                    lang_label: "语言",
-                    hero_ai_for: "AI for",
-
-                    // ✅ 更突出：callout + 多色 chips（中文）
-                    hero_desc_html:
-                      "<div class='hero-callout'>" +
-                        "<div class='headline'>东京大学 <strong>项目研究员</strong>。</div>" +
-                        "<div class='subline mt-1'>研究聚焦 AI 在流体力学、两相流、热工水力学以及核工程中的应用。</div>" +
-
-                        // Row 1: Data
-                        "<div class='mt-3 text-xs font-mono text-slate-500'>可处理数据</div>" +
-                        "<div class='chip-wrap'>" +
-                          "<span class='chip chip-blue'><i class='fa-solid fa-table'></i> 表格数据</span>" +
-                          "<span class='chip chip-green'><i class='fa-solid fa-wave-square'></i> 时序数据</span>" +
-                          "<span class='chip chip-purple'><i class='fa-solid fa-image'></i> 图像数据</span>" +
-                          "<span class='chip chip-orange'><i class='fa-solid fa-video'></i> 视频数据</span>" +
-                          "<span class='chip chip-slate'><i class='fa-solid fa-font'></i> 文本数据</span>" +
-                        "</div>" +
-
-                        // Row 2: Methods
-                        "<div class='mt-3 text-xs font-mono text-slate-500'>方法</div>" +
-                        "<div class='chip-wrap'>" +
-                          "<span class='chip chip-purple'><i class='fa-solid fa-eye'></i> 计算机视觉</span>" +
-                          "<span class='chip chip-orange'><i class='fa-solid fa-bolt'></i> PINNs / DeepONet</span>" +
-                          "<span class='chip chip-yellow'><i class='fa-solid fa-wand-magic-sparkles'></i> 生成式 AI</span>" +
-                          "<span class='chip chip-slate'><i class='fa-solid fa-robot'></i> LLM / RAG</span>" +
-                          "<span class='chip chip-blue'><i class='fa-solid fa-cubes'></i> 数字孪生</span>" +
-                          "<span class='chip chip-green'><i class='fa-solid fa-people-arrows'></i> 多智能体</span>" +
-                          "<span class='chip chip-purple'><i class='fa-solid fa-chart-line'></i> 优化算法</span>" +
-                        "</div>" +
-                      "</div>",
-
-                    // 中文可微调更顺：强调“定制化解决方案交付”
-                    hero_service_note:
-                        "如有需要，我也可提供有偿咨询、基金项目本子、论文/稿件润色修改、代码实现与工程支持，以及定制化解决方案交付；欢迎邮件联系。",
-
-                    research_title: "研究兴趣",
-                    research_desc_html:
-                        "AI for Science and Engineering。" +
-                        "<br><br><strong class='text-slate-800'>博士论文题目：</strong>Evaluation of an AI-Driven Framework for Nuclear Thermal-Hydraulic Modeling and Simulation",
-                    phd_dissertation_btn: "博士论文",
-                    phd_slides_btn: "博士答辩幻灯",
-
-                    card1_title: "AI for Science",
-                    card1_desc: "面向复杂物理系统的数据驱动建模、替代模型与科学发现。",
-
-                    card2_title: "AI for Engineering",
-                    card2_desc: "面向工程流程与实验的预测/分类、优化设计与决策支持。",
-
-                    card3_title: "AI for PDE",
-                    card3_desc: "PINNs、DeepONet 等算子学习与快速 PDE 求解，用于多物理场问题。",
-
-                    card4_title: "AI for Digital Twins",
-                    card4_desc: "混合建模、在线校准与不确定性量化的数字孪生，用于监测与控制。",
-
-                    card5_title: "AI for Vision",
-                    card5_desc: "目标检测、分割与跟踪，用于实验观测（气泡、沸腾、界面等）。",
-
-                    card6_title: "AI for LLM & Agents",
-                    card6_desc: "LLM、RAG、多智能体工作流与工具调用助手，提升科研/工程效率。",
-
-                    pubs_title: "论文发表",
-                    label_paper: "论文",
-                    label_code: "代码",
-                    label_dataset: "数据集",
-                    label_public_dataset: "公开数据集",
-                    label_dataset_not_available: "数据集（暂不可用）",
-
-                    venue_pub1: "AI Thermal Fluids；审稿中（2025）",
-                    venue_pub5: "International Journal of Multiphase Flow（2025）",
-                    venue_pub2: "Physics of Fluids（2024）",
-                    venue_pub3: "Physics of Fluids（2024）",
-                    venue_pub4: "International Journal of Heat and Mass Transfer（2024）",
-                    venue_pub6: "Progress in Nuclear Energy（2024）",
-                    venue_pub7: "International Communications in Heat and Mass Transfer（2024）",
-                    venue_pub8: "Nuclear Engineering and Technology（2023）",
-                    venue_pub9: "Nuclear Techniques（2021）",
-                    venue_pub10: "Nuclear Engineering and Design（2021）",
-
-                    tag_generative_ai: "生成式 AI",
-                    tag_fluid_dynamics: "流体力学",
-                    tag_bubbly_flow: "气泡流",
-                    tag_image_generation_model: "图像生成模型",
-                    tag_gan: "GAN",
-                    tag_thermal_hydraulic: "热工水力",
-                    tag_subcooled_flow_boiling: "过冷流动沸腾",
-                    tag_feature_extraction: "特征提取",
-                    tag_object_detection_tracking: "目标检测与跟踪",
-                    tag_pinns: "物理约束神经网络（PINNs）",
-                    tag_navier_stokes: "Navier–Stokes 方程",
-                    tag_fluid_dynamic_analysis: "流体动力学分析",
-                    tag_low_re: "低雷诺数",
-                    tag_interface_tracking: "界面追踪方法",
-                    tag_two_phase_flow: "两相流",
-                    tag_bubble_dynamics: "气泡动力学",
-                    tag_condensation_bubble: "冷凝气泡",
-                    tag_computer_vision: "计算机视觉",
-                    tag_semantic_segmentation: "语义分割",
-                    tag_jet_penetration: "射流贯入",
-                    tag_optimization_algorithm: "优化算法",
-                    tag_critical_heat_flux: "临界热流（CHF）",
-                    tag_ann: "ANN",
-                    tag_cnn: "CNN",
-                    tag_transformer: "Transformer",
-                    tag_transfer_learning: "迁移学习",
-                    tag_optimization_design: "优化设计",
-                    tag_nsga_de: "NSGA-III 与 DE 算法",
-                    tag_cfetr_hcsb: "CFETR HCSB 包层",
-                    tag_acceleration_calculation: "加速计算",
-                    tag_radiation_field: "辐射场",
-                    tag_reconstruction_method: "重建方法",
-
-                    exp_title: "教育与经历",
-                    edu_title: "教育背景",
-                    work_title: "工作经历",
-
-                    edu_phd_time: "2022.10 - 2025.10",
-                    edu_phd_degree: "核工程 博士",
-                    edu_phd_school: "东京大学",
-                    edu_phd_supervisors: "导师：Shuichiro MIWA；Koji OKAMOTO",
-
-                    edu_master_time: "2019.09 - 2022.06",
-                    edu_master_degree: "核能工程 硕士",
-                    edu_master_school: "中国科学技术大学",
-
-                    edu_bachelor_time: "2015.09 - 2019.06",
-                    edu_bachelor_degree: "核工程 学士",
-                    edu_bachelor_school: "东华理工大学",
-
-                    work_researcher_time: "2025.10 - 至今",
-                    work_researcher_title: "项目研究员",
-                    work_researcher_org: "东京大学",
-
-                    work_intern_time: "2024.11 - 2025.02",
-                    work_intern_title: "AI 工程实习生",
-                    work_intern_org: "OPE.AI（东京）",
-                    work_intern_desc: "LLM、LoRA、RAG、数字人模型等。",
-
-                    work_quant_time: "2021.04 - 2021.11",
-                    work_quant_title: "量化交易员",
-                    work_quant_org: "冠睿科技",
-
-                    label_full_time: "全职",
-                    label_internship: "实习",
-                    label_japan: "日本",
-                    label_china: "中国",
-
-                    typewriter_phrases: ["Science.", "Engineering."],
-
-                    page_title: "Wen ZHOU | AI for Science & Engineering",
-                    page_desc: "Wen ZHOU 个人主页：研究 AI for Science and Engineering，面向流体力学、两相流、热工水力与核工程等方向。"
-                }
-            };
-
-            function setMeta(title, desc) {
-                if (title) document.title = title;
-                const metaDesc = document.querySelector('meta[name="description"]');
-                if (metaDesc && desc) metaDesc.setAttribute('content', desc);
-            }
-
-            function applyI18n(lang) {
-                const dict = i18n[lang] || i18n.en;
-
-                document.querySelectorAll('[data-i18n]').forEach(el => {
-                    const key = el.getAttribute('data-i18n');
-                    if (dict[key] != null) el.textContent = dict[key];
-                });
-
-                document.querySelectorAll('[data-i18n-html]').forEach(el => {
-                    const key = el.getAttribute('data-i18n-html');
-                    if (dict[key] != null) el.innerHTML = dict[key];
-                });
-
-                document.documentElement.lang = (lang === 'zh') ? 'zh' : 'en';
-                langPill.textContent = (lang === 'zh') ? '中文' : 'EN';
-
-                setMeta(dict.page_title, dict.page_desc);
-            }
-
-            let phraseIndex = 0;
-            let charIndex = 0;
-            let isDeleting = false;
-            let typeSpeed = 100;
-
-            let currentLang = localStorage.getItem('site_lang');
-            if (!currentLang) {
-                currentLang = (navigator.language || '').toLowerCase().startsWith('zh') ? 'zh' : 'en';
-            }
-
-            function resetTypewriter() {
-                phraseIndex = 0;
-                charIndex = 0;
-                isDeleting = false;
-                typeSpeed = 100;
-                textElement.textContent = "";
-            }
-
-            function type() {
-                const phrases = (i18n[currentLang] || i18n.en).typewriter_phrases;
-                const currentPhrase = phrases[phraseIndex];
-
-                if (isDeleting) {
-                    textElement.textContent = currentPhrase.substring(0, charIndex - 1);
-                    charIndex--;
-                    typeSpeed = 50;
-                } else {
-                    textElement.textContent = currentPhrase.substring(0, charIndex + 1);
-                    charIndex++;
-                    typeSpeed = 100;
-                }
-
-                if (!isDeleting && charIndex === currentPhrase.length) {
-                    isDeleting = true;
-                    typeSpeed = 2000;
-                } else if (isDeleting && charIndex === 0) {
-                    isDeleting = false;
-                    phraseIndex = (phraseIndex + 1) % phrases.length;
-                    typeSpeed = 500;
-                }
-
-                setTimeout(type, typeSpeed);
-            }
-
-            function openMenu() {
-                langMenu.classList.remove('hidden');
-                langMenuButton.setAttribute('aria-expanded', 'true');
-            }
-            function closeMenu() {
-                langMenu.classList.add('hidden');
-                langMenuButton.setAttribute('aria-expanded', 'false');
-            }
-            function toggleMenu() {
-                const isHidden = langMenu.classList.contains('hidden');
-                if (isHidden) openMenu(); else closeMenu();
-            }
-
-            function setLanguage(lang) {
-                if (!i18n[lang]) return;
-                currentLang = lang;
-                localStorage.setItem('site_lang', currentLang);
-                applyI18n(currentLang);
-                resetTypewriter();
-                closeMenu();
-            }
-
-            langMenuButton.addEventListener('click', function(e) {
-                e.stopPropagation();
-                toggleMenu();
-            });
-
-            langMenu.querySelectorAll('[data-lang]').forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    setLanguage(btn.getAttribute('data-lang'));
-                });
-            });
-
-            document.addEventListener('click', function() {
-                closeMenu();
-            });
-
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') closeMenu();
-            });
-
-            applyI18n(currentLang);
-            resetTypewriter();
-            type();
+
+        <div class="flex flex-col items-center">
+          <div class="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border border-slate-200 shadow-sm transition-all duration-500">
+            <img src="./avatar.jpg" alt="Wen ZHOU" class="w-full h-full object-cover" />
+          </div>
+
+          <div class="mt-4 text-center hidden md:block w-full">
+            <a
+              href="mailto:philzhouwen@gmail.com"
+              class="text-slate-500 hover:text-slate-900 font-mono text-sm flex items-center justify-center gap-2 transition-colors"
+            >
+              <i class="far fa-envelope"></i> philzhouwen@gmail.com
+            </a>
+            <p class="mt-2 text-slate-500 text-xs leading-relaxed max-w-[300px] mx-auto" data-i18n="hero_service_note">
+              Available for paid consulting, manuscript editing/polishing, implementation & engineering support, and delivery of customized solutions — feel free to reach out by email.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="research" class="py-20 border-t border-slate-100 bg-slate-50">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="text-2xl font-bold mb-6 text-slate-900 border-l-4 border-slate-900 pl-4" data-i18n="research_title">Research Interests</h2>
+
+      <p class="text-slate-600 mb-6 text-lg leading-relaxed max-w-4xl" data-i18n-html="research_desc_html">
+        AI for Science and Engineering.<br /><br />
+        <strong class="text-slate-800">PhD Dissertation Title:</strong> Evaluation of an AI-Driven Framework for Nuclear Thermal-Hydraulic Modeling and Simulation
+      </p>
+
+      <div class="flex flex-wrap gap-4 mb-10">
+        <a
+          href="https://zenodo.org/records/17720695"
+          class="inline-flex items-center gap-2 px-5 py-2.5 bg-slate-900 text-white rounded-md hover:bg-slate-700 transition-all shadow-sm text-sm font-medium"
+        >
+          <i class="fas fa-file-pdf"></i> <span data-i18n="phd_dissertation_btn">PhD Dissertation</span>
+        </a>
+        <a
+          href="https://zenodo.org/records/17720695"
+          class="inline-flex items-center gap-2 px-5 py-2.5 border border-slate-300 text-slate-700 bg-white rounded-md hover:bg-slate-50 transition-all shadow-sm text-sm font-medium"
+        >
+          <i class="fas fa-file-powerpoint text-orange-600"></i> <span data-i18n="phd_slides_btn">PhD Slides</span>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="academic-card p-6 rounded-lg">
+          <div class="h-10 w-10 bg-slate-100 rounded-lg flex items-center justify-center mb-4 text-slate-700">
+            <i class="fas fa-brain text-xl"></i>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="card1_title">AI for Science</h3>
+          <p class="text-slate-600 text-sm leading-relaxed" data-i18n="card1_desc">
+            Data-driven modeling, surrogate learning, and scientific discovery for complex physical systems.
+          </p>
+        </div>
+
+        <div class="academic-card p-6 rounded-lg">
+          <div class="h-10 w-10 bg-slate-100 rounded-lg flex items-center justify-center mb-4 text-slate-700">
+            <i class="fas fa-gear text-xl"></i>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="card2_title">AI for Engineering</h3>
+          <p class="text-slate-600 text-sm leading-relaxed" data-i18n="card2_desc">
+            Prediction, classification, optimization, and decision support for engineering workflows and experiments.
+          </p>
+        </div>
+
+        <div class="academic-card p-6 rounded-lg">
+          <div class="h-10 w-10 bg-slate-100 rounded-lg flex items-center justify-center mb-4 text-slate-700">
+            <i class="fas fa-wave-square text-xl"></i>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="card3_title">AI for PDE</h3>
+          <p class="text-slate-600 text-sm leading-relaxed" data-i18n="card3_desc">
+            Physics-informed learning (PINNs), operator learning (DeepONet), and fast PDE solvers for multiphysics.
+          </p>
+        </div>
+
+        <div class="academic-card p-6 rounded-lg">
+          <div class="h-10 w-10 bg-slate-100 rounded-lg flex items-center justify-center mb-4 text-slate-700">
+            <i class="fas fa-cubes text-xl"></i>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="card4_title">AI for Digital Twins</h3>
+          <p class="text-slate-600 text-sm leading-relaxed" data-i18n="card4_desc">
+            Hybrid modeling, real-time calibration, and uncertainty-aware twins for monitoring and control.
+          </p>
+        </div>
+
+        <div class="academic-card p-6 rounded-lg">
+          <div class="h-10 w-10 bg-slate-100 rounded-lg flex items-center justify-center mb-4 text-slate-700">
+            <i class="fas fa-eye text-xl"></i>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="card5_title">AI for Vision</h3>
+          <p class="text-slate-600 text-sm leading-relaxed" data-i18n="card5_desc">
+            Object detection, segmentation, and tracking for experiments (e.g., bubbles, boiling, interfaces).
+          </p>
+        </div>
+
+        <div class="academic-card p-6 rounded-lg">
+          <div class="h-10 w-10 bg-slate-100 rounded-lg flex items-center justify-center mb-4 text-slate-700">
+            <i class="fas fa-robot text-xl"></i>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="card6_title">AI for LLM & Agents</h3>
+          <p class="text-slate-600 text-sm leading-relaxed" data-i18n="card6_desc">
+            LLMs, RAG, multi-agent workflows, and tool-using assistants for scientific & engineering productivity.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="publications" class="py-20 border-t border-slate-100">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="text-2xl font-bold mb-8 text-slate-900 border-l-4 border-slate-900 pl-4" data-i18n="pubs_title">Publications</h2>
+
+      <div class="grid gap-6">
+        <div class="academic-card p-6 rounded-lg">
+          <div class="flex flex-col sm:flex-row gap-3 sm:items-center justify-between mb-2">
+            <div class="flex gap-2 flex-wrap">
+              <span class="tag tag-blue" data-i18n="tag_generative_ai">Generative AI</span>
+              <span class="tag tag-green" data-i18n="tag_fluid_dynamics">Fluid Dynamics</span>
+              <span class="tag tag-purple" data-i18n="tag_bubbly_flow">Bubbly Flow</span>
+              <span class="tag tag-orange" data-i18n="tag_image_generation_model">Image Generation Model</span>
+              <span class="tag tag-yellow" data-i18n="tag_gan">GAN</span>
+            </div>
+            <span class="text-xs font-mono text-slate-500" data-i18n="venue_pub1">AI Thermal Fluids; Under Review (2025)</span>
+          </div>
+
+          <h3 class="text-lg font-bold text-slate-900 leading-tight">
+            BF-GAN: Development of an AI-driven Bubbly Flow Image Generation Model Using Bubbly Generative Adversarial Networks
+          </h3>
+
+          <p class="text-sm text-slate-600 mt-2">Zhou, W., Miwa, S., Liu, Y., & Okamoto, K.</p>
+
+          <div class="mt-4 flex gap-4 text-xs font-medium font-mono">
+            <a href="#" class="text-slate-600 hover:text-slate-900 flex items-center gap-1" title="Paper link">
+              <i class="fas fa-file-alt"></i> <span data-i18n="label_paper">Paper</span>
+            </a>
+            <a href="https://github.com/zhouzhouwen/BF-GAN" class="text-slate-600 hover:text-slate-900 flex items-center gap-1">
+              <i class="fab fa-github"></i> <span data-i18n="label_code">Code</span>
+            </a>
+            <a href="https://data.mendeley.com/datasets/gtbcrhdnrh/1" class="text-slate-600 hover:text-slate-900 flex items-center gap-1">
+              <i class="fas fa-database"></i> <span data-i18n="label_dataset">Dataset</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="academic-card p-6 rounded-lg">
+          <div class="flex flex-col sm:flex-row gap-3 sm:items-center justify-between mb-2">
+            <div class="flex gap-2 flex-wrap">
+              <span class="tag tag-blue" data-i18n="tag_thermal_hydraulic">Thermal Hydraulic</span>
+              <span class="tag tag-green" data-i18n="tag_subcooled_flow_boiling">Subcooled Flow Boiling</span>
+              <span class="tag tag-purple" data-i18n="tag_feature_extraction">Feature Extraction</span>
+              <span class="tag tag-orange" data-i18n="tag_object_detection_tracking">Object Detection and Tracking</span>
+            </div>
+            <span class="text-xs font-mono text-slate-500" data-i18n="venue_pub5">Intl. J. of Multiphase Flow (2025)</span>
+          </div>
+
+          <h3 class="text-lg font-bold text-slate-900 leading-tight">
+            Development of the AI-Assisted Thermal Hydraulic Analysis Method for Condensing Bubbles in Vertical Subcooled Flow Boiling
+          </h3>
+
+          <p class="text-sm text-slate-600 mt-2">Zhou, W., Miwa, S., Tsujimura, R., Nguyen, T. B., Okawa, T., & Okamoto, K.</p>
+
+          <div class="mt-4 flex gap-4 text-xs font-medium font-mono">
+            <a href="https://www.sciencedirect.com/science/article/pii/S0301932225001247" class="text-slate-600 hover:text-slate-900 flex items-center gap-1" title="Paper link">
+              <i class="fas fa-file-alt"></i> <span data-i18n="label_paper">Paper</span>
+            </a>
+            <a href="https://github.com/zhouzhouwen/The-Robust-Development-of-a-TH-Analysis-Method-for-Bubbles-Using-AI" class="text-slate-600 hover:text-slate-900 flex items-center gap-1">
+              <i class="fab fa-github"></i> <span data-i18n="label_code">Code</span>
+            </a>
+            <a href="https://data.mendeley.com/datasets/p5zskggvwx/1" class="text-slate-600 hover:text-slate-900 flex items-center gap-1">
+              <i class="fas fa-database"></i> <span data-i18n="label_dataset">Dataset</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="academic-card p-6 rounded-lg">
+          <div class="flex flex-col sm:flex-row gap-3 sm:items-center justify-between mb-2">
+            <div class="flex gap-2 flex-wrap">
+              <span class="tag tag-blue" data-i18n="tag_pinns">Physics-informed neural networks</span>
+              <span class="tag tag-green" data-i18n="tag_navier_stokes">Navier-Stokes equations</span>
+              <span class="tag tag-orange" data-i18n="tag_fluid_dynamic_analysis">Fluid dynamic analysis</span>
+              <span class="tag tag-yellow" data-i18n="tag_low_re">Low Re number</span>
+            </div>
+            <span class="text-xs font-mono text-slate-500" data-i18n="venue_pub2">Physics of Fluids (2024)</span>
+          </div>
+
+          <h3 class="text-lg font-bold text-slate-900 leading-tight">
+            Advancing fluid dynamics simulations: A comprehensive approach to optimizing physics-informed neural networks
+          </h3>
+
+          <p class="text-sm text-slate-600 mt-2">Zhou, W., Miwa, S., & Okamoto, K.</p>
+
+          <div class="mt-4 flex gap-4 text-xs font-medium font-mono">
+            <a href="https://pubs.aip.org/aip/pof/article-abstract/36/1/013615/3023015/Advancing-fluid-dynamics-simulations-A?redirectedFrom=fulltext" class="text-slate-600 hover:text-slate-900 flex items-center gap-1" title="Paper link">
+              <i class="fas fa-file-alt"></i> <span data-i18n="label_paper">Paper</span>
+            </a>
+            <a href="https://github.com/zhouzhouwen/An-improved-PINNs-with-the-adaptive-weight-sampling-and-DE-algorithm" class="text-slate-600 hover:text-slate-900 flex items-center gap-1">
+              <i class="fab fa-github"></i> <span data-i18n="label_code">Code</span>
+            </a>
+            <a href="#" class="text-slate-600 hover:text-slate-900 flex items-center gap-1">
+              <i class="fas fa-database"></i> <span data-i18n="label_public_dataset">Public Dataset</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="academic-card p-6 rounded-lg">
+          <div class="flex flex-col sm:flex-row gap-3 sm:items-center justify-between mb-2">
+            <div class="flex gap-2 flex-wrap">
+              <span class="tag tag-blue" data-i18n="tag_pinns">Physics-informed neural networks</span>
+              <span class="tag tag-green" data-i18n="tag_interface_tracking">Interface Tracking Methods</span>
+              <span class="tag tag-purple" data-i18n="tag_two_phase_flow">Two-Phase Flow</span>
+              <span class="tag tag-orange" data-i18n="tag_bubble_dynamics">Bubble Dynamics</span>
+            </div>
+            <span class="text-xs font-mono text-slate-500" data-i18n="venue_pub3">Physics of Fluids (2024)</span>
+          </div>
+
+          <h3 class="text-lg font-bold text-slate-900 leading-tight">
+            Self-adaptive and time divide-and-conquer physics-informed neural networks for two-phase flow simulations using interface tracking methods
+          </h3>
+
+          <p class="text-sm text-slate-600 mt-2">Zhou, W., Miwa, S., & Okamoto, K.</p>
+
+          <div class="mt-4 flex gap-4 text-xs font-medium font-mono">
+            <a href="https://pubs.aip.org/aip/pof/article-abstract/36/7/073305/3300833/Self-adaptive-and-time-divide-and-conquer-physics?redirectedFrom=PDF" class="text-slate-600 hover:text-slate-900 flex items-center gap-1" title="Paper link">
+              <i class="fas fa-file-alt"></i> <span data-i18n="label_paper">Paper</span>
+            </a>
+            <a href="https://github.com/zhouzhouwen/two-phase-flow-by-self_adaptive-and-time_divide_conquer-PINNs" class="text-slate-600 hover:text-slate-900 flex items-center gap-1">
+              <i class="fab fa-github"></i> <span data-i18n="label_code">Code</span>
+            </a>
+            <a href="#" class="text-slate-600 hover:text-slate-900 flex items-center gap-1">
+              <i class="fas fa-database"></i> <span data-i18n="label_public_dataset">Public Dataset</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="academic-card p-6 rounded-lg">
+          <div class="flex flex-col sm:flex-row gap-3 sm:items-center justify-between mb-2">
+            <div class="flex gap-2 flex-wrap">
+              <span class="tag tag-blue" data-i18n="tag_condensation_bubble">Condensation Bubble</span>
+              <span class="tag tag-green" data-i18n="tag_subcooled_flow_boiling">Subcooled Flow Boiling</span>
+              <span class="tag tag-purple" data-i18n="tag_feature_extraction">Feature Extraction</span>
+              <span class="tag tag-orange" data-i18n="tag_object_detection_tracking">Object Detection and Tracking</span>
+            </div>
+            <span class="text-xs font-mono text-slate-500" data-i18n="venue_pub4">Intl. J. of Heat and Mass Transfer (2024)</span>
+          </div>
+
+          <h3 class="text-lg font-bold text-slate-900 leading-tight">
+            Bubble feature extraction in subcooled flow boiling using AI-based object detection and tracking techniques
+          </h3>
+
+          <p class="text-sm text-slate-600 mt-2">Zhou, W., Miwa, S., Okawa, T., & Okamoto, K.</p>
+
+          <div class="mt-4 flex gap-4 text-xs font-medium font-mono">
+            <a href="https://www.sciencedirect.com/science/article/abs/pii/S0017931024000206" class="text-slate-600 hover:text-slate-900 flex items-center gap-1" title="Paper link">
+              <i class="fas fa-file-alt"></i> <span data-i18n="label_paper">Paper</span>
+            </a>
+            <a href="https://github.com/zhouzhouwen/Bubble_detection_and_tracking_AI_based_YOLO_tracking_alogrithm" class="text-slate-600 hover:text-slate-900 flex items-center gap-1">
+              <i class="fab fa-github"></i> <span data-i18n="label_code">Code</span>
+            </a>
+            <a href="https://data.mendeley.com/datasets/p5zskggvwx/1" class="text-slate-600 hover:text-slate-900 flex items-center gap-1">
+              <i class="fas fa-database"></i> <span data-i18n="label_dataset">Dataset</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="academic-card p-6 rounded-lg">
+          <div class="flex flex-col sm:flex-row gap-3 sm:items-center justify-between mb-2">
+            <div class="flex gap-2 flex-wrap">
+              <span class="tag tag-blue" data-i18n="tag_computer_vision">Computer Vision</span>
+              <span class="tag tag-green" data-i18n="tag_semantic_segmentation">Semantic Segmentation</span>
+              <span class="tag tag-purple" data-i18n="tag_jet_penetration">Jet Penetration</span>
+              <span class="tag tag-orange" data-i18n="tag_optimization_algorithm">Optimization Algorithm</span>
+            </div>
+            <span class="text-xs font-mono text-slate-500" data-i18n="venue_pub6">Progress in Nuclear Energy (2024)</span>
+          </div>
+
+          <h3 class="text-lg font-bold text-slate-900 leading-tight">
+            Development of advanced AI-based segmentation and prediction method for air entrainment in plunging water jets
+          </h3>
+
+          <p class="text-sm text-slate-600 mt-2">Zhou, W., Miwa, S., Yamashita, S., & Okamoto, K.</p>
+
+          <div class="mt-4 flex gap-4 text-xs font-medium font-mono">
+            <a href="https://www.sciencedirect.com/science/article/pii/S0149197024003913" class="text-slate-600 hover:text-slate-900 flex items-center gap-1" title="Paper link">
+              <i class="fas fa-file-alt"></i> <span data-i18n="label_paper">Paper</span>
+            </a>
+            <a href="https://github.com/zhouzhouwen/Advanced-AI-Segmentation-of-Air-Entrainment-Motion-YOLO-with-Attention-Mechanism-and-NSGA-III-BPNN" class="text-slate-600 hover:text-slate-900 flex items-center gap-1">
+              <i class="fab fa-github"></i> <span data-i18n="label_code">Code</span>
+            </a>
+            <a href="#" class="text-slate-600 hover:text-slate-900 flex items-center gap-1">
+              <i class="fas fa-database"></i> <span data-i18n="label_dataset_not_available">Dataset(Not Available)</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="academic-card p-6 rounded-lg">
+          <div class="flex flex-col sm:flex-row gap-3 sm:items-center justify-between mb-2">
+            <div class="flex gap-2 flex-wrap">
+              <span class="tag tag-blue" data-i18n="tag_critical_heat_flux">Critical Heat Flux</span>
+              <span class="tag tag-green" data-i18n="tag_ann">ANN</span>
+              <span class="tag tag-purple" data-i18n="tag_cnn">CNN</span>
+              <span class="tag tag-orange" data-i18n="tag_transformer">Transformer</span>
+              <span class="tag tag-yellow" data-i18n="tag_transfer_learning">Transfer Learning</span>
+            </div>
+            <span class="text-xs font-mono text-slate-500" data-i18n="venue_pub7">Intl. Comm. in Heat and Mass Transfer (2024)</span>
+          </div>
+
+          <h3 class="text-lg font-bold text-slate-900 leading-tight">
+            Assessment of the state-of-the-art AI methods for critical heat flux prediction
+          </h3>
+
+          <p class="text-sm text-slate-600 mt-2">Zhou, W., Miwa, S., Wang, H., & Okamoto, K.</p>
+
+          <div class="mt-4 flex gap-4 text-xs font-medium font-mono">
+            <a href="https://www.sciencedirect.com/science/article/pii/S0735193324006067" class="text-slate-600 hover:text-slate-900 flex items-center gap-1" title="Paper link">
+              <i class="fas fa-file-alt"></i> <span data-i18n="label_paper">Paper</span>
+            </a>
+            <a href="https://github.com/zhouzhouwen/cutting-edge-artificial-intelligence-methods-for-prediction-of-critical-heat-flux" class="text-slate-600 hover:text-slate-900 flex items-center gap-1">
+              <i class="fab fa-github"></i> <span data-i18n="label_code">Code</span>
+            </a>
+            <a href="https://github.com/zhouzhouwen/cutting-edge-artificial-intelligence-methods-for-prediction-of-critical-heat-flux" class="text-slate-600 hover:text-slate-900 flex items-center gap-1">
+              <i class="fas fa-database"></i> <span data-i18n="label_dataset">Dataset</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="academic-card p-6 rounded-lg">
+          <div class="flex flex-col sm:flex-row gap-3 sm:items-center justify-between mb-2">
+            <div class="flex gap-2 flex-wrap">
+              <span class="tag tag-blue" data-i18n="tag_optimization_design">Optimization design</span>
+              <span class="tag tag-green" data-i18n="tag_nsga_de">NSGA-III & DE Algorithm</span>
+              <span class="tag tag-purple" data-i18n="tag_cfetr_hcsb">CFETR HCSB blanket</span>
+              <span class="tag tag-orange" data-i18n="tag_acceleration_calculation">Acceleration Calculation</span>
+            </div>
+            <span class="text-xs font-mono text-slate-500" data-i18n="venue_pub8">Nuclear Engineering and Technology (2023)</span>
+          </div>
+
+          <h3 class="text-lg font-bold text-slate-900 leading-tight">
+            An intelligent optimization method for the HCSB blanket based on an improved multi-objective NSGA-III algorithm
+          </h3>
+
+          <p class="text-sm text-slate-600 mt-2">Zhou, W., Sun, G., Miwa, S., et al.</p>
+
+          <div class="mt-4 flex gap-4 text-xs font-medium font-mono">
+            <a href="https://www.sciencedirect.com/science/article/pii/S1738573323002504" class="text-slate-600 hover:text-slate-900 flex items-center gap-1" title="Paper link">
+              <i class="fas fa-file-alt"></i> <span data-i18n="label_paper">Paper</span>
+            </a>
+            <a href="https://github.com/zhouzhouwen/An-AI-method-for-the-HCSB-blanket-based-on-an-improved-NSGA-III-and-an-adaptive-BPNN" class="text-slate-600 hover:text-slate-900 flex items-center gap-1">
+              <i class="fab fa-github"></i> <span data-i18n="label_code">Code</span>
+            </a>
+            <a href="https://github.com/zhouzhouwen/An-AI-method-for-the-HCSB-blanket-based-on-an-improved-NSGA-III-and-an-adaptive-BPNN" class="text-slate-600 hover:text-slate-900 flex items-center gap-1">
+              <i class="fas fa-database"></i> <span data-i18n="label_dataset">Dataset</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="academic-card p-6 rounded-lg">
+          <div class="flex flex-col sm:flex-row gap-3 sm:items-center justify-between mb-2">
+            <div class="flex gap-2 flex-wrap">
+              <span class="tag tag-blue" data-i18n="tag_critical_heat_flux">Critical Heat Flux</span>
+              <span class="tag tag-green" data-i18n="tag_ann">ANN</span>
+              <span class="tag tag-purple" data-i18n="tag_cnn">CNN</span>
+              <span class="tag tag-orange" data-i18n="tag_transformer">Transformer</span>
+              <span class="tag tag-yellow" data-i18n="tag_transfer_learning">Transfer Learning</span>
+            </div>
+            <span class="text-xs font-mono text-slate-500" data-i18n="venue_pub9">Nuclear Techniques (2021)</span>
+          </div>
+
+          <h3 class="text-lg font-bold text-slate-900 leading-tight">
+            Re-examining the input-parameters and AI strategies for Critical Heat Flux prediction
+          </h3>
+
+          <p class="text-sm text-slate-600 mt-2">Wang, K., Zhou, W.*, ... & Okamoto, K. et al.</p>
+
+          <div class="mt-4 flex gap-4 text-xs font-medium font-mono">
+            <a href="https://www.sciencedirect.com/science/article/pii/S0360544225002488" class="text-slate-600 hover:text-slate-900 flex items-center gap-1" title="Paper link">
+              <i class="fas fa-file-alt"></i> <span data-i18n="label_paper">Paper</span>
+            </a>
+            <a href="#" class="text-slate-600 hover:text-slate-900 flex items-center gap-1">
+              <i class="fab fa-github"></i> <span data-i18n="label_code">Code</span>
+            </a>
+            <a href="#" class="text-slate-600 hover:text-slate-900 flex items-center gap-1">
+              <i class="fas fa-database"></i> <span data-i18n="label_dataset">Dataset</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="academic-card p-6 rounded-lg">
+          <div class="flex flex-col sm:flex-row gap-3 sm:items-center justify-between mb-2">
+            <div class="flex gap-2 flex-wrap">
+              <span class="tag tag-blue" data-i18n="tag_ann">ANN</span>
+              <span class="tag tag-green" data-i18n="tag_radiation_field">Radiation Field</span>
+              <span class="tag tag-purple" data-i18n="tag_reconstruction_method">Reconstruction Method</span>
+            </div>
+            <span class="text-xs font-mono text-slate-500" data-i18n="venue_pub10">Nuclear Engineering and Design (2021)</span>
+          </div>
+
+          <h3 class="text-lg font-bold text-slate-900 leading-tight">
+            BP neural network based reconstruction method for radiation field applications
+          </h3>
+
+          <p class="text-sm text-slate-600 mt-2">Zhou, W., Sun, G., Yang, Z., et al.</p>
+
+          <div class="mt-4 flex gap-4 text-xs font-medium font-mono">
+            <a href="https://www.sciencedirect.com/science/article/abs/pii/S0029549321001801" class="text-slate-600 hover:text-slate-900 flex items-center gap-1" title="Paper link">
+              <i class="fas fa-file-alt"></i> <span data-i18n="label_paper">Paper</span>
+            </a>
+            <a href="https://github.com/zhouzhouwen/BP-neural-network-based-reconstruction-method-for-radiation-field-applications" class="text-slate-600 hover:text-slate-900 flex items-center gap-1">
+              <i class="fab fa-github"></i> <span data-i18n="label_code">Code</span>
+            </a>
+            <a href="https://github.com/zhouzhouwen/BP-neural-network-based-reconstruction-method-for-radiation-field-applications" class="text-slate-600 hover:text-slate-900 flex items-center gap-1">
+              <i class="fas fa-database"></i> <span data-i18n="label_dataset">Dataset</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="py-20 border-t border-slate-100 bg-slate-50">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="text-2xl font-bold mb-12 text-slate-900 border-l-4 border-slate-900 pl-4" data-i18n="exp_title">Education & Experience</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div>
+          <h3 class="text-lg font-serif font-semibold text-slate-700 mb-6 flex items-center gap-2">
+            <i class="fas fa-graduation-cap text-slate-400"></i> <span data-i18n="edu_title">Education</span>
+          </h3>
+
+          <div class="space-y-8 relative border-l border-slate-200 ml-3 pl-8">
+            <div class="relative">
+              <span class="absolute -left-[37px] top-1.5 h-4 w-4 rounded-full bg-white border-2 border-slate-900"></span>
+              <div>
+                <span class="text-xs font-mono text-slate-500" data-i18n="edu_phd_time">Oct 2022 - Oct 2025</span>
+                <h4 class="text-base font-bold text-slate-900 mt-1" data-i18n="edu_phd_degree">PhD in Nuclear Engineering</h4>
+                <div class="flex justify-between items-start mt-1 mb-2">
+                  <p class="text-slate-600 text-sm" data-i18n="edu_phd_school">The University of Tokyo</p>
+                  <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2 py-0.5 rounded" data-i18n="label_japan">Japan</span>
+                </div>
+                <p class="text-slate-500 text-xs mt-1" data-i18n="edu_phd_supervisors">Supervisors: Shuichiro MIWA; Koji OKAMOTO</p>
+              </div>
+            </div>
+
+            <div class="relative">
+              <span class="absolute -left-[37px] top-1.5 h-4 w-4 rounded-full bg-white border-2 border-slate-400"></span>
+              <div>
+                <span class="text-xs font-mono text-slate-500" data-i18n="edu_master_time">Sept 2019 - June 2022</span>
+                <h4 class="text-base font-bold text-slate-900 mt-1" data-i18n="edu_master_degree">Master in Nuclear Energy</h4>
+                <div class="flex justify-between items-start mt-1">
+                  <p class="text-slate-600 text-sm" data-i18n="edu_master_school">University of Science and Technology of China</p>
+                  <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2 py-0.5 rounded" data-i18n="label_china">China</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="relative">
+              <span class="absolute -left-[37px] top-1.5 h-4 w-4 rounded-full bg-white border-2 border-slate-400"></span>
+              <div>
+                <span class="text-xs font-mono text-slate-500" data-i18n="edu_bachelor_time">Sept 2015 - June 2019</span>
+                <h4 class="text-base font-bold text-slate-900 mt-1" data-i18n="edu_bachelor_degree">Bachelor in Nuclear Engineering</h4>
+                <div class="flex justify-between items-start mt-1">
+                  <p class="text-slate-600 text-sm" data-i18n="edu_bachelor_school">East China University of Technology</p>
+                  <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2 py-0.5 rounded" data-i18n="label_china">China</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-serif font-semibold text-slate-700 mb-6 flex items-center gap-2">
+            <i class="fas fa-briefcase text-slate-400"></i> <span data-i18n="work_title">Experience</span>
+          </h3>
+
+          <div class="space-y-8 relative border-l border-slate-200 ml-3 pl-8">
+            <div class="relative">
+              <span class="absolute -left-[37px] top-1.5 h-4 w-4 rounded-full bg-slate-900 border-2 border-slate-900"></span>
+              <div>
+                <span class="text-xs font-mono text-slate-500" data-i18n="work_researcher_time">Oct 2025 - Present</span>
+                <div class="flex items-center gap-2 mt-1">
+                  <h4 class="text-base font-bold text-slate-900" data-i18n="work_researcher_title">Project Researcher</h4>
+                  <span class="text-[10px] uppercase font-bold text-white bg-slate-800 px-1.5 py-0.5 rounded" data-i18n="label_full_time">Full-time</span>
+                </div>
+                <div class="flex justify-between items-start mt-1">
+                  <p class="text-slate-600 text-sm" data-i18n="work_researcher_org">The University of Tokyo</p>
+                  <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2 py-0.5 rounded" data-i18n="label_japan">Japan</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="relative">
+              <span class="absolute -left-[37px] top-1.5 h-4 w-4 rounded-full bg-white border-2 border-slate-400"></span>
+              <div>
+                <span class="text-xs font-mono text-slate-500" data-i18n="work_intern_time">Nov 2024 - Feb 2025</span>
+                <div class="flex items-center gap-2 mt-1">
+                  <h4 class="text-base font-bold text-slate-900" data-i18n="work_intern_title">AI Engineering Intern</h4>
+                  <span class="text-[10px] uppercase font-bold text-slate-500 border border-slate-300 px-1.5 py-0.5 rounded" data-i18n="label_internship">Internship</span>
+                </div>
+                <div class="flex justify-between items-start mt-1">
+                  <p class="text-slate-600 text-sm" data-i18n="work_intern_org">OPE.AI, Tokyo</p>
+                  <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2 py-0.5 rounded" data-i18n="label_japan">Japan</span>
+                </div>
+                <p class="text-slate-500 text-xs mt-1" data-i18n="work_intern_desc">LLM, LoRA, RAG, digital human models.</p>
+              </div>
+            </div>
+
+            <div class="relative">
+              <span class="absolute -left-[37px] top-1.5 h-4 w-4 rounded-full bg-white border-2 border-slate-400"></span>
+              <div>
+                <span class="text-xs font-mono text-slate-500" data-i18n="work_quant_time">Apr 2021 - Nov 2021</span>
+                <div class="flex items-center gap-2 mt-1">
+                  <h4 class="text-base font-bold text-slate-900" data-i18n="work_quant_title">Quantitative Trader</h4>
+                  <span class="text-[10px] uppercase font-bold text-slate-500 border border-slate-300 px-1.5 py-0.5 rounded" data-i18n="label_internship">Internship</span>
+                </div>
+                <div class="flex justify-between items-start mt-1">
+                  <p class="text-slate-600 text-sm" data-i18n="work_quant_org">Guan Rui Technology Co.</p>
+                  <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2 py-0.5 rounded" data-i18n="label_china">China</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-white py-12 border-t border-slate-100">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <p class="text-slate-500 text-sm font-mono">&copy; 2025 Wen ZHOU.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const textElement = document.getElementById('typewriter');
+      const langMenuButton = document.getElementById('langMenuButton');
+      const langMenu = document.getElementById('langMenu');
+      const langPill = document.getElementById('langPill');
+
+      const i18n = {
+        en: {
+          nav_about: "About",
+          nav_research: "Research",
+          nav_publications: "Publications",
+          nav_experience: "Education & Experience",
+          lang_label: "Language",
+          hero_ai_for: "AI for",
+
+          hero_desc_html:
+            "<div class='hero-callout'>" +
+              "<div class='headline'>Project Researcher at <strong>The University of Tokyo</strong>.</div>" +
+              "<div class='subline mt-1'>Applying AI to fluid mechanics, two-phase flow, thermal-hydraulics, and nuclear engineering.</div>" +
+
+              "<div class='mt-3 text-xs font-mono text-slate-500'>I can work with</div>" +
+              "<div class='chip-wrap'>" +
+                "<span class='chip chip-blue'><i class='fa-solid fa-table'></i> Tabular</span>" +
+                "<span class='chip chip-green'><i class='fa-solid fa-wave-square'></i> Time-series</span>" +
+                "<span class='chip chip-purple'><i class='fa-solid fa-image'></i> Images</span>" +
+                "<span class='chip chip-orange'><i class='fa-solid fa-video'></i> Videos</span>" +
+                "<span class='chip chip-slate'><i class='fa-solid fa-font'></i> Text</span>" +
+              "</div>" +
+
+              "<div class='mt-3 text-xs font-mono text-slate-500'>Methods</div>" +
+              "<div class='chip-wrap'>" +
+                "<span class='chip chip-purple'><i class='fa-solid fa-eye'></i> CV</span>" +
+                "<span class='chip chip-orange'><i class='fa-solid fa-bolt'></i> PINNs / DeepONet</span>" +
+                "<span class='chip chip-yellow'><i class='fa-solid fa-wand-magic-sparkles'></i> Generative AI</span>" +
+                "<span class='chip chip-slate'><i class='fa-solid fa-robot'></i> LLMs / RAG</span>" +
+                "<span class='chip chip-blue'><i class='fa-solid fa-cubes'></i> Digital Twins</span>" +
+                "<span class='chip chip-green'><i class='fa-solid fa-people-arrows'></i> Multi-agent</span>" +
+                "<span class='chip chip-purple'><i class='fa-solid fa-chart-line'></i> Optimization</span>" +
+              "</div>" +
+            "</div>",
+
+          hero_service_note:
+            "Available for paid consulting, manuscript editing/polishing, implementation & engineering support, and delivery of customized solutions — feel free to reach out by email.",
+
+          research_title: "Research Interests",
+          research_desc_html:
+            "AI for Science and Engineering." +
+            "<br><br><strong class='text-slate-800'>PhD Dissertation Title:</strong> Evaluation of an AI-Driven Framework for Nuclear Thermal-Hydraulic Modeling and Simulation",
+          phd_dissertation_btn: "PhD Dissertation",
+          phd_slides_btn: "PhD Slides",
+
+          card1_title: "AI for Science",
+          card1_desc: "Data-driven modeling, surrogate learning, and scientific discovery for complex physical systems.",
+          card2_title: "AI for Engineering",
+          card2_desc: "Prediction, classification, optimization, and decision support for engineering workflows and experiments.",
+          card3_title: "AI for PDE",
+          card3_desc: "Physics-informed learning (PINNs), operator learning (DeepONet), and fast PDE solvers for multiphysics.",
+          card4_title: "AI for Digital Twins",
+          card4_desc: "Hybrid modeling, real-time calibration, and uncertainty-aware twins for monitoring and control.",
+          card5_title: "AI for Vision",
+          card5_desc: "Object detection, segmentation, and tracking for experiments (e.g., bubbles, boiling, interfaces).",
+          card6_title: "AI for LLM & Agents",
+          card6_desc: "LLMs, RAG, multi-agent workflows, and tool-using assistants for scientific & engineering productivity.",
+
+          pubs_title: "Publications",
+          label_paper: "Paper",
+          label_code: "Code",
+          label_dataset: "Dataset",
+          label_public_dataset: "Public Dataset",
+          label_dataset_not_available: "Dataset(Not Available)",
+
+          venue_pub1: "AI Thermal Fluids; Under Review (2025)",
+          venue_pub5: "Intl. J. of Multiphase Flow (2025)",
+          venue_pub2: "Physics of Fluids (2024)",
+          venue_pub3: "Physics of Fluids (2024)",
+          venue_pub4: "Intl. J. of Heat and Mass Transfer (2024)",
+          venue_pub6: "Progress in Nuclear Energy (2024)",
+          venue_pub7: "Intl. Comm. in Heat and Mass Transfer (2024)",
+          venue_pub8: "Nuclear Engineering and Technology (2023)",
+          venue_pub9: "Nuclear Techniques (2021)",
+          venue_pub10: "Nuclear Engineering and Design (2021)",
+
+          tag_generative_ai: "Generative AI",
+          tag_fluid_dynamics: "Fluid Dynamics",
+          tag_bubbly_flow: "Bubbly Flow",
+          tag_image_generation_model: "Image Generation Model",
+          tag_gan: "GAN",
+          tag_thermal_hydraulic: "Thermal Hydraulic",
+          tag_subcooled_flow_boiling: "Subcooled Flow Boiling",
+          tag_feature_extraction: "Feature Extraction",
+          tag_object_detection_tracking: "Object Detection and Tracking",
+          tag_pinns: "Physics-informed neural networks",
+          tag_navier_stokes: "Navier-Stokes equations",
+          tag_fluid_dynamic_analysis: "Fluid dynamic analysis",
+          tag_low_re: "Low Re number",
+          tag_interface_tracking: "Interface Tracking Methods",
+          tag_two_phase_flow: "Two-Phase Flow",
+          tag_bubble_dynamics: "Bubble Dynamics",
+          tag_condensation_bubble: "Condensation Bubble",
+          tag_computer_vision: "Computer Vision",
+          tag_semantic_segmentation: "Semantic Segmentation",
+          tag_jet_penetration: "Jet Penetration",
+          tag_optimization_algorithm: "Optimization Algorithm",
+          tag_critical_heat_flux: "Critical Heat Flux",
+          tag_ann: "ANN",
+          tag_cnn: "CNN",
+          tag_transformer: "Transformer",
+          tag_transfer_learning: "Transfer Learning",
+          tag_optimization_design: "Optimization design",
+          tag_nsga_de: "NSGA-III & DE Algorithm",
+          tag_cfetr_hcsb: "CFETR HCSB blanket",
+          tag_acceleration_calculation: "Acceleration Calculation",
+          tag_radiation_field: "Radiation Field",
+          tag_reconstruction_method: "Reconstruction Method",
+
+          exp_title: "Education & Experience",
+          edu_title: "Education",
+          work_title: "Experience",
+
+          edu_phd_time: "Oct 2022 - Oct 2025",
+          edu_phd_degree: "PhD in Nuclear Engineering",
+          edu_phd_school: "The University of Tokyo",
+          edu_phd_supervisors: "Supervisors: Shuichiro MIWA; Koji OKAMOTO",
+          edu_master_time: "Sept 2019 - June 2022",
+          edu_master_degree: "Master in Nuclear Energy",
+          edu_master_school: "University of Science and Technology of China",
+          edu_bachelor_time: "Sept 2015 - June 2019",
+          edu_bachelor_degree: "Bachelor in Nuclear Engineering",
+          edu_bachelor_school: "East China University of Technology",
+
+          work_researcher_time: "Oct 2025 - Present",
+          work_researcher_title: "Project Researcher",
+          work_researcher_org: "The University of Tokyo",
+          work_intern_time: "Nov 2024 - Feb 2025",
+          work_intern_title: "AI Engineering Intern",
+          work_intern_org: "OPE.AI, Tokyo",
+          work_intern_desc: "LLM, LoRA, RAG, digital human models.",
+          work_quant_time: "Apr 2021 - Nov 2021",
+          work_quant_title: "Quantitative Trader",
+          work_quant_org: "Guan Rui Technology Co.",
+
+          label_full_time: "Full-time",
+          label_internship: "Internship",
+          label_japan: "Japan",
+          label_china: "China",
+
+          typewriter_phrases: ["Science.", "Engineering."],
+
+          page_title: "Wen ZHOU | AI for Science Researcher",
+          page_desc: "Portfolio of Wen ZHOU, Researcher at The University of Tokyo focusing on AI for science and engineering."
+        },
+
+        zh: {
+          nav_about: "关于",
+          nav_research: "研究",
+          nav_publications: "论文",
+          nav_experience: "教育与经历",
+          lang_label: "语言",
+          hero_ai_for: "AI for",
+
+          hero_desc_html:
+            "<div class='hero-callout'>" +
+              "<div class='headline'>东京大学 <strong>项目研究员</strong>。</div>" +
+              "<div class='subline mt-1'>研究聚焦 AI 在流体力学、两相流、热工水力学以及核工程中的应用。</div>" +
+
+              "<div class='mt-3 text-xs font-mono text-slate-500'>可处理数据</div>" +
+              "<div class='chip-wrap'>" +
+                "<span class='chip chip-blue'><i class='fa-solid fa-table'></i> 表格数据</span>" +
+                "<span class='chip chip-green'><i class='fa-solid fa-wave-square'></i> 时序数据</span>" +
+                "<span class='chip chip-purple'><i class='fa-solid fa-image'></i> 图像数据</span>" +
+                "<span class='chip chip-orange'><i class='fa-solid fa-video'></i> 视频数据</span>" +
+                "<span class='chip chip-slate'><i class='fa-solid fa-font'></i> 文本数据</span>" +
+              "</div>" +
+
+              "<div class='mt-3 text-xs font-mono text-slate-500'>方法</div>" +
+              "<div class='chip-wrap'>" +
+                "<span class='chip chip-purple'><i class='fa-solid fa-eye'></i> 计算机视觉</span>" +
+                "<span class='chip chip-orange'><i class='fa-solid fa-bolt'></i> PINNs / DeepONet</span>" +
+                "<span class='chip chip-yellow'><i class='fa-solid fa-wand-magic-sparkles'></i> 生成式 AI</span>" +
+                "<span class='chip chip-slate'><i class='fa-solid fa-robot'></i> LLM / RAG</span>" +
+                "<span class='chip chip-blue'><i class='fa-solid fa-cubes'></i> 数字孪生</span>" +
+                "<span class='chip chip-green'><i class='fa-solid fa-people-arrows'></i> 多智能体</span>" +
+                "<span class='chip chip-purple'><i class='fa-solid fa-chart-line'></i> 优化算法</span>" +
+              "</div>" +
+            "</div>",
+
+          hero_service_note:
+            "如有需要，我也可提供有偿咨询、基金项目本子、论文/稿件润色修改、代码实现与工程支持，以及定制化解决方案交付；欢迎邮件联系。",
+
+          research_title: "研究兴趣",
+          research_desc_html:
+            "AI for Science and Engineering。" +
+            "<br><br><strong class='text-slate-800'>博士论文题目：</strong>Evaluation of an AI-Driven Framework for Nuclear Thermal-Hydraulic Modeling and Simulation",
+          phd_dissertation_btn: "博士论文",
+          phd_slides_btn: "博士答辩幻灯",
+
+          card1_title: "AI for Science",
+          card1_desc: "面向复杂物理系统的数据驱动建模、替代模型与科学发现。",
+          card2_title: "AI for Engineering",
+          card2_desc: "面向工程流程与实验的预测/分类、优化设计与决策支持。",
+          card3_title: "AI for PDE",
+          card3_desc: "PINNs、DeepONet 等算子学习与快速 PDE 求解，用于多物理场问题。",
+          card4_title: "AI for Digital Twins",
+          card4_desc: "混合建模、在线校准与不确定性量化的数字孪生，用于监测与控制。",
+          card5_title: "AI for Vision",
+          card5_desc: "目标检测、分割与跟踪，用于实验观测（气泡、沸腾、界面等）。",
+          card6_title: "AI for LLM & Agents",
+          card6_desc: "LLM、RAG、多智能体工作流与工具调用助手，提升科研/工程效率。",
+
+          pubs_title: "论文发表",
+          label_paper: "论文",
+          label_code: "代码",
+          label_dataset: "数据集",
+          label_public_dataset: "公开数据集",
+          label_dataset_not_available: "数据集（暂不可用）",
+
+          venue_pub1: "AI Thermal Fluids；审稿中（2025）",
+          venue_pub5: "International Journal of Multiphase Flow（2025）",
+          venue_pub2: "Physics of Fluids（2024）",
+          venue_pub3: "Physics of Fluids（2024）",
+          venue_pub4: "International Journal of Heat and Mass Transfer（2024）",
+          venue_pub6: "Progress in Nuclear Energy（2024）",
+          venue_pub7: "International Communications in Heat and Mass Transfer（2024）",
+          venue_pub8: "Nuclear Engineering and Technology（2023）",
+          venue_pub9: "Nuclear Techniques（2021）",
+          venue_pub10: "Nuclear Engineering and Design (2021)",
+
+          tag_generative_ai: "生成式 AI",
+          tag_fluid_dynamics: "流体力学",
+          tag_bubbly_flow: "气泡流",
+          tag_image_generation_model: "图像生成模型",
+          tag_gan: "GAN",
+          tag_thermal_hydraulic: "热工水力",
+          tag_subcooled_flow_boiling: "过冷流动沸腾",
+          tag_feature_extraction: "特征提取",
+          tag_object_detection_tracking: "目标检测与跟踪",
+          tag_pinns: "物理约束神经网络（PINNs）",
+          tag_navier_stokes: "Navier–Stokes 方程",
+          tag_fluid_dynamic_analysis: "流体动力学分析",
+          tag_low_re: "低雷诺数",
+          tag_interface_tracking: "界面追踪方法",
+          tag_two_phase_flow: "两相流",
+          tag_bubble_dynamics: "气泡动力学",
+          tag_condensation_bubble: "冷凝气泡",
+          tag_computer_vision: "计算机视觉",
+          tag_semantic_segmentation: "语义分割",
+          tag_jet_penetration: "射流贯入",
+          tag_optimization_algorithm: "优化算法",
+          tag_critical_heat_flux: "临界热流（CHF）",
+          tag_ann: "ANN",
+          tag_cnn: "CNN",
+          tag_transformer: "Transformer",
+          tag_transfer_learning: "迁移学习",
+          tag_optimization_design: "优化设计",
+          tag_nsga_de: "NSGA-III 与 DE 算法",
+          tag_cfetr_hcsb: "CFETR HCSB 包层",
+          tag_acceleration_calculation: "加速计算",
+          tag_radiation_field: "辐射场",
+          tag_reconstruction_method: "重建方法",
+
+          exp_title: "教育与经历",
+          edu_title: "教育背景",
+          work_title: "工作经历",
+
+          edu_phd_time: "2022.10 - 2025.10",
+          edu_phd_degree: "核工程 博士",
+          edu_phd_school: "东京大学",
+          edu_phd_supervisors: "导师：Shuichiro MIWA；Koji OKAMOTO",
+          edu_master_time: "2019.09 - 2022.06",
+          edu_master_degree: "核能工程 硕士",
+          edu_master_school: "中国科学技术大学",
+          edu_bachelor_time: "2015.09 - 2019.06",
+          edu_bachelor_degree: "核工程 学士",
+          edu_bachelor_school: "东华理工大学",
+
+          work_researcher_time: "2025.10 - 至今",
+          work_researcher_title: "项目研究员",
+          work_researcher_org: "东京大学",
+          work_intern_time: "2024.11 - 2025.02",
+          work_intern_title: "AI 工程实习生",
+          work_intern_org: "OPE.AI（东京）",
+          work_intern_desc: "LLM、LoRA、RAG、数字人模型等。",
+          work_quant_time: "2021.04 - 2021.11",
+          work_quant_title: "量化交易员",
+          work_quant_org: "冠睿科技",
+
+          label_full_time: "全职",
+          label_internship: "实习",
+          label_japan: "日本",
+          label_china: "中国",
+
+          typewriter_phrases: ["Science.", "Engineering."],
+
+          page_title: "Wen ZHOU | AI for Science & Engineering",
+          page_desc: "Wen ZHOU 个人主页：研究 AI for Science and Engineering，面向流体力学、两相流、热工水力与核工程等方向。"
+        }
+      };
+
+      function setMeta(title, desc) {
+        if (title) document.title = title;
+        const metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc && desc) metaDesc.setAttribute('content', desc);
+      }
+
+      function applyI18n(lang) {
+        const dict = i18n[lang] || i18n.en;
+
+        document.querySelectorAll('[data-i18n]').forEach((el) => {
+          const key = el.getAttribute('data-i18n');
+          if (dict[key] != null) el.textContent = dict[key];
         });
-    </script>
+
+        document.querySelectorAll('[data-i18n-html]').forEach((el) => {
+          const key = el.getAttribute('data-i18n-html');
+          if (dict[key] != null) el.innerHTML = dict[key];
+        });
+
+        document.documentElement.lang = (lang === 'zh') ? 'zh' : 'en';
+        langPill.textContent = (lang === 'zh') ? '中文' : 'EN';
+        setMeta(dict.page_title, dict.page_desc);
+      }
+
+      let phraseIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+      let typeSpeed = 100;
+
+      let currentLang = localStorage.getItem('site_lang');
+      if (!currentLang) {
+        currentLang = (navigator.language || '').toLowerCase().startsWith('zh') ? 'zh' : 'en';
+      }
+
+      function resetTypewriter() {
+        phraseIndex = 0;
+        charIndex = 0;
+        isDeleting = false;
+        typeSpeed = 100;
+        textElement.textContent = "";
+      }
+
+      function type() {
+        const phrases = (i18n[currentLang] || i18n.en).typewriter_phrases;
+        const currentPhrase = phrases[phraseIndex];
+
+        if (isDeleting) {
+          textElement.textContent = currentPhrase.substring(0, charIndex - 1);
+          charIndex--;
+          typeSpeed = 50;
+        } else {
+          textElement.textContent = currentPhrase.substring(0, charIndex + 1);
+          charIndex++;
+          typeSpeed = 100;
+        }
+
+        if (!isDeleting && charIndex === currentPhrase.length) {
+          isDeleting = true;
+          typeSpeed = 2000;
+        } else if (isDeleting && charIndex === 0) {
+          isDeleting = false;
+          phraseIndex = (phraseIndex + 1) % phrases.length;
+          typeSpeed = 500;
+        }
+
+        setTimeout(type, typeSpeed);
+      }
+
+      function openMenu() {
+        langMenu.classList.remove('hidden');
+        langMenuButton.setAttribute('aria-expanded', 'true');
+      }
+      function closeMenu() {
+        langMenu.classList.add('hidden');
+        langMenuButton.setAttribute('aria-expanded', 'false');
+      }
+      function toggleMenu() {
+        langMenu.classList.contains('hidden') ? openMenu() : closeMenu();
+      }
+
+      function setLanguage(lang) {
+        if (!i18n[lang]) return;
+        currentLang = lang;
+        localStorage.setItem('site_lang', currentLang);
+        applyI18n(currentLang);
+        resetTypewriter();
+        closeMenu();
+      }
+
+      langMenuButton.addEventListener('click', function (e) {
+        e.stopPropagation();
+        toggleMenu();
+      });
+
+      langMenu.querySelectorAll('[data-lang]').forEach((btn) => {
+        btn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          setLanguage(btn.getAttribute('data-lang'));
+        });
+      });
+
+      document.addEventListener('click', closeMenu);
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
+
+      applyI18n(currentLang);
+      resetTypewriter();
+      type();
+    });
+  </script>
 </body>
 </html>
